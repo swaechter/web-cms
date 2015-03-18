@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="vendor/frameworks/jquery/jquery.min.js"></script>
+		<script src="vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="public/js/script.js"></script>
+		<link href="vendor/twitter/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="public/css/style.css" rel="stylesheet">
+		<title>{{TITLE}}</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="header" class="navbar navbar-default img-rounded" role="navigation">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button><a class="navbar-brand" href="index.php">{{WEBSITE_NAME}}</a>
+						</div>
+						<div class="collapse navbar-collapse" id="navigation">
+							<ul class="nav navbar-nav">
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+							</ul>
+						</div>
+					</div>
+					<div id="content" class="img-rounded">
+						{{SUBTEMPLATE | raw}}
+					</div>
+					<div id="footer" class="img-rounded">
+						<p>(C) Web-CMS by Simon Wächter - <a href="https://github.com/swaechter/web-cms">Source code</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

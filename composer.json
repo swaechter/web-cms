@@ -1,6 +1,10 @@
 {
-	"require:":
+	"require":
 	{
+		"doctrine/orm": "*",
+		"twig/twig": "*",
+		"twitter/bootstrap": "*",
+		"frameworks/jquery": "*"
 	},
 	"require-dev":
 	{
