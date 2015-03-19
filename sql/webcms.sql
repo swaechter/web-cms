@@ -44,7 +44,7 @@ INSERT INTO `Menu` (`id`, `name`, `parentmenu_id`, `displayname`, `link`, `posit
 (2, 'news', NULL, 'News', 'index.php?controller=news', 1),
 (3, 'gallery', NULL, 'Gallery', 'index.php?controller=gallery', 1),
 (4, 'contact', NULL, 'Contact', 'index.php?controller=contact', 1),
-(5, 'admin', NULL, 'Admin', 'index.php?controller=admin', 4);
+(5, 'admin', NULL, 'Admin', 'index.php?controller=login', 4);
 
 -- --------------------------------------------------------
 
