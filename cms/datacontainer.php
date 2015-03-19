@@ -27,17 +27,26 @@ class DataContainer
 	private $actionname;
 	
 	/**
+	 * The menus.
+	 *
+	 * @var array
+	 */
+	private $menus;
+	
+	/**
 	 * Constructor of the class DataContainer all information.
 	 * 
 	 * @param string $controller Controller name
 	 * @param string $controllerclassname Controller class name
 	 * @param string $actionname Action name
+	 * @param array All menus
 	 */
-	public function __construct($controllername, $controllerclassname, $actionname)
+	public function __construct($controllername, $controllerclassname, $actionname, $menus)
 	{
 		$this->controllername = $controllername;
 		$this->controllerclassname = $controllerclassname;
 		$this->actionname = $actionname;
+		$this->menus = $menus;
 	}
 	
 	/**
@@ -68,6 +77,16 @@ class DataContainer
 	public function getActionName()
 	{
 		return $this->actionname;
+	}
+	
+	/**
+	 * Get all menus.
+	 *
+	 * @return array All menus
+	 */
+	public function getMenus()
+	{
+		return $this->menus;
 	}
 }
 

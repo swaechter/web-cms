@@ -36,8 +36,13 @@ class ViewManager
 		$subtemplatedirectory = SUBTEMPLATE_DIRECTORY;
 		$subtemplatename = $datacontainer->getControllerName() . $datacontainer->getActionName() . TEMPLATE_EXTENSION;
 		
+		// Set the data
+		$data["WEBSITE_NAME"] = $this->configuration->getWebsiteName();
+		$data["TITLE"] = $this->configuration->getWebsiteName();
+		$data["MENUS"] = $datacontainer->getMenus();
+		
 		// Create and return the view
-		return new View($templatedirectory, $templatename, $subtemplatedirectory, $subtemplatename);
+		return new View($templatedirectory, $templatename, $subtemplatedirectory, $subtemplatename, $data);
 	}
 	
 	/**
@@ -48,8 +53,8 @@ class ViewManager
 	 */
 	public function parseView($view)
 	{
+		// Get the data
 		$data = $view->getData();
-		$data["WEBSITE_NAME"] = $this->configuration->getWebsiteName();
 		
 		$loader = new Twig_Loader_Filesystem($view->getSubtemplateDirectory());
 		$environment = new Twig_Environment($loader, array("autoescape" => true));

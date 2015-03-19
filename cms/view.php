@@ -47,14 +47,15 @@ class View
 	 * @param string $templatename Template name
 	 * @param string $subtemplatedirectory Subtemplate directory
 	 * @param string $subtemplatename Subtemplate name
+	 * @param array $data All view data
 	 */
-	public function __construct($templatedirectory, $templatename, $subtemplatedirectory, $subtemplatename)
+	public function __construct($templatedirectory, $templatename, $subtemplatedirectory, $subtemplatename, $data)
 	{
 		$this->templatedirectory = $templatedirectory;
 		$this->templatename = $templatename;
 		$this->subtemplatedirectory = $subtemplatedirectory;
 		$this->subtemplatename = $subtemplatename;
-		$this->data = array();
+		$this->data = $data;
 	}
 	
 	/**

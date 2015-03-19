@@ -60,7 +60,7 @@ class Website
 	/**
 	 * Constructor of the class Website with the configuration.
 	 * 
-	 * @param Configuration $configuration Website configuration
+	 * @param Configuration $configuration Configuration
 	 */
 	public function __construct($configuration)
 	{
@@ -74,7 +74,7 @@ class Website
 		$this->viewmanager = new ViewManager($configuration);
 		
 		// Create the menu manager
-		$this->menumanager = new MenuManager($configuration);
+		$this->menumanager = new MenuManager($this->databasemanager, $configuration);
 		
 		// Set the configuration
 		$this->configuration = $configuration;
@@ -93,7 +93,7 @@ class Website
 		$controllerclassname = $router->getControllerClassName($controllername);
 		$actionname = $router->getActionName($controllername, Utils::getGet("action"));
 		
-		$datacontainer = new DataContainer($controllername, $controllerclassname, $actionname);
+		$datacontainer = new DataContainer($controllername, $controllerclassname, $actionname, $this->menumanager->getMenus());
 		
 		$view = $this->viewmanager->createView($datacontainer);
 		

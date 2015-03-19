@@ -43,7 +43,7 @@ class DatabaseManager
 		
 		// Setup the connection
 		$dataconfiguration = Setup::createAnnotationMetadataConfiguration($directories, true);
-		$dataoptions = array("driver" => "pdo_mysql", "host" => $hostname, "dbname" => $database, "user" => $username, "password" => $password);
+		$dataoptions = array("driver" => "pdo_mysql", "host" => $hostname, "dbname" => $database, "user" => $username, "password" => $password, "charset" => "UTF8");
 		$this->entitymanager = EntityManager::create($dataoptions, $dataconfiguration);
 		
 		// Create/Update the tables

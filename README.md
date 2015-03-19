@@ -18,6 +18,11 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 	git clone https://github.com/swaechter/web-cms.git
 	cd web-cms
 
+### Create and import the database
+
+	mysql -u root -p -e "CREATE DATABASE webcms;"
+	mysql -u root -p webcms < sql/webcms.sql
+
 ### Install composer
 
 	php -r "readfile('https://getcomposer.org/installer');" | php

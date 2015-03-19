@@ -24,6 +24,11 @@
 						</div>
 						<div class="collapse navbar-collapse" id="navigation">
 							<ul class="nav navbar-nav">
+								{% for MENU in MENUS %}
+								<li>
+									<a href="{{MENU.getLink}}">{{MENU.getDisplayName}}</a>
+								</li>
+								{% endfor %}
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 							</ul>

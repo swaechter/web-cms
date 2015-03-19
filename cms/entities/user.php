@@ -3,7 +3,7 @@
 /**
  * The class User represents a person that can access and change the system.
  *
- * @Entity @Table(name="users")
+ * @Entity
  **/
 class User
 {
