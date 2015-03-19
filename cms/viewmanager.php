@@ -49,13 +49,13 @@ class ViewManager
 	public function parseView($view)
 	{
 		$data = $view->getData();
-		$data['WEBSITE_NAME'] = $this->configuration->getWebsiteName();
+		$data["WEBSITE_NAME"] = $this->configuration->getWebsiteName();
 		
 		$loader = new Twig_Loader_Filesystem($view->getSubtemplateDirectory());
 		$environment = new Twig_Environment($loader, array());
 		$content = $environment->render($view->getSubtemplateName(), $data);
 		
-		$data['SUBTEMPLATE'] = $content;
+		$data["SUBTEMPLATE"] = $content;
 		
 		$loader = new Twig_Loader_Filesystem($view->getTemplateDirectory());
 		$environment = new Twig_Environment($loader, array());

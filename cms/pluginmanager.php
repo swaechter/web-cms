@@ -15,7 +15,7 @@ class PluginManager
 		// Get all PHP files
 		$directories = new RecursiveDirectoryIterator($pluginpath);
 		$iterator = new RecursiveIteratorIterator($directories);
-		$regex = new RegexIterator($iterator, '%\.php$%i');
+		$regex = new RegexIterator($iterator, "%\.php$%i");
 		
 		// Include them
 		foreach($regex as $file)

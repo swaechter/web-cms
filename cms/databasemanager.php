@@ -39,11 +39,11 @@ class DatabaseManager
 		$database = $configuration->getDatabaseName();
 		
 		// Set the directories for the entity manager
-		$directories = array(getcwd() . '/' . CMS_DIRECTORY, getcwd() . '/' . APP_DIRECTORY);
+		$directories = array(getcwd() . "/" . CMS_DIRECTORY, getcwd() . "/" . APP_DIRECTORY);
 		
 		// Setup the connection
 		$dataconfiguration = Setup::createAnnotationMetadataConfiguration($directories, true);
-		$dataoptions = array('driver' => 'pdo_mysql', 'host' => $hostname, 'dbname' => $database, 'user' => $username, 'password' => $password);
+		$dataoptions = array("driver" => "pdo_mysql", "host" => $hostname, "dbname" => $database, "user" => $username, "password" => $password);
 		$this->entitymanager = EntityManager::create($dataoptions, $dataconfiguration);
 		
 		// Create/Update the tables

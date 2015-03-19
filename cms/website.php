@@ -89,9 +89,9 @@ class Website
 	{
 		$router = new Router($this->configuration);
 		
-		$controllername = $router->getControllerName(Utils::getGet('controller'));
+		$controllername = $router->getControllerName(Utils::getGet("controller"));
 		$controllerclassname = $router->getControllerClassName($controllername);
-		$actionname = $router->getActionName($controllername, Utils::getGet('action'));
+		$actionname = $router->getActionName($controllername, Utils::getGet("action"));
 		
 		$datacontainer = new DataContainer($controllername, $controllerclassname, $actionname);
 		
