@@ -17,6 +17,17 @@ class Utils
 	}
 	
 	/**
+	 * Set a GET value.
+	 *
+	 * @param string $key GET key
+	 * @param string $value GET value
+	 */
+	public static function setGet($key, $value)
+	{
+		$_GET[$key] = $value;
+	}
+	
+	/**
 	 * Get a GET value. If the value does not exist, null will be returned.
 	 *
 	 * @param string $key GET Key
@@ -36,6 +47,17 @@ class Utils
 	public static function hasPost($key)
 	{
 		return isset($_POST[$key]) && strlen(trim($_POST[$key])) > 0 ? true : false;
+	}
+	
+	/**
+	 * Set a POST value.
+	 *
+	 * @param string $key POST key
+	 * @param string $value POST value
+	 */
+	public static function setPost($key, $value)
+	{
+		$_POST[$key] = $value;
 	}
 	
 	/**
