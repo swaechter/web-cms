@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Test plugin.
+ * The plugin Text provides an article system for text sites.
  */
-class FooPlugin implements Plugin
+class TextPlugin implements Plugin
 {
 	/**
 	 * Get the plugin name.
@@ -12,7 +12,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getName()
 	{
-		return "foo";
+		return "text";
 	}
 	
 	/**
@@ -22,7 +22,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Foo";
+		return "Text";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "Foo is a test plugin.";
+		return "The plugin 'Text' provides a text system with articles.";
 	}
 }
 

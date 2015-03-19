@@ -52,13 +52,13 @@ class ViewManager
 		$data["WEBSITE_NAME"] = $this->configuration->getWebsiteName();
 		
 		$loader = new Twig_Loader_Filesystem($view->getSubtemplateDirectory());
-		$environment = new Twig_Environment($loader, array());
+		$environment = new Twig_Environment($loader, array("autoescape" => true));
 		$content = $environment->render($view->getSubtemplateName(), $data);
 		
 		$data["SUBTEMPLATE"] = $content;
 		
 		$loader = new Twig_Loader_Filesystem($view->getTemplateDirectory());
-		$environment = new Twig_Environment($loader, array());
+		$environment = new Twig_Environment($loader, array("autoescape" => true));
 		$content = $environment->render($view->getTemplateName(), $data);
 		
 		return $content;

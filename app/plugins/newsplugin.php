@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Test plugin.
+ * The plugin News provide a news system with news entries.
  */
-class FooPlugin implements Plugin
+class NewsPlugin implements Plugin
 {
 	/**
 	 * Get the plugin name.
@@ -12,7 +12,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getName()
 	{
-		return "foo";
+		return "news";
 	}
 	
 	/**
@@ -22,7 +22,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Foo";
+		return "News";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "Foo is a test plugin.";
+		return "The plugin 'News' provides a news system.";
 	}
 }
 

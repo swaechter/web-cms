@@ -4,6 +4,9 @@
 require_once('vendor/autoload.php');
 require_once('cms/website.php');
 
+// Start the session
+session_start();
+
 // Display a website site
 try
 {

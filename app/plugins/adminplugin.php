@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Test plugin.
+ * The plugin Admin provides an admin interface and an authentication system.
  */
-class FooPlugin implements Plugin
+class AdminPlugin implements Plugin
 {
 	/**
 	 * Get the plugin name.
@@ -12,7 +12,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getName()
 	{
-		return "foo";
+		return "admin";
 	}
 	
 	/**
@@ -22,7 +22,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Foo";
+		return "Admin";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "Foo is a test plugin.";
+		return "The plugin 'Admin' provides a admin interface and a authentication system.";
 	}
 }
 

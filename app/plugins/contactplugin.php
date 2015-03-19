@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Test plugin.
+ * The plugin Contact provides a contact form with a mail engine as backend.
  */
-class FooPlugin implements Plugin
+class ContactPlugin implements Plugin
 {
 	/**
 	 * Get the plugin name.
@@ -12,7 +12,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getName()
 	{
-		return "foo";
+		return "contact";
 	}
 	
 	/**
@@ -22,7 +22,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Foo";
+		return "Contact";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "Foo is a test plugin.";
+		return "The plugin 'Contact' provides a contact form and a mail system.";
 	}
 }
 

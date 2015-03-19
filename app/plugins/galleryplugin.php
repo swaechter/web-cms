@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Test plugin.
+ * The plugin Gallery provides an image gallery with images.
  */
-class FooPlugin implements Plugin
+class GalleryPlugin implements Plugin
 {
 	/**
 	 * Get the plugin name.
@@ -12,7 +12,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getName()
 	{
-		return "foo";
+		return "gallery";
 	}
 	
 	/**
@@ -22,7 +22,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Foo";
+		return "Gallery";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "Foo is a test plugin.";
+		return "The plugin 'Gallery' provides a gallery with images.";
 	}
 }
 

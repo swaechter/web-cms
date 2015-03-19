@@ -70,6 +70,47 @@ class Utils
 	{
 		return isset($_POST[$key]) ? $_POST[$key] : null;
 	}
+	
+	/**
+	 * Check if a SESSION value does exist.
+	 *
+	 * @param string $key SESSION Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasSession($key)
+	{
+		return isset($_SESSION[$key]) && strlen(trim($_SESSION[$key])) > 0 ? true : false;
+	}
+	
+	/**
+	 * Set a SESSION value.
+	 *
+	 * @param string $key SESSION key
+	 * @param string $value SESSION value
+	 */
+	public static function setSession($key, $value)
+	{
+		$_SESSION[$key] = $value;
+	}
+	
+	/**
+	 * Get a SESSION value. If the value does not exist, null will be returned.
+	 *
+	 * @param string $key SESSION Key
+	 * @return string|null Key value or null
+	 */
+	public static function getSession($key)
+	{
+		return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
+	}
+	
+	/**
+	 * Destroy the current session and make the clientside cookie invalid
+	 */
+	public static function unsetSession()
+	{
+		session_unset();
+	}
 }
 
 ?>

@@ -1,0 +1,15 @@
+{% if not ERROR %}
+<div>
+	<h1>{{TITLE}}</h1>
+	<h2>Information</h2>
+	<p>Welcome to the admin interface! Here you can create user, menus and edit all plugins.</p>
+	<h2>Categories</h2>
+	<ul>
+		<li>Placeholder</li>
+	</ul>
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+</div>
+{% endif %}
