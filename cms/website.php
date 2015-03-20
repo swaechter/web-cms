@@ -1,55 +1,35 @@
 <?php
 
+// Include the entites
 require("entities/menu.php");
 require("entities/user.php");
+
+// Include the interfaces
+require("interfaces/modulecontroller.php");
+require("interfaces/systemcontroller.php");
+
+// Include the system
 require("globals.php");
 require("configuration.php");
 require("databasemanager.php");
 require("datacontainer.php");
 require("plugin.php");
 require("pluginmanager.php");
+require("route.php");
 require("router.php");
 require("model.php");
 require("view.php");
 require("controller.php");
+require("item.php");
 require("menumanager.php");
 require("viewmanager.php");
 require("utils.php");
-
 /**
  * The class Website is the main class of the whole system. It is responsible
  * for handling the user request and generating a displayable site.
  */
 class Website
 {
-	/**
-	 * The plugin manager of the website.
-	 *
-	 * @var PluginManager
-	 */
-	private $pluginmanager;
-	
-	/**
-	 * The database manager of the website.
-	 *
-	 * @var DatabaseManager
-	 */
-	private $databasemanager;
-	
-	/**
-	 * The view manager of the website.
-	 *
-	 * @var ViewManager
-	 */
-	private $viewmanager;
-	
-	/**
-	 * The menu manager of the website.
-	 *
-	 * @var MenuManager
-	 */
-	private $menumanager;
-	
 	/**
 	 * The configuration of the website.
 	 *
@@ -64,18 +44,6 @@ class Website
 	 */
 	public function __construct($configuration)
 	{
-		// Create the plugin manager
-		$this->pluginmanager = new PluginManager(APP_DIRECTORY);
-		
-		// Create the database manager
-		$this->databasemanager = new Databasemanager($configuration);
-		
-		// Create the view manager
-		$this->viewmanager = new ViewManager($configuration);
-		
-		// Create the menu manager
-		$this->menumanager = new MenuManager($this->databasemanager, $configuration);
-		
 		// Set the configuration
 		$this->configuration = $configuration;
 	}
@@ -87,21 +55,41 @@ class Website
 	 */
 	public function getDisplayableSite()
 	{
+		// Create the plugin manager
+		$pluginmanager = new PluginManager(APP_DIRECTORY);
+		
+		// Create the database manager
+		$databasemanager = new Databasemanager($this->configuration);
+		
+		// Create the view manager
+		$viewmanager = new ViewManager($this->configuration);
+		
+		// Create the menu manager
+		$menumanager = new MenuManager($databasemanager, $this->configuration);
+		
+		// Create the router and get the route
 		$router = new Router($this->configuration);
+		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
 		
-		$controllername = $router->getControllerName(Utils::getGet("controller"));
-		$controllerclassname = $router->getControllerClassName($controllername);
-		$actionname = $router->getActionName($controllername, Utils::getGet("action"));
+		// Get all menus
+		$menus = $menumanager->getMenus();
 		
-		$datacontainer = new DataContainer($controllername, $controllerclassname, $actionname, $this->menumanager->getMenus());
+		// Create the data container
+		$datacontainer = new DataContainer($route, $menus);
 		
-		$view = $this->viewmanager->createView($datacontainer);
+		// Create a view
+		$view = $viewmanager->createView($datacontainer);
 		
-		$controller = new $controllerclassname($this->databasemanager, $datacontainer, $view);
+		// Get the controller class name and create the controller
+		$controllerclassname = $route->getControllerClassName();
+		$controller = new $controllerclassname($databasemanager, $datacontainer, $view);
 		
+		// Get the action name and execute the controller action
+		$actionname = $route->getActionName();
 		$controller->$actionname();
 		
-		return $this->viewmanager->parseView($view);
+		// Parse and return the view
+		return $viewmanager->parseView($view);
 	}
 }
 

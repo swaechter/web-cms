@@ -3,12 +3,19 @@
 /**
  * The class ContactController is responsible for the contact form.
  */
-class ContactController extends Controller
+class ContactController extends Controller implements ModuleController
 {
 	/**
-	 * Contact form site.
+	 * Show the contact site.
 	 */
 	public function index()
+	{
+	}
+	
+	/**
+	 * Show the contact admin site.
+	 */
+	public function adminindex()
 	{
 	}
 }

@@ -24,12 +24,13 @@ class Router
 	}
 	
 	/**
-	 * Get the controller name based on the input.
+	 * Get the route based on the input.
 	 *
-	 * @param string $controllername Controller name given by the user
-	 * @return string Controller name checked by the system
+	 * @param string $controllername User controller input
+	 * @param string $actionname User action input
+	 * @param Route|null Router route or null
 	 */
-	public function getControllerName($controllername)
+	public function getRoute($controllername, $actionname)
 	{
 		// If the controller name is empty, use the default controller name
 		if(empty($controllername))
@@ -43,45 +44,46 @@ class Router
 			$controllername = $this->configuration->getFallbackControllerName();
 		}
 		
-		// Return the controller name
-		return $controllername;
-	}
-	
-	/**
-	 * Get the controller class name based on the input.
-	 *
-	 * @param string $controllername Controller name given by the user
-	 * @return string Controller class name checked by the system
-	 */
-	public function getControllerClassName($controllername)
-	{
-		// Build the controller class name
-		$controllerclassname = $this->getControllerName($controllername) . CONTROLLER_SUFFIX;
-		
-		// Return the controller class name
-		return $controllerclassname;
-	}
-	
-	/**
-	 * Get the action name based on the input.
-	 *
-	 * @param string $controllername Controller name given by the system
-	 * @param string $actionname Action name given by the user
-	 * @return string Action name checked by the system
-	 */
-	public function getActionName($controllername, $actionname)
-	{
-		// Build the controller class name
-		$controllerclassname = $this->getControllerClassName($controllername);
-		
-		// Check if the method exists - otherwise use the fallback action name
-		if(!method_exists($controllerclassname, $actionname))
+		// If the fallback controller does not exist, throw an exception
+		if(!class_exists($controllername . CONTROLLER_SUFFIX))
 		{
-			$actionname = DEFAULT_ACTION_NAME;
+			throw new Exception("The router cannot find a valid controller or fallback controller.");
 		}
 		
-		// Return the action name
-		return $actionname;
+		// Lowercase the controller name to prevent file system problems
+		$controllername = strtolower($controllername);
+		
+		// Build the controller class name
+		$controllerclassname = $controllername . CONTROLLER_SUFFIX;
+		
+		// If the action name is empty, use the default action name
+		if(!method_exists($controllerclassname, $actionname))
+		{
+			if(in_array("ModuleController", class_implements($controllerclassname)))
+			{
+				$actionname = DEFAULT_MODULE_ACTION_NAME;
+			}
+			else if(in_array("SystemController", class_implements($controllerclassname)))
+			{
+				$actionname = DEFAULT_SYSTEM_ACTION_NAME;
+			}
+			else
+			{
+				throw new Exception("The router cannot find a user, system or module interface in the given controller.");
+			}
+		}
+		
+		// If the action method does not exist, throw an exception
+		if(!method_exists($controllerclassname, $actionname))
+		{
+			throw new Exception("The router cannot find the method for this router.");
+		}
+		
+		// Lowercase the action name to prevent file system problems
+		$actionname = strtolower($actionname);
+		
+		// Return the route
+		return new Route($controllername, $controllerclassname, $actionname);
 	}
 }
 

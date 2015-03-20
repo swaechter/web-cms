@@ -21,23 +21,27 @@ class RouterTest extends PHPUnit_Framework_TestCase
 		
 		// Set the user controller name to empty. Expected controller name should be foo
 		Utils::setGet("controller", null);
-		$this->assertSame($router->getControllerName(Utils::getGet("controller")), "foo");
-		$this->assertSame($router->getControllerClassName(Utils::getGet("controller")), "foocontroller");
+		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$this->assertSame($route->getControllerName(), "foo");
+		$this->assertSame($route->getControllerClassName(), "foocontroller");
 		
 		// Set the user controller name to foo. Expected controller name should be foo
 		Utils::setGet("controller", "foo");
-		$this->assertSame($router->getControllerName(Utils::getGet("controller")), "foo");
-		$this->assertSame($router->getControllerClassName(Utils::getGet("controller")), "foocontroller");
+		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$this->assertSame($route->getControllerName(), "foo");
+		$this->assertSame($route->getControllerClassName(), "foocontroller");
 		
 		// Set the user controller name to bar. Expected controller name should be bar
 		Utils::setGet("controller", "bar");
-		$this->assertSame($router->getControllerName(Utils::getGet("controller")), "bar");
-		$this->assertSame($router->getControllerClassName(Utils::getGet("controller")), "barcontroller");
+		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$this->assertSame($route->getControllerName(), "bar");
+		$this->assertSame($route->getControllerClassName(), "barcontroller");
 		
 		// Set the user controller name to fancy. Expected controller name should be bar
 		Utils::setGet("controller", "fancy");
-		$this->assertSame($router->getControllerName(Utils::getGet("controller")), "bar");
-		$this->assertSame($router->getControllerClassName(Utils::getGet("controller")), "barcontroller");
+		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$this->assertSame($route->getControllerName(), "bar");
+		$this->assertSame($route->getControllerClassName(), "barcontroller");
 	}
 }
 

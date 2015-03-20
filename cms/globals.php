@@ -57,10 +57,17 @@ define("CONTROLLER_SUFFIX", "controller");
 define("DEFAULT_CONTROLLER_NAME", "index");
 
 /**
- * This variable represents the default action name.
+ * This variable represents the default system action name.
  *
  * @var string
  */
-define("DEFAULT_ACTION_NAME", "index");
+define("DEFAULT_SYSTEM_ACTION_NAME", "adminindex");
+
+/**
+ * This variable represents the default module action name.
+ *
+ * @var string
+ */
+define("DEFAULT_MODULE_ACTION_NAME", "index");
 
 ?>

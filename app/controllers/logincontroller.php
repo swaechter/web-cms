@@ -3,7 +3,7 @@
 /**
  * The class LoginController is responsible for the authentication handling.
  */
-class LoginController extends Controller
+class LoginController extends Controller implements ModuleController
 {
 	/**
 	 * Show the login site.
@@ -63,6 +63,13 @@ class LoginController extends Controller
 			$this->getView()->setData("ERROR", "You are not logged in.");
 		}
 	}
+	
+	/**
+	 * Show the user admin site.
+	 */
+	 public function adminindex()
+	 {
+	 }
 }
 
 ?>

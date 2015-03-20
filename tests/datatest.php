@@ -22,18 +22,6 @@ class DataTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * Test for the DataContainer class.
-	 */
-	public function testDataContainer()
-	{
-		// Object getter test
-		$datacontainer = new DataContainer("controllername", "controllerclassname", "actionname");
-		$this->assertSame($datacontainer->getControllerName(), "controllername");
-		$this->assertSame($datacontainer->getControllerClassName(), "controllerclassname");
-		$this->assertSame($datacontainer->getActionName(), "actionname");
-	}
-	 
-	/**
 	 * Test for the Utils class.
 	 */
 	public function testUtils()

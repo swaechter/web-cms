@@ -34,6 +34,16 @@ class FooPlugin implements Plugin
 	{
 		return "Foo is a test plugin.";
 	}
+	
+	/**
+	 * Get the plugin controller items.
+	 *
+	 * @return array Plugin controller items
+	 */
+	public function getItems()
+	{
+		return array();
+	}
 }
 
 ?>

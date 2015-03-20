@@ -34,7 +34,7 @@ class ViewManager
 		$templatedirectory = TEMPLATE_DIRECTORY;
 		$templatename = INDEX_TEMPLATE_NAME . TEMPLATE_EXTENSION;
 		$subtemplatedirectory = SUBTEMPLATE_DIRECTORY;
-		$subtemplatename = $datacontainer->getControllerName() . $datacontainer->getActionName() . TEMPLATE_EXTENSION;
+		$subtemplatename = $datacontainer->getRoute()->getControllerName() . $datacontainer->getRoute()->getActionName() . TEMPLATE_EXTENSION;
 		
 		// Set the data
 		$data["WEBSITE_NAME"] = $this->configuration->getWebsiteName();

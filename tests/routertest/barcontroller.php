@@ -3,12 +3,12 @@
 /**
  * Test controller.
  */
-class BarController extends Controller
+class BarController extends Controller implements SystemController
 {
 	/**
-	 * Index action
+	 * Index admin action
 	 */
-	public function index()
+	public function adminindex()
 	{
 		// Do nothing
 	}

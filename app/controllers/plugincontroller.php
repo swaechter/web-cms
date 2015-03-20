@@ -3,12 +3,12 @@
 /**
  * The class PluginMenu is responsible for the plugin management.
  */
-class PluginController extends Controller
+class PluginController extends Controller implements SystemController
 {
 	/**
-	 * Show the plugins.
+	 * Show the plugin admin site.
 	 */
-	public function index()
+	public function adminindex()
 	{
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())

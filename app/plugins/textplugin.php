@@ -34,6 +34,16 @@ class TextPlugin implements Plugin
 	{
 		return "The plugin 'Text' provides a text system with articles.";
 	}
+	
+	/**
+	 * Get the plugin controller items.
+	 *
+	 * @return array Plugin controller items
+	 */
+	public function getItems()
+	{
+		return array(new Item("text", "Text"));
+	}
 }
 
 ?>

@@ -3,12 +3,12 @@
 /**
  * The class MenuController is responsible for the menu management.
  */
-class MenuController extends Controller
+class MenuController extends Controller implements SystemController
 {
 	/**
-	 * Show the menus.
+	 * Show the menu admin site.
 	 */
-	public function index()
+	public function adminindex()
 	{
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())

@@ -34,6 +34,16 @@ class NewsPlugin implements Plugin
 	{
 		return "The plugin 'News' provides a news system.";
 	}
+	
+	/**
+	 * Get the plugin controller items.
+	 *
+	 * @return array Plugin controller items
+	 */
+	public function getItems()
+	{
+		return array(new Item("news", "News"));
+	}
 }
 
 ?>

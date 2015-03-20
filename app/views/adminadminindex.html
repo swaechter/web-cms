@@ -1,0 +1,27 @@
+{% if not ERROR %}
+<div>
+	<h1>{{TITLE}}</h1>
+	<h2>Information</h2>
+	<p>Welcome to the admin interface! Here you can create user, menus and edit all plugins.</p>
+	<h2>System Categories</h2>
+	<ul>
+		{% for SYSTEMCONTROLLERITEM in SYSTEMCONTROLLERITEMS %}
+		{% if SYSTEMCONTROLLERITEM.getName() != "admin" %}
+		<li><a href="index.php?controller={{SYSTEMCONTROLLERITEM.getName}}&action=adminindex">{{SYSTEMCONTROLLERITEM.getDisplayName}}</a></li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+	<h2>Module Categories</h2>
+	<ul>
+		{% for MODULECONTROLLERITEM in MODULECONTROLLERITEMS %}
+		<li><a href="index.php?controller={{MODULECONTROLLERITEM.getName}}&action=adminindex">{{MODULECONTROLLERITEM.getDisplayName}}</a></li>
+		{% endfor %}
+	</ul>
+	<h2>Logout</h2>
+	<p>Click <a href="index.php?controller=login&action=logout">here</a> to log out the user from the system.</p>
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+</div>
+{% endif %}

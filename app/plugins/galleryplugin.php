@@ -34,6 +34,16 @@ class GalleryPlugin implements Plugin
 	{
 		return "The plugin 'Gallery' provides a gallery with images.";
 	}
+	
+	/**
+	 * Get the plugin controller items.
+	 *
+	 * @return array Plugin controller items
+	 */
+	public function getItems()
+	{
+		return array(new Item("gallery", "Gallery"));
+	}
 }
 
 ?>

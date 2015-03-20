@@ -26,6 +26,13 @@ interface Plugin
 	 * @return string Plugin description
 	 */
 	public function getDescription();
+	
+	/**
+	 * Get the plugin controller items.
+	 *
+	 * @return array Plugin controller items
+	 */
+	public function getItems();
 }
 
 ?>

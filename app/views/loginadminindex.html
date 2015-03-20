@@ -1,0 +1,10 @@
+{% if not ERROR %}
+<div class="alert alert-info" role="alert">
+	<h1>Admin Admin Site</h1>
+	<p>At the moment, this site is not implemented.</p>
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+</div>
+{% endif %}

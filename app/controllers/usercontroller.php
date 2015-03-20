@@ -3,12 +3,12 @@
 /**
  * The class UserController is responsible for the user management.
  */
-class UserController extends Controller
+class UserController extends Controller implements SystemController
 {
 	/**
-	 * Show the users.
+	 * Show the user admin site.
 	 */
-	public function index()
+	public function adminindex()
 	{
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())

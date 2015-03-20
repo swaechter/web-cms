@@ -34,6 +34,16 @@ class AdminPlugin implements Plugin
 	{
 		return "The plugin 'Admin' provides a admin interface and a authentication system.";
 	}
+	
+	/**
+	 * Get the plugin controller items.
+	 *
+	 * @return array Plugin controller items
+	 */
+	public function getItems()
+	{
+		return array(new Item("login", "Login"), new Item("admin", "Admin"), new Item("user", "Users"), new Item("menu", "Menus"), new Item("plugin", "Plugins"));
+	}
 }
 
 ?>

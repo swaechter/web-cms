@@ -34,6 +34,16 @@ class ContactPlugin implements Plugin
 	{
 		return "The plugin 'Contact' provides a contact form and a mail system.";
 	}
+	
+	/**
+	 * Get the plugin controller items.
+	 *
+	 * @return array Plugin controller items
+	 */
+	public function getItems()
+	{
+		return array(new Item("contact", "Contact"));
+	}
 }
 
 ?>

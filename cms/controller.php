@@ -70,11 +70,6 @@ abstract class Controller
 	{
 		return $this->view;
 	}
-	
-	/**
-	 * The required action of a controller class.
-	 */
-	abstract public function index();
 }
 
 ?>
