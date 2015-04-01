@@ -1,0 +1,16 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=menu&action=adminindex">menu admin site</a>.</p>
+</div>
+{% else %}
+<form role="form" method="post" action="index.php?controller=resource&action=processdelete&id={{ID}}">
+	<p>Do you really want to delete this resource? If not, go <a href="index.php?controller=resource&action=adminindex">back</a> to the resource admin site</p>
+	<button class="btn btn-default" type="submit">Delete</button>
+</form>
+{% endif %}

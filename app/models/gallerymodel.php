@@ -37,7 +37,7 @@ class GalleryModel extends Model
 	public function createImage($filepath, $filename, $title)
 	{
 		$date = date("d.m.Y H:i:s");
-		$filename = date("Y_m_d_H_i_s") . "_" . $filename;
+		$filename = date("Y_m_d_H_i_s") . "_image_" . $filename;
 		
 		$entry = new Image();
 		$entry->setFileName($filename);
@@ -48,17 +48,6 @@ class GalleryModel extends Model
 	}
 	
 	/**
-	 * Update a image.
-	 *
-	 * @param Image $image Image obtect
-	 * @return boolean Status of the action
-	 */
-	public function updateImage($image)
-	{
-		return $this->getDatabaseManager()->saveEntry($image);
-	}
-	
-	/**
 	 * Delete a image.
 	 *
 	 * @param Image $image Image obtect
@@ -66,7 +55,7 @@ class GalleryModel extends Model
 	 */
 	public function deleteImage($image)
 	{
-		return is_dir(DATA_DIRECTORY) && is_writable(DATA_DIRECTORY) && unlink(DATA_DIRECTORY . $image->getFileName()) && $this->getDatabaseManager()->deleteEntry($image);
+		return is_dir(DATA_DIRECTORY) && is_writable(DATA_DIRECTORY) && file_exists(DATA_DIRECTORY . $image->getFileName()) && unlink(DATA_DIRECTORY . $image->getFileName()) && $this->getDatabaseManager()->deleteEntry($image);
 	}
 	
 	/**
@@ -77,9 +66,10 @@ class GalleryModel extends Model
 	 */
 	public function isImageFile($filepath)
 	{
-		$filetypes = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
-		$detectedfiletypes = exif_imagetype($filepath);
-		return in_array($detectedfiletypes, $filetypes);
+		$mimetypes = array("image/png", "image/jpeg", "image/pjpeg", "image/jpeg", "image/pjpeg", "image/gif", "video/mp4");
+		$handle = finfo_open(FILEINFO_MIME_TYPE);
+		$mimetype = finfo_file($handle, $filepath);
+		return in_array($mimetype, $mimetypes);
 	}
 }
 

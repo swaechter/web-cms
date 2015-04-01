@@ -21,7 +21,7 @@ class Image
 	* The file name of the image.
 	*
 	* @var string
-	* @Column(type="string", length=50)
+	* @Column(type="text")
 	**/
 	protected $filename;
 	

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 01, 2015 at 08:55 AM
+-- Generation Time: Apr 01, 2015 at 03:03 PM
 -- Server version: 5.5.42-1
 -- PHP Version: 5.6.7-1
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `Image` (
 `id` int(11) NOT NULL,
-  `filename` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `filename` longtext COLLATE utf8_unicode_ci NOT NULL,
   `date` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(15) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -118,6 +118,17 @@ INSERT INTO `News` (`id`, `date`, `title`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Resource`
+--
+
+CREATE TABLE IF NOT EXISTS `Resource` (
+`id` int(11) NOT NULL,
+  `filename` longtext COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Text`
 --
 
@@ -196,6 +207,12 @@ ALTER TABLE `News`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `Resource`
+--
+ALTER TABLE `Resource`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `Text`
 --
 ALTER TABLE `Text`
@@ -231,6 +248,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 ALTER TABLE `News`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `Resource`
+--
+ALTER TABLE `Resource`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `Text`
 --
