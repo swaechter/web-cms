@@ -1,0 +1,27 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=gallery&action=adminindex">gallery admin site</a>.</p>
+</div>
+{% else %}
+<h1>Upload Image</h1>
+<form role="form" method="post" action="index.php?controller=gallery&action=processcreate" enctype="multipart/form-data">
+	<div class="form-group">
+		<p>Please select an image and press upload.</p>
+	</div>
+	<div class="form-group">
+		<label for="fileupload">Select an image</label>
+		<input type="file" name="fileupload" id="fileupload" required>
+	</div>
+	<div class="form-group">
+		<label for="title">Title (Max. 15 Characters)</label>
+		<input class="form-control" type="text" name="title" id="title" placeholder="Your image title" maxlength="15" required>
+	</div>
+	<button class="btn btn-default" type="submit">Upload</button>
+</form>
+{% endif %}

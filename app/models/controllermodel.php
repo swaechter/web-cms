@@ -12,10 +12,8 @@ class ControllerModel extends Model
 	 */
 	public function getSystemControllerItems()
 	{
-		// Create the item array
 		$items = array();
 		
-		// Get all items of a plugin
 		foreach(get_declared_classes() as $classname)
 		{
 			if(is_subclass_of($classname, "Plugin"))
@@ -25,7 +23,6 @@ class ControllerModel extends Model
 			}
 		}
 		
-		// Search for system controllers
 		foreach($items as $key => $item)
 		{
 			$classname = $item->getName() . CONTROLLER_SUFFIX;
@@ -35,7 +32,6 @@ class ControllerModel extends Model
 			}
 		}
 		
-		// Return the controller items
 		return $items;
 	}
 	
@@ -46,10 +42,8 @@ class ControllerModel extends Model
 	 */
 	public function getModuleControllerItems()
 	{
-		// Create the item array
 		$items = array();
 		
-		// Get all items of a plugin
 		foreach(get_declared_classes() as $classname)
 		{
 			if(is_subclass_of($classname, "Plugin"))
@@ -59,7 +53,6 @@ class ControllerModel extends Model
 			}
 		}
 		
-		// Search for module controllers
 		foreach($items as $key => $item)
 		{
 			$classname = $item->getName() . CONTROLLER_SUFFIX;
@@ -69,7 +62,6 @@ class ControllerModel extends Model
 			}
 		}
 		
-		// Return the controller items
 		return $items;
 	}
 }

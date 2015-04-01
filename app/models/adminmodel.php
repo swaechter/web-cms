@@ -24,11 +24,9 @@ class AdminModel extends Model
 	 */
 	public function loginUser($email, $password)
 	{
-		// Hash the password and get all users
 		$passwordhash = hash("sha512", $password);
 		$users = $this->getDatabaseManager()->getEntries("User");
 		
-		// Search for the user
 		foreach($users as $user)
 		{
 			if(!strcasecmp($user->getEmail(), $email) && !strcasecmp($user->getPassword(), $passwordhash))
@@ -39,7 +37,6 @@ class AdminModel extends Model
 			}
 		}
 		
-		// Return false
 		return false;
 	}
 	

@@ -1,61 +1,57 @@
 <?php
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
- * The class Menu represents an entry of the site navigation.
- *
- * @Entity
- */
+* The class Menu contains information about a navigation object.
+*
+* @Entity
+*/
 class Menu
 {
 	/**
-	* The unique number of the menu.
-	
 	* @var integer
 	* @Id
-	* @Column(type="integer")
 	* @GeneratedValue
-	**/
-	protected $id;
+	* @Column(type="integer")
+	*/
+	private $id;
 	
 	/**
-	* The parent menu of the menu.
-	*
-	* @var object
-	* @ManyToOne(targetEntity="Menu")
-	**/
-	protected $parentmenu;
+	* @var Menu|null
+	* @ManyToOne(targetEntity="Menu", inversedBy="childrenmenus")
+	*/
+	private $parentmenu;
 	
 	/**
-	* The name of the menu.
-	*
-	* @var string
-	* @Column(type="string")
-	**/
-	protected $name;
+	 * @var array
+	 * @OneToMany(targetEntity="Menu", mappedBy="parentmenu")
+	*/
+	private $childrenmenus;
 	
 	/**
-	* The display name of the menu.
-	*
-	* @var string
-	* @Column(type="string")
+	 * The display name of the menu.
+	 *
+	 * @var string
+	 * @Column(type="string", length=50)
 	**/
 	protected $displayname;
 	
 	/**
-	* The URL link of the menu.
-	*
-	* @var string
-	* @Column(type="string")
+	 * The URL link of the menu.
+	 *
+	 * @var string
+	 * @Column(type="string", length=50)
 	**/
 	protected $link;
 	
 	/**
-	* The position of the menu.
-	*
-	* @var integer
-	* @Column(type="integer")
-	**/
-	protected $position;
+	 * Constructor of the class Menu.
+	 */
+	public function __construct()
+	{
+		$this->childrenmenus = new ArrayCollection();
+	}
 	
 	/**
 	 * Get the unique number of the menu.
@@ -70,7 +66,7 @@ class Menu
 	/**
 	 * Get the parent menu of the menu.
 	 *
-	 * @return object Parent menu
+	 * @return Menu|null Parent menu
 	 */
 	public function getParentMenu()
 	{
@@ -78,13 +74,53 @@ class Menu
 	}
 	
 	/**
-	 * Get the name of the menu.
+	 * Set the parent menu of the menu.
 	 *
-	 * @return string Menu name
+	 * @param Menu $parentmenu Parent menu
 	 */
-	public function getName()
+	public function setParentMenu($parentmenu)
 	{
-		return $this->name;
+		$this->parentmenu = $parentmenu;
+	}
+	
+	/**
+	 * Get the all children menus of the menu.
+	 *
+	 * @return array Children menus
+	 */
+	public function getChildrenMenus()
+	{
+		return $this->childrenmenus;
+	}
+	
+	/**
+	 * Set all children menus to the menu.
+	 *
+	 * @param array $childrenmenus Children menus
+	 */
+	public function setChildrenMenus($childrenmenus)
+	{
+		$this->childrenmenus = $childrenmenus;
+	}
+	
+	/**
+	 * Add a children menu to the menu.
+	 *
+	 * @param Menu $childrenmenu Children Menu
+	 */
+	public function addChildrenMenu($childrenmenu)
+	{
+		$this->childrenmenus->add($childrenmenus);
+	}
+	
+	/**
+	 * Set the display name of the menu.
+	 *
+	 * @param string $displayname Display name of the menu
+	 */
+	public function setDisplayName($displayname)
+	{
+		$this->displayname = $displayname;
 	}
 	
 	/**
@@ -98,6 +134,16 @@ class Menu
 	}
 	
 	/**
+	 * Set the URL link of the menu.
+	 *
+	 * @param string $link Link of the menu
+	 */
+	public function setLink($link)
+	{
+		$this->link = $link;
+	}
+	
+	/**
 	 * Get the URL link of the menu.
 	 *
 	 * @return string URL link
@@ -105,16 +151,6 @@ class Menu
 	public function getLink()
 	{
 		return $this->link;
-	}
-	
-	/**
-	 * Get the position of the menu.
-	 *
-	 * @return integer Position ID
-	 */
-	public function getPosition()
-	{
-		return $this->position;
 	}
 }
 

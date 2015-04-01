@@ -1,10 +1,59 @@
-{% if not ERROR %}
-<div class="alert alert-info" role="alert">
-	<h1>Gallery Admin Site</h1>
-	<p>At the moment, this site is not implemented.</p>
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
 </div>
-{% else %}
+{% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+</div>
+{% else %}
+<div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="btn-group pull-right">
+				<a href="index.php?controller=gallery&action=create" class="btn btn-default btn-xs">Upload Image</a>
+			</div>
+			<h1 class="panel-title">Images</h1>
+		</div>
+		<div class="panel-body">
+			{% if IMAGES|length > 0 %}
+			<div class="table-responsive">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Image</th>
+							<th>ID</th>
+							<th>Date</th>
+							<th>Title</th>
+							<th>Filename</th>
+							<th class="table-edit-cell">Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for IMAGE in IMAGES %}
+						<tr>
+							<td>
+								<img src="public/data/{{IMAGE.getFileName}}" alt="Image missing" class="table-image-cell">
+							</td>
+							<td class="table-centered-cell">{{IMAGE.getId}}</td>
+							<td class="table-centered-cell">{{IMAGE.getDate}}</td>
+							<td class="table-centered-cell">{{IMAGE.getTitle}}</td>
+							<td class="table-centered-cell">{{IMAGE.getFileName}}</td>
+							<td class="table-centered-cell table-edit-cell">
+								<a href="index.php?controller=gallery&action=delete&id={{IMAGE.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% else %}
+			<p>At the moment, no images have been added to the gallery.</p>
+			{% endif %}
+		</div>
+	</div>
+	<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
 </div>
 {% endif %}

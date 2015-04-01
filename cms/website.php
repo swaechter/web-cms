@@ -88,8 +88,14 @@ class Website
 		$actionname = $route->getActionName();
 		$controller->$actionname();
 		
-		// Parse and return the view
-		return $viewmanager->parseView($view);
+		// Parse the view
+		$html = $viewmanager->parseView($view);
+		
+		// Clear all form values
+		Utils::unsetPost();
+		
+		// Return the parsed HTML
+		return $html;
 	}
 }
 

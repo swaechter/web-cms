@@ -15,7 +15,14 @@ define("CMS_DIRECTORY", "cms/");
 define("APP_DIRECTORY", "app/");
 
 /**
- * This variable represents the directory where the main template file  is located.
+ * This variable represents the directory where the plugin data are located.
+ *
+ * @var string
+ */
+define("DATA_DIRECTORY", "public/data/");
+
+/**
+ * This variable represents the directory where the main template file is located.
  *
  * @var string
  */

@@ -14,18 +14,11 @@ class Configuration
 	private $websitename;
 	
 	/**
-	 * The name of the default controller that is used as home controller.
+	 * This default configuration array is used when no user input was found.
 	 *
 	 * @var string
 	 */
-	private $defaultcontrollername;
-	
-	/**
-	 * The name of the fallback controller that is used in case of a problem.
-	 *
-	 * @var string
-	 */
-	private $fallbackcontrollername;
+	private $defaultconfiguration;
 	
 	/**
 	 * The hostname of the SQL server.
@@ -59,18 +52,16 @@ class Configuration
 	 * Constructor of the class Configuration.
 	 *
 	 * @param string $websitename The name of the website
-	 * @param string $defaultcontrollername The default controller name that can be also used as home controller
-	 * @param string $fallbackcontrollername The controller name that is used in case of a problem
+	 * @param array $defaultconfiguration Default user input configuration
 	 * @param string $databasehostname The database hostname
 	 * @param string $databaseusername The database username
 	 * @param string $databasepassword The database user password
 	 * @param string $databasename The database name
 	 */
-	public function __construct($websitename, $defaultcontrollername, $fallbackcontrollername, $databasehostname, $databaseusername, $databasepassword, $databasename)
+	public function __construct($websitename, $defaultconfiguration, $databasehostname, $databaseusername, $databasepassword, $databasename)
 	{
 		$this->websitename = $websitename;
-		$this->defaultcontrollername = $defaultcontrollername;
-		$this->fallbackcontrollername = $fallbackcontrollername;
+		$this->defaultconfiguration = $defaultconfiguration;
 		$this->databasehostname = $databasehostname;
 		$this->databaseusername = $databaseusername;
 		$this->databasepassword = $databasepassword;
@@ -78,7 +69,7 @@ class Configuration
 	}
 	
 	/**
-	 * Get the website name
+	 * Get the website name.
 	 *
 	 * @return string Website name
 	 */
@@ -88,27 +79,17 @@ class Configuration
 	}
 	
 	/**
-	 * Get the default controller name
+	 * Get the default user input configuration if there is no user input.
 	 *
-	 * @return string Controller name
+	 * @return array Configuration as double nested array
 	 */
-	public function getDefaultControllerName()
+	public function getDefaultConfiguration()
 	{
-		return $this->defaultcontrollername;
+		return $this->defaultconfiguration;
 	}
 	
 	/**
-	 * Get the fallback controller name
-	 *
-	 * @return string Controller name
-	 */
-	public function getFallbackControllerName()
-	{
-		return $this->fallbackcontrollername;
-	}
-	
-	/**
-	 * Get the database hostname
+	 * Get the database hostname.
 	 *
 	 * @return string Database hostname
 	 */
@@ -118,7 +99,7 @@ class Configuration
 	}
 	
 	/**
-	 * Get the database username
+	 * Get the database username.
 	 *
 	 * @return string Database username
 	 */
@@ -128,7 +109,7 @@ class Configuration
 	}
 	
 	/**
-	 * Get the database password
+	 * Get the database password.
 	 *
 	 * @return string Database password
 	 */
@@ -138,7 +119,7 @@ class Configuration
 	}
 	
 	/**
-	 * Get the database name
+	 * Get the database name.
 	 *
 	 * @return string Database name
 	 */

@@ -11,7 +11,7 @@ session_start();
 try
 {
 	// Create the configuration
-	$configuration = new Configuration("Web-CMS", "text", "text", "127.0.0.1", "root", "123456", "webcms");
+	$configuration = new Configuration("Web-CMS", array(array("controller", "text"), array("action", "show"), array("id", 1)), "127.0.0.1", "root", "123456", "webcms");
 	
 	// Create the website
 	$website = new Website($configuration);

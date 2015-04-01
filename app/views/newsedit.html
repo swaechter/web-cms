@@ -1,0 +1,24 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=news&action=adminindex">news admin site</a>.</p>
+</div>
+{% else %}
+<h1>Edit News</h1>
+<form role="form" method="post" action="index.php?controller=news&action=processedit&id={{ID}}">
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input class="form-control" type="text" name="title" id="title" placeholder="Your title" value="{{TITLE}}" maxlength="50" required>
+	</div>
+	<div class="form-group">
+		<label for="text">Text</label>
+		<textarea class="form-control" name="text" id="text" placeholder="Your text" rows="20" required>{{TEXT}}</textarea>
+	</div>
+	<button class="btn btn-default" type="submit">Save</button>
+</form>
+{% endif %}

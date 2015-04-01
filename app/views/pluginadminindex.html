@@ -1,35 +1,42 @@
-{% if not ERROR %}
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+</div>
+{% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title">Plugins</h3>
+			<h1 class="panel-title">Plugins</h1>
 		</div>
 		<div class="panel-body">
-			<table class="table table-condensed">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Displayable Name</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for PLUGIN in PLUGINS %}
-					<tr>
-						<td>{{PLUGIN.getName}}</td>
-						<td>{{PLUGIN.getDisplayName}}</td>
-						<td>{{PLUGIN.getDescription}}</td>
-						<td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Displayable Name</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for PLUGIN in PLUGINS %}
+						<tr>
+							<td>{{PLUGIN.getName}}</td>
+							<td>{{PLUGIN.getDisplayName}}</td>
+							<td>{{PLUGIN.getDescription}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-	<a href="index.php?controller=admin&action=index">Back to admin site.</a>
-</div>
-{% else %}
-<div class="alert alert-danger" role="alert">
-	<p>{{ERROR}}</p>
+	<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
 </div>
 {% endif %}

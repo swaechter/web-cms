@@ -1,10 +1,52 @@
-{% if not ERROR %}
-<div class="alert alert-info" role="alert">
-	<h1>Text Admin Site</h1>
-	<p>At the moment, this site is not implemented.</p>
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
 </div>
-{% else %}
+{% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+</div>
+{% else %}
+<div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="btn-group pull-right">
+				<a href="index.php?controller=text&action=create" class="btn btn-default btn-xs">Create Text</a>
+			</div>
+			<h1 class="panel-title">Texts</h1>
+		</div>
+		<div class="panel-body">
+			{% if TEXTS|length > 0 %}
+			<div class="table-responsive">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Title</th>
+							<th class="table-edit-cell">Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for TEXT in TEXTS %}
+						<tr>
+							<td>{{TEXT.getID}}</td>
+							<td>{{TEXT.getTitle}}</td>
+							<td class="table-edit-cell">
+								<a href="index.php?controller=text&action=edit&id={{TEXT.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
+								<a href="index.php?controller=text&action=delete&id={{TEXT.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% else %}
+			<p>At the moment, no texts have been added to the system.</p>
+			{% endif %}
+		</div>
+	</div>
+	<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
 </div>
 {% endif %}

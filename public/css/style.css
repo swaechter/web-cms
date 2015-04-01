@@ -4,21 +4,117 @@ body
 	margin: 20px;
 }
 
-#header
+.header
 {
 	margin-top: 20px;
 }
 
-#content
+.content
 {
 	background-color: #f8f8f8;
 	margin-bottom: 20px;
 	padding: 20px;
 }
 
-#footer
+.footer
 {
 	background-color: #f8f8f8;
 	margin-bottom: 20px;
 	padding: 20px;
+}
+
+.text-centered
+{
+	text-align: center;
+}
+
+.table tbody > tr > td.table-centered-cell
+{
+    vertical-align: middle;
+}
+
+.table-edit-cell
+{
+	text-align: right;
+}
+
+.table-image-cell
+{
+	max-height: 50px;
+}
+
+textarea
+{
+	resize: vertical;
+}
+
+.galleryitem ul
+{
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+.galleryitem li
+{
+	list-style: none;
+	margin-bottom: 25px;
+}
+
+.galleryitem ul li img
+{
+	cursor: pointer;
+}
+
+.modal-body
+{
+	padding: 5px !important;
+}
+
+.modal-content
+{
+	border-radius: 0;
+}
+
+.modal-dialog img
+{
+	text-align: center;
+	margin: 0 auto;
+}
+
+.controls
+{
+	width: 50px;
+	display: block;
+	font-size: 11px;
+	padding-top: 8px;
+	font-weight: bold;
+}
+
+.next
+{
+	float: right;
+	text-align: right;
+}
+
+.modal-dialog
+{
+	max-width: 500px;
+	padding-top: 90px;
+}
+
+@media screen and (min-width: 768px)
+{
+	.modal-dialog
+	{
+		width: 500px;
+		padding-top: 90px;
+	}
+}
+
+@media screen and (max-width: 1500px)
+{
+	#ads
+	{
+		display: none;
+	}
 }

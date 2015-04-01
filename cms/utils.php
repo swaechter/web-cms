@@ -17,6 +17,18 @@ class Utils
 	}
 	
 	/**
+	 * Check if a GET ID value does exist.
+	 *
+	 * @param string $key GET ID Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasGetId($key)
+	{
+		$value = Utils::getGet($key);
+		return $value != null && is_numeric($value) && $value >= 0;
+	}
+	
+	/**
 	 * Set a GET value.
 	 *
 	 * @param string $key GET key
@@ -50,6 +62,106 @@ class Utils
 	}
 	
 	/**
+	 * Check if a POST ID value does exist.
+	 *
+	 * @param string $key POST ID Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasPostId($key)
+	{
+		$value = Utils::getPost($key);
+		return $value != null && is_numeric($value) && $value > 0;
+	}
+	
+	/**
+	 * Check if a possible POST ID value does exist and check it.
+	 *
+	 * @param string $key Possible POST ID Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasPossiblePostId($key)
+	{
+		if(!Utils::hasGet($key))
+		{
+			return true;
+		}
+		else
+		{
+			$value = Utils::getPost($key);
+			return $value != null && is_numeric($value) && $value > 0;
+		}
+		return false;
+	}
+	
+	/**
+	 * Check if a POST number value does exist.
+	 *
+	 * @param string $key POST number Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasPostNumber($key)
+	{
+		$value = Utils::getPost($key);
+		return $value != null && is_numeric($value) && $value >= 0;
+	}
+	
+	/**
+	 * Check if a POST string value does exist.
+	 *
+	 * @param string $key POST string Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasPostString($key)
+	{
+		$value = Utils::getPost($key);
+		return $value != null && strlen($value) != 0 && strlen($value) <= 60;
+	}
+	
+	/**
+	 * Check if a possible POST string value does exist and check it.
+	 *
+	 * @param string $key Possible POST string Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasPossiblePostString($key)
+	{
+		if(!Utils::hasPost($key))
+		{
+			return true;
+		}
+		else
+		{
+			$value = Utils::getPost($key);
+			return $value != null && strlen($value) != 0 && strlen($value) <= 60;
+		}
+		return false;
+	}
+	
+	/**
+	 * Check if a POST text value does exist.
+	 *
+	 * @param string $key POST text Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasPostText($key)
+	{
+		$value = Utils::getPost($key);
+		return $value != null && strlen($value) != 0;
+	}
+	
+	/**
+	 * Check if a POST email value does exist.
+	 *
+	 * @param string $key POST email Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasPostEmail($key)
+	{
+		$value = Utils::getPost($key);
+		return $value != null && filter_var($value, FILTER_VALIDATE_EMAIL) && strlen($value) <= 60;
+	}
+	
+	/**
 	 * Set a POST value.
 	 *
 	 * @param string $key POST key
@@ -69,6 +181,30 @@ class Utils
 	public static function getPost($key)
 	{
 		return isset($_POST[$key]) ? $_POST[$key] : null;
+	}
+	
+	/**
+	 * Check if a FILE value does exist.
+	 *
+	 * @param string $variable Variable
+	 * @param string $key FILE Key
+	 * @return boolean Status of existence
+	 */
+	public static function hasFiles($variable, $key)
+	{
+		return isset($_FILES[$variable][$key]) && strlen(trim($_FILES[$variable][$key])) > 0 ? true : false;
+	}
+	
+	/**
+	 * Get a FILE value. If the value does not exist, null will be returned.
+	 *
+	 * @param string $variable Variable
+	 * @param string $key FILE Key
+	 * @return string|null Key value or null
+	 */
+	public static function getFiles($variable, $key)
+	{
+		return isset($_FILES[$variable][$key]) ? $_FILES[$variable][$key] : null;
 	}
 	
 	/**
@@ -110,6 +246,14 @@ class Utils
 	public static function unsetSession()
 	{
 		session_unset();
+	}
+	
+	/**
+	 * Destroy the all POST variables
+	 */
+	public static function unsetPost()
+	{
+		$_POST = array();
 	}
 }
 

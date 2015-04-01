@@ -1,10 +1,16 @@
-{% if not ERROR %}
-<div class="alert alert-info" role="alert">
-	<h1>News Site</h1>
-	<p>At the moment, this site is not implemented.</p>
-</div>
-{% else %}
+{% if ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
 </div>
+{% else %}
+<h1>News</h1>
+{% if NEWS|length > 0 %}
+{% for NEWS in NEWSS %}
+<h2>{{NEWS.getTitle}}</h2>
+<p><b>Date:</b> {{NEWS.getDate}} <b>Link:</b> <a href="index.php?controller=news&action=show&id={{NEWS.getId}}">Click here</a></p>
+{{NEWS.getParsedText|raw}}
+{% endfor %}
+{% else %}
+<p>At the moment, no news have been added to the news list.</p>
+{% endif %}
 {% endif %}

@@ -32,16 +32,24 @@ class Router
 	 */
 	public function getRoute($controllername, $actionname)
 	{
-		// If the controller name is empty, use the default controller name
-		if(empty($controllername))
-		{
-			$controllername = $this->configuration->getDefaultControllerName();
-		}
-		
-		// Check if the class does exist - otherwise use the fallback controller name
+		// Check if the controller does exist - if not clear it
 		if(!class_exists($controllername . CONTROLLER_SUFFIX))
 		{
-			$controllername = $this->configuration->getFallbackControllerName();
+			$controllername = null;
+		}
+		
+		// If the controller name is empty, use the default site
+		if(empty($controllername))
+		{
+			// Get the default user values
+			foreach($this->configuration->getDefaultConfiguration() as $item)
+			{
+				Utils::setGet($item[0], $item[1]);
+			}
+			
+			// Update the parameters
+			$controllername = Utils::getGet("controller");
+			$actionname = Utils::getGet("action");
 		}
 		
 		// If the fallback controller does not exist, throw an exception

@@ -1,0 +1,8 @@
+{% if ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+</div>
+{% else %}
+<h1>{{TEXT.getTitle}}</h1>
+{{TEXT.getParsedText|raw}}
+{% endif %}

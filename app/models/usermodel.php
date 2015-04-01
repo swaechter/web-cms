@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The class UserModel provides a system to access all users.
+ * The class UserModel provides a user system.
  */
 class UserModel extends Model
 {
@@ -13,6 +13,57 @@ class UserModel extends Model
 	public function getUsers()
 	{
 		return $this->getDatabaseManager()->getEntries("User");
+	}
+	
+	/**
+	 * Get a specific user by the ID.
+	 *
+	 * @param integer $id ID of the user
+	 * @return User|null User object or null
+	 */
+	public function getUser($id)
+	{
+		return $this->getDatabaseManager()->getEntryById("User", $id);
+	}
+	
+	/**
+	 * Create a new user.
+	 *
+	 * @param string $name Name
+	 * @param string $email Email address
+	 * @param string $password Password
+	 * @return boolean Status of the action
+	 */
+	public function createUser($name, $email, $password)
+	{
+		$entry = new User();
+		$entry->setName($name);
+		$entry->setEmail($email);
+		$entry->setPassword(hash("sha512", $password));
+		
+		return $this->getDatabaseManager()->saveEntry($entry);
+	}
+	
+	/**
+	 * Update a user.
+	 *
+	 * @param User $user User obtect
+	 * @return boolean Status of the action
+	 */
+	public function updateUser($user)
+	{
+		return $this->getDatabaseManager()->saveEntry($user);
+	}
+	
+	/**
+	 * Delete a user.
+	 *
+	 * @param User $user User obtect
+	 * @return boolean Status of the action
+	 */
+	public function deleteUser($user)
+	{
+		return $this->getDatabaseManager()->deleteEntry($user);
 	}
 }
 

@@ -42,7 +42,7 @@ class AdminPlugin implements Plugin
 	 */
 	public function getItems()
 	{
-		return array(new Item("login", "Login"), new Item("admin", "Admin"), new Item("user", "Users"), new Item("menu", "Menus"), new Item("plugin", "Plugins"));
+		return array(new Item("admin", "Admin"), new Item("user", "User"), new Item("menu", "Menu"), new Item("plugin", "Plugin"));
 	}
 }
 

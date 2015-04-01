@@ -1,0 +1,38 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=menu&action=adminindex">menu admin site</a>.</p>
+</div>
+{% else %}
+<h1>Edit Menu</h1>
+<form role="form" method="post" action="index.php?controller=menu&action=processedit&id={{ID}}">
+	<div class="form-group">
+		<label for="parentid">Parent Menu</label>
+		<select class="form-control" name="parentid" id="parentid" required>
+			<option value="0">-</option>
+			{% for MENU in MENUS %}
+			{% if PARENTMENU and MENU.getParentMenu and MENU.getParentMenu.getId == PARENTMENU.getId %}
+			<option value="{{PARENTMENU.getId}}" selected>{{PARENTMENU.getDisplayName}}</option>
+			{% else %}
+			<option value="{{MENU.getId}}">{{MENU.getDisplayName}}</option>
+			{% endif %}
+			{% endfor %}
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="displayname">Displayable Name</label>
+		<input class="form-control" type="text" name="displayname" id="displayname" placeholder="Menu display name" value="{{DISPLAYNAME}}" maxlength="50" required>
+	</div>
+	<div class="form-group">
+		<label for="link">Link</label>
+		<input class="form-control" type="text" name="link" id="link" placeholder="Menu link" value="{{LINK}}" maxlength="50">
+	</div>
+	<button class="btn btn-default" type="submit">Save</button>
+</form>
+<a href="index.php?controller=menu&action=adminindex">Back to the menu admin site.</a>
+{% endif %}

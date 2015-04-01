@@ -3,6 +3,8 @@
 	{
 		"doctrine/orm": "*",
 		"twig/twig": "*",
+		"phpmailer/phpmailer": "*",
+		"erusev/parsedown": "*",
 		"twitter/bootstrap": "*",
 		"frameworks/jquery": "*"
 	},

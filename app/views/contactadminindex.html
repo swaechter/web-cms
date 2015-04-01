@@ -1,10 +1,37 @@
-{% if not ERROR %}
-<div class="alert alert-info" role="alert">
-	<h1>Contact Admin Site</h1>
-	<p>At the moment, this site is not implemented.</p>
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
 </div>
-{% else %}
+{% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
 </div>
+{% else %}
+<h1>Edit Contact</h1>
+<form role="form" method="post" action="index.php?controller=contact&action=processadminindex">
+	<div class="form-group">
+		<label for="smtpserver">SMTP Server</label>
+		<input class="form-control" type="text" name="smtpserver" id="smtpserver" placeholder="Your SMTP server" value="{{SMTPSERVER}}" maxlength="50" required>
+	</div>
+	<div class="form-group">
+		<label for="port">TLS Port</label>
+		<input class="form-control" type="number" name="port" id="port" placeholder="Your TLS port of the SMTP server" value="{{PORT}}" required>
+	</div>
+	<div class="form-group">
+		<label for="sender">Sender</label>
+		<input class="form-control" type="email" name="sender" id="sender" placeholder="Your sender email address" value="{{SENDER}}" maxlength="50" required>
+	</div>
+	<div class="form-group">
+		<label for="username">Username</label>
+		<input class="form-control" type="text" name="username" id="username" placeholder="Your username" value="{{USERNAME}}" maxlength="50" required>
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input class="form-control" type="password" name="password" id="password" placeholder="Your password" maxlength="50" required>
+	</div>
+	<button class="btn btn-default" type="submit">Send</button>
+</form>
+<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
 {% endif %}

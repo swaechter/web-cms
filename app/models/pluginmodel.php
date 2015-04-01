@@ -12,10 +12,8 @@ class PluginModel extends Model
 	 */
 	public function getPlugins()
 	{
-		// Create the plugin array
 		$plugins = array();
 		
-		// Search for plugins
 		foreach(get_declared_classes() as $class)
 		{
 			if(in_array("Plugin", class_implements($class)))
@@ -24,7 +22,6 @@ class PluginModel extends Model
 			}
 		}
 		
-		// Return the plugins
 		return $plugins;
 	}
 }

@@ -1,49 +1,60 @@
-{% if not ERROR %}
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+</div>
+{% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="btn-group pull-right">
 				<a href="index.php?controller=menu&action=create" class="btn btn-default btn-xs">Create Menu</a>
 			</div>
-			<h3 class="panel-title">Menus</h3>
+			<h1 class="panel-title">Menus</h1>
 		</div>
 		<div class="panel-body">
-			<table class="table table-condensed">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Parent ID</th>
-						<th>Name</th>
-						<th>Displayable Name</th>
-						<th>Link</th>
-						<th>Position ID</th>
-						<th>Edit</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for MENU in MENUS %}
-					<tr>
-						<td>{{MENU.getID}}</td>
-						<td>{{MENU.getParentMenu}}</td>
-						<td>{{MENU.getName}}</td>
-						<td>{{MENU.getDisplayName}}</td>
-						<td>{{MENU.getLink}}</td>
-						<td>{{MENU.getPosition}}</td>
-						<td>
-							<a href="index.php?controller=menu&action=edit&id={{MENU.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
-							<a href="index.php?controller=menu&action=delete&id={{MENU.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
-						</td>
-						<td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+			{% if MENUS|length > 0 %}
+			<div class="table-responsive">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Parent ID</th>
+							<th>Displayable Name</th>
+							<th>Link</th>
+							<th class="table-edit-cell">Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for MENU in MENUS %}
+						<tr>
+							<td>{{MENU.getID}}</td>
+							{% if MENU.getParentMenu %}
+							<td>{{MENU.getParentMenu.getID}}</td>
+							{% else %}
+							<td>-</td>
+							{% endif %}
+							<td>{{MENU.getDisplayName}}</td>
+							<td>{{MENU.getLink}}</td>
+							<td class="table-edit-cell">
+								<a href="index.php?controller=menu&action=edit&id={{MENU.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
+								<a href="index.php?controller=menu&action=delete&id={{MENU.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% else %}
+			<p>At the moment, no menus have been added to the system.</p>
+			{% endif %}
 		</div>
 	</div>
-	<a href="index.php?controller=admin&action=index">Back to admin site.</a>
-</div>
-{% else %}
-<div class="alert alert-danger" role="alert">
-	<p>{{ERROR}}</p>
+	<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
 </div>
 {% endif %}

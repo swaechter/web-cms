@@ -1,4 +1,13 @@
-{% if not ERROR %}
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+</div>
+{% else %}
 <div>
 	<h1>{{TITLE}}</h1>
 	<h2>Information</h2>
@@ -6,22 +15,22 @@
 	<h2>System Categories</h2>
 	<ul>
 		{% for SYSTEMCONTROLLERITEM in SYSTEMCONTROLLERITEMS %}
-		{% if SYSTEMCONTROLLERITEM.getName() != "admin" %}
-		<li><a href="index.php?controller={{SYSTEMCONTROLLERITEM.getName}}&action=adminindex">{{SYSTEMCONTROLLERITEM.getDisplayName}}</a></li>
-		{% endif %}
+		<li>
+			<a href="index.php?controller={{SYSTEMCONTROLLERITEM.getName}}&action=adminindex">{{SYSTEMCONTROLLERITEM.getDisplayName}}</a>
+		</li>
 		{% endfor %}
 	</ul>
 	<h2>Module Categories</h2>
 	<ul>
 		{% for MODULECONTROLLERITEM in MODULECONTROLLERITEMS %}
-		<li><a href="index.php?controller={{MODULECONTROLLERITEM.getName}}&action=adminindex">{{MODULECONTROLLERITEM.getDisplayName}}</a></li>
+		{% if MODULECONTROLLERITEM.getName() != "admin" %}
+		<li>
+			<a href="index.php?controller={{MODULECONTROLLERITEM.getName}}&action=adminindex">{{MODULECONTROLLERITEM.getDisplayName}}</a>
+		</li>
+		{% endif %}
 		{% endfor %}
 	</ul>
 	<h2>Logout</h2>
-	<p>Click <a href="index.php?controller=login&action=logout">here</a> to log out the user from the system.</p>
-</div>
-{% else %}
-<div class="alert alert-danger" role="alert">
-	<p>{{ERROR}}</p>
+	<p>Click <a href="index.php?controller=admin&action=logout">here</a> to log out the user from the system.</p>
 </div>
 {% endif %}

@@ -1,0 +1,10 @@
+{% if ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+</div>
+{% else %}
+<h1>{{NEWS.getTitle}}</h1>
+<p><b>Date:</b> {{NEWS.getDate}}</p>
+{{NEWS.getParsedText|raw}}
+<a href="index.php?controller=news&action=index">Back to the news site.</a>
+{% endif %}

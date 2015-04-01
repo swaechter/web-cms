@@ -79,8 +79,7 @@ class DatabaseManager
 	 */
 	public function getEntryById($entity, $id)
 	{
-		$query = $this->entitymanager->createQuery("SELECT s FROM $entity s WHERE s.id == '$id'");
-		return $query->getResult();
+		return $this->entitymanager->find($entity, $id);
 	}
 	
 	/**
@@ -92,8 +91,27 @@ class DatabaseManager
 	 */
 	public function getEntriesWithoutId($entity, $id)
 	{
-		$query = $this->entitymanager->createQuery("SELECT s FROM $entity s WHERE s.id != '$id'");
+		$query = $this->entitymanager->createQuery("SELECT e FROM $entity e WHERE e.id != '$id'");
 		return $query->getResult();
+	}
+	
+	/**
+	 * Get one an entry of an entity.
+	 *
+	 * @param string $entity The name of the entity
+	 * @return object|null The object of the entity or null
+	 */
+	public function getOneEntry($entity)
+	{
+		try
+		{
+			$query = $this->entitymanager->createQuery("SELECT e FROM $entity e");
+			return $query->getSingleResult();
+		}
+		catch(Exception $exception)
+		{
+			return null;
+		}
 	}
 	
 	/**
@@ -107,6 +125,26 @@ class DatabaseManager
 		try
 		{
 			$this->entitymanager->persist($entry);
+			$this->entitymanager->flush();
+			return true;
+		}
+		catch(Exception $exception)
+		{
+			return false;
+		}
+	}
+	
+	/**
+	 * Delete an entry.
+	 *
+	 * @param object $entry The entry as object
+	 * @return boolean Status of the action
+	 */
+	public function deleteEntry($entry)
+	{
+		try
+		{
+			$this->entitymanager->remove($entry);
 			$this->entitymanager->flush();
 			return true;
 		}
