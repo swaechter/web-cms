@@ -27,6 +27,11 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 	Create an Apache virtual host for www.example.com that points to /var/www/example.com
 	sudo a2ensite www.example.com
 
+# Create the upload directory and set the chmod
+
+	mkdir public/data/
+	sudo chmod -R 777 public/data/
+
 ### Create and import the database
 
 	mysql -u root -p -e "CREATE DATABASE webcms;"
