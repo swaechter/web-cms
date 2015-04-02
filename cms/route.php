@@ -28,17 +28,25 @@ class Route
 	private $actionname;
 	
 	/**
+	 * The id value.
+	 *
+	 */
+	private $idvalue;
+	
+	/**
 	 * Constructor of the class Route with all controller and action information.
 	 *
 	 * @param string $controllername Controller name
 	 * @param string $controllerclassname Controller class name
 	 * @param string $actionname Action name
+	 * @param string $idvalue ID value
 	 */
-	public function __construct($controllername, $controllerclassname, $actionname)
+	public function __construct($controllername, $controllerclassname, $actionname, $idvalue)
 	{
 		$this->controllername = $controllername;
 		$this->controllerclassname = $controllerclassname;
 		$this->actionname = $actionname;
+		$this->idvalue = $idvalue;
 	}
 	
 	/**
@@ -69,6 +77,16 @@ class Route
 	public function getActionName()
 	{
 		return $this->actionname;
+	}
+	
+	/**
+	 * Get the ID value.
+	 *
+	 * @return string ID Value
+	 */
+	public function getIdValue()
+	{
+		return $this->idvalue;
 	}
 }
 

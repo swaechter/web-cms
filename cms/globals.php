@@ -50,6 +50,13 @@ define("INDEX_TEMPLATE_NAME", "index");
 define("TEMPLATE_EXTENSION", ".html");
 
 /**
+ * This variable represents the delimiter in the URI
+ *
+ * @var string
+ */
+define("URI_DELIMITER", "/");
+
+/**
  * This variable represents the controller suffix.
  *
  * @var string

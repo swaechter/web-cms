@@ -11,15 +11,13 @@ class DataTest extends PHPUnit_Framework_TestCase
 	public function testConfiguration()
 	{
 		// Object getter test
-		$configuration = new Configuration("Web-CMS", array(array("controller", "text"), array("action", "show"), array("id", 5)), "127.0.0.1", "root", "123456", "webcms");
+		$configuration = new Configuration("Web-CMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms");
 		$this->assertSame($configuration->getWebsiteName(), "Web-CMS");
+		$this->assertSame($configuration->getDefaultUri(), "/foobar/show/5");
 		$this->assertSame($configuration->getDatabaseHostname(), "127.0.0.1");
 		$this->assertSame($configuration->getDatabaseUsername(), "root");
 		$this->assertSame($configuration->getDatabasePassword(), "123456");
 		$this->assertSame($configuration->getDatabaseName(), "webcms");
-		
-		$items = $configuration->getDefaultConfiguration();
-		$this->assertSame($items[0][0], "controller");
 	}
 	
 	/**

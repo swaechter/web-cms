@@ -1,19 +1,19 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
 </div>
 {% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="btn-group pull-right">
-				<a href="index.php?controller=menu&action=create" class="btn btn-default btn-xs">Create Menu</a>
+				<a href="/menu/create" class="btn btn-default btn-xs">Create Menu</a>
 			</div>
 			<h1 class="panel-title">Menus</h1>
 		</div>
@@ -42,8 +42,8 @@
 							<td>{{MENU.getDisplayName}}</td>
 							<td>{{MENU.getLink}}</td>
 							<td class="table-edit-cell">
-								<a href="index.php?controller=menu&action=edit&id={{MENU.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
-								<a href="index.php?controller=menu&action=delete&id={{MENU.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+								<a href="/menu/edit/{{MENU.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
+								<a href="/menu/delete/{{MENU.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
 							</td>
 						</tr>
 						{% endfor %}
@@ -55,6 +55,6 @@
 			{% endif %}
 		</div>
 	</div>
-	<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Back to the admin site.</a>
 </div>
 {% endif %}

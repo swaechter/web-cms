@@ -1,16 +1,16 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=news&action=adminindex">news admin site</a>.</p>
+	<p>Go back to the <a href="/news/adminindex">news admin site</a>.</p>
 </div>
 {% else %}
 <div class="alert alert-success" role="alert">
 	<p>{{SUCCESS}}</p>
-	<p>Continue to the <a href="index.php?controller=news&action=adminindex">news admin site</a>.</p>
+	<p>Continue to the <a href="/news/adminindex">news admin site</a>.</p>
 </div>
 {% endif %}

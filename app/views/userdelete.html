@@ -1,16 +1,16 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=menu&action=adminindex">menu admin site</a>.</p>
+	<p>Go back to the <a href="/menu/adminindex">menu admin site</a>.</p>
 </div>
 {% else %}
-<form role="form" method="post" action="index.php?controller=user&action=processdelete&id={{ID}}">
-	<p>Do you really want to delete this user? If not, go <a href="index.php?controller=user&action=adminindex">back</a> to the user admin site</p>
+<form role="form" method="post" action="/user/processdelete/{{ID}}">
+	<p>Do you really want to delete this user? If not, go <a href="/user/adminindex">back</a> to the user admin site</p>
 	<button class="btn btn-default" type="submit">Delete</button>
 </form>
 {% endif %}

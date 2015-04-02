@@ -1,16 +1,16 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=resource&action=adminindex">resource admin site</a>.</p>
+	<p>Go back to the <a href="/resource/adminindex">resource admin site</a>.</p>
 </div>
 {% else %}
 <h1>Upload Resource</h1>
-<form role="form" method="post" action="index.php?controller=resource&action=processcreate" enctype="multipart/form-data">
+<form role="form" method="post" action="/resource/processcreate" enctype="multipart/form-data">
 	<div class="form-group">
 		<p>Please select an resource and press upload.</p>
 	</div>

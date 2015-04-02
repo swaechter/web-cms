@@ -1,19 +1,19 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
 </div>
 {% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="btn-group pull-right">
-				<a href="index.php?controller=user&action=create" class="btn btn-default btn-xs">Create User</a>
+				<a href="/user/create" class="btn btn-default btn-xs">Create User</a>
 			</div>
 			<h1 class="panel-title">Users</h1>
 		</div>
@@ -36,8 +36,8 @@
 							<td>{{USER.getName}}</td>
 							<td>{{USER.getEmail}}</td>
 							<td class="table-edit-cell">
-								<a href="index.php?controller=user&action=edit&id={{USER.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
-								<a href="index.php?controller=user&action=delete&id={{USER.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+								<a href="/user/edit/{{USER.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
+								<a href="/user/delete/{{USER.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
 							</td>
 						</tr>
 						{% endfor %}
@@ -49,6 +49,6 @@
 			{% endif %}
 		</div>
 	</div>
-	<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Back to the admin site.</a>
 </div>
 {% endif %}

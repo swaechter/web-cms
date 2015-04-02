@@ -1,16 +1,16 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=gallery&action=adminindex">gallery admin site</a>.</p>
+	<p>Go back to the <a href="/gallery/adminindex">gallery admin site</a>.</p>
 </div>
 {% else %}
 <h1>Upload Image</h1>
-<form role="form" method="post" action="index.php?controller=gallery&action=processcreate" enctype="multipart/form-data">
+<form role="form" method="post" action="/gallery/processcreate" enctype="multipart/form-data">
 	<div class="form-group">
 		<p>Please select an image and press upload.</p>
 	</div>

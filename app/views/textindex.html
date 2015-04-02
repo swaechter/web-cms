@@ -6,7 +6,7 @@
 {% if TEXTS|length > 0 %}
 {% for TEXT in TEXTS %}
 <h1>{{TEXT.getTitle}}</h1>
-<p>(Click <a href="index.php?controller=text&action=show&id={{TEXT.getId}}">here</a> to read the text on a single site.)</p>
+<p>(Click <a href="/text/show/{{TEXT.getId}}">here</a> to read the text on a single site.)</p>
 {{TEXT.getParsedText|raw}}
 {% endfor %}
 {% else %}

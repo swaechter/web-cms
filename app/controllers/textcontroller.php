@@ -19,10 +19,10 @@ class TextController extends Controller implements ModuleController
 	 */
 	public function show()
 	{
-		if(Utils::hasGetId("id"))
+		if($this->getDataContainer()->getRoute()->getIdValue())
 		{
 			$textmodel = new TextModel($this);
-			$text = $textmodel->getText(Utils::getGet("id"));
+			$text = $textmodel->getText($this->getDataContainer()->getRoute()->getIdValue());
 			{
 				if($text)
 				{
@@ -108,10 +108,10 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if($this->getDataContainer()->getRoute()->getIdValue())
 			{
 				$textmodel = new TextModel($this);
-				$text = $textmodel->getText(Utils::getGet("id"));
+				$text = $textmodel->getText($this->getDataContainer()->getRoute()->getIdValue());
 				if($text)
 				{
 					$this->getView()->setData("ID", $text->getId());
@@ -142,10 +142,10 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id") && Utils::hasPostString("title") && Utils::hasPostText("text"))
+			if($this->getDataContainer()->getRoute()->getIdValue() && Utils::hasPostString("title") && Utils::hasPostText("text"))
 			{
 				$textmodel = new TextModel($this);
-				$text = $textmodel->getText(Utils::getGet("id"));
+				$text = $textmodel->getText($this->getDataContainer()->getRoute()->getIdValue());
 				if($text)
 				{
 					$text->setTitle(Utils::getPost("title"));
@@ -183,9 +183,9 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if($this->getDataContainer()->getRoute()->getIdValue())
 			{
-				$this->getView()->setData("ID", Utils::getGet("id"));
+				$this->getView()->setData("ID", $this->getDataContainer()->getRoute()->getIdValue());
 			}
 			else
 			{
@@ -206,10 +206,10 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if($this->getDataContainer()->getRoute()->getIdValue())
 			{
 				$textmodel = new TextModel($this);
-				$text = $textmodel->getText(Utils::getGet("id"));
+				$text = $textmodel->getText($this->getDataContainer()->getRoute()->getIdValue());
 				if($text)
 				{
 					if($textmodel->deleteText($text))

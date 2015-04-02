@@ -15,32 +15,28 @@ class RouterTest extends PHPUnit_Framework_TestCase
 	public function testRouter()
 	{
 		// Create the configuration
-		$configuration = new Configuration("Web-CMS", array(array("controller", "foobar"), array("action", "show"), array("id", 5)), "127.0.0.1", "root", "123456", "webcms");
+		$configuration = new Configuration("Web-CMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms");
 		
 		// Create the router
 		$router = new Router($configuration);
 		
 		// Set the user controller name to empty. Expected controller name should be foobar
-		Utils::setGet("controller", null);
-		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$route = $router->getRoute(null);
 		$this->assertSame($route->getControllerName(), "foobar");
 		$this->assertSame($route->getControllerClassName(), "foobarcontroller");
 		
 		// Set the user controller name to foo. Expected controller name should be foo
-		Utils::setGet("controller", "foo");
-		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$route = $router->getRoute("/foo");
 		$this->assertSame($route->getControllerName(), "foo");
 		$this->assertSame($route->getControllerClassName(), "foocontroller");
 		
 		// Set the user controller name to bar. Expected controller name should be bar
-		Utils::setGet("controller", "bar");
-		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$route = $router->getRoute("/bar");
 		$this->assertSame($route->getControllerName(), "bar");
 		$this->assertSame($route->getControllerClassName(), "barcontroller");
 		
 		// Set the user controller name to fancy. Expected controller name should be foo
-		Utils::setGet("controller", "fancy");
-		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$route = $router->getRoute("/fancy");
 		$this->assertSame($route->getControllerName(), "foobar");
 		$this->assertSame($route->getControllerClassName(), "foobarcontroller");
 	}

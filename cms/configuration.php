@@ -14,11 +14,11 @@ class Configuration
 	private $websitename;
 	
 	/**
-	 * This default configuration array is used when no user input was found.
+	 * The default URI of the system.
 	 *
 	 * @var string
 	 */
-	private $defaultconfiguration;
+	private $defaulturi;
 	
 	/**
 	 * The hostname of the SQL server.
@@ -52,16 +52,16 @@ class Configuration
 	 * Constructor of the class Configuration.
 	 *
 	 * @param string $websitename The name of the website
-	 * @param array $defaultconfiguration Default user input configuration
+	 * @param array $defaulturi Default URI
 	 * @param string $databasehostname The database hostname
 	 * @param string $databaseusername The database username
 	 * @param string $databasepassword The database user password
 	 * @param string $databasename The database name
 	 */
-	public function __construct($websitename, $defaultconfiguration, $databasehostname, $databaseusername, $databasepassword, $databasename)
+	public function __construct($websitename, $defaulturi, $databasehostname, $databaseusername, $databasepassword, $databasename)
 	{
 		$this->websitename = $websitename;
-		$this->defaultconfiguration = $defaultconfiguration;
+		$this->defaulturi = $defaulturi;
 		$this->databasehostname = $databasehostname;
 		$this->databaseusername = $databaseusername;
 		$this->databasepassword = $databasepassword;
@@ -79,13 +79,13 @@ class Configuration
 	}
 	
 	/**
-	 * Get the default user input configuration if there is no user input.
+	 * Get the default URI if there is no user input.
 	 *
-	 * @return array Configuration as double nested array
+	 * @return string Default URI
 	 */
-	public function getDefaultConfiguration()
+	public function getDefaultUri()
 	{
-		return $this->defaultconfiguration;
+		return $this->defaulturi;
 	}
 	
 	/**

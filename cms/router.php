@@ -26,30 +26,32 @@ class Router
 	/**
 	 * Get the route based on the input.
 	 *
-	 * @param string $controllername User controller input
-	 * @param string $actionname User action input
+	 * @param string $uri URI of the user input
 	 * @param Route|null Router route or null
 	 */
-	public function getRoute($controllername, $actionname)
+	public function getRoute($uri)
 	{
-		// Check if the controller does exist - if not clear it
-		if(!class_exists($controllername . CONTROLLER_SUFFIX))
+		// If the URI is empty, use the default URI
+		if(empty($uri))
 		{
-			$controllername = null;
+			$uri = $this->configuration->getDefaultUri();
 		}
 		
-		// If the controller name is empty, use the default site
-		if(empty($controllername))
+		// Trim the URI
+		$uri = ltrim($uri, URI_DELIMITER);
+		
+		// Split the URI
+		$params = explode(URI_DELIMITER, $uri);
+		$controllername = !empty($params[0]) ? $params[0] : null;
+		$actionname = !empty($params[1]) ? $params[1] : null;
+		$idvalue = !empty($params[2]) ? $params[2] : null;
+		
+		// If the controller was not found, use the fallback URI
+		if(!class_exists($controllername . CONTROLLER_SUFFIX))
 		{
-			// Get the default user values
-			foreach($this->configuration->getDefaultConfiguration() as $item)
-			{
-				Utils::setGet($item[0], $item[1]);
-			}
-			
-			// Update the parameters
-			$controllername = Utils::getGet("controller");
-			$actionname = Utils::getGet("action");
+			$uri = ltrim($this->configuration->getDefaultUri(), URI_DELIMITER);
+			$params = explode(URI_DELIMITER, $uri);
+			$controllername = !empty($params[0]) ? $params[0] : null;
 		}
 		
 		// If the fallback controller does not exist, throw an exception
@@ -91,7 +93,7 @@ class Router
 		$actionname = strtolower($actionname);
 		
 		// Return the route
-		return new Route($controllername, $controllerclassname, $actionname);
+		return new Route($controllername, $controllerclassname, $actionname, $idvalue);
 	}
 }
 

@@ -1,19 +1,19 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
 </div>
 {% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="btn-group pull-right">
-				<a href="index.php?controller=gallery&action=create" class="btn btn-default btn-xs">Upload Image</a>
+				<a href="/gallery/create" class="btn btn-default btn-xs">Upload Image</a>
 			</div>
 			<h1 class="panel-title">Images</h1>
 		</div>
@@ -42,7 +42,7 @@
 							<td class="table-centered-cell">{{IMAGE.getTitle}}</td>
 							<td class="table-centered-cell">{{IMAGE.getFileName}}</td>
 							<td class="table-centered-cell table-edit-cell">
-								<a href="index.php?controller=gallery&action=delete&id={{IMAGE.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+								<a href="/gallery/delete/{{IMAGE.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
 							</td>
 						</tr>
 						{% endfor %}
@@ -54,6 +54,6 @@
 			{% endif %}
 		</div>
 	</div>
-	<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Back to the admin site.</a>
 </div>
 {% endif %}

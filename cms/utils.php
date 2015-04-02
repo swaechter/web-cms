@@ -184,6 +184,17 @@ class Utils
 	}
 	
 	/**
+	 * Get a SERVER value. If the value does not exist, null will be returned.
+	 *
+	 * @param string $key SERVER Key
+	 * @return string|null Key value or null
+	 */
+	public static function getServer($key)
+	{
+		return isset($_SERVER[$key]) ? $_SERVER[$key] : null;
+	}
+	
+	/**
 	 * Check if a FILE value does exist.
 	 *
 	 * @param string $variable Variable

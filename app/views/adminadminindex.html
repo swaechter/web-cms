@@ -1,7 +1,7 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
@@ -16,7 +16,7 @@
 	<ul>
 		{% for SYSTEMCONTROLLERITEM in SYSTEMCONTROLLERITEMS %}
 		<li>
-			<a href="index.php?controller={{SYSTEMCONTROLLERITEM.getName}}&action=adminindex">{{SYSTEMCONTROLLERITEM.getDisplayName}}</a>
+			<a href="/{{SYSTEMCONTROLLERITEM.getName}}/adminindex">{{SYSTEMCONTROLLERITEM.getDisplayName}}</a>
 		</li>
 		{% endfor %}
 	</ul>
@@ -25,12 +25,12 @@
 		{% for MODULECONTROLLERITEM in MODULECONTROLLERITEMS %}
 		{% if MODULECONTROLLERITEM.getName() != "admin" %}
 		<li>
-			<a href="index.php?controller={{MODULECONTROLLERITEM.getName}}&action=adminindex">{{MODULECONTROLLERITEM.getDisplayName}}</a>
+			<a href="/{{MODULECONTROLLERITEM.getName}}/adminindex">{{MODULECONTROLLERITEM.getDisplayName}}</a>
 		</li>
 		{% endif %}
 		{% endfor %}
 	</ul>
 	<h2>Logout</h2>
-	<p>Click <a href="index.php?controller=admin&action=logout">here</a> to log out the user from the system.</p>
+	<p>Click <a href="/admin/logout">here</a> to log out the user from the system.</p>
 </div>
 {% endif %}

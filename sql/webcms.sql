@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 01, 2015 at 03:03 PM
+-- Generation Time: Apr 02, 2015 at 08:53 AM
 -- Server version: 5.5.42-1
 -- PHP Version: 5.6.7-1
 
@@ -73,26 +73,26 @@ CREATE TABLE IF NOT EXISTS `Menu` (
 --
 
 INSERT INTO `Menu` (`id`, `parentmenu_id`, `displayname`, `link`) VALUES
-(1, NULL, 'Home', 'index.php?controller=text&action=show&id=1'),
-(2, NULL, 'About Us', 'index.php?controller=text&action=show&id=2'),
-(3, NULL, 'News', 'index.php?controller=news'),
+(1, NULL, 'Home', '/text/show/1'),
+(2, NULL, 'About Us', '/text/show/2'),
+(3, NULL, 'News', '/news'),
 (4, NULL, 'Services', ''),
-(5, 4, 'Service 1', 'index.php?controller=text&action=show&id=3'),
-(6, 4, 'Service 2', 'index.php?controller=text&action=show&id=4'),
-(7, 4, 'Service 3', 'index.php?controller=text&action=show&id=5'),
+(5, 4, 'Service 1', '/text/show/3'),
+(6, 4, 'Service 2', '/text/show/4'),
+(7, 4, 'Service 3', '/text/show/5'),
 (8, NULL, 'Products', ''),
-(9, 8, 'Product 1', 'index.php?controller=text&action=show&id=6'),
-(10, 8, 'Product 2', 'index.php?controller=text&action=show&id=7'),
-(11, 8, 'Product 3', 'index.php?controller=text&action=show&id=8'),
-(12, 8, 'Product 4', 'index.php?controller=text&action=show&id=9'),
-(13, 8, 'Product 5', 'index.php?controller=text&action=show&id=10'),
-(14, 8, 'Product 6', 'index.php?controller=text&action=show&id=11'),
-(15, NULL, 'Partners & Customers', 'index.php?controller=text&action=show&id=12'),
-(16, NULL, 'References', 'index.php?controller=text&action=show&id=13'),
-(17, NULL, 'Support', 'index.php?controller=text&action=show&id=14'),
-(18, NULL, 'Press Material', 'index.php?controller=gallery'),
-(19, NULL, 'Contact', 'index.php?controller=contact'),
-(20, NULL, 'Admin', 'index.php?controller=admin');
+(9, 8, 'Product 1', '/text/show/6'),
+(10, 8, 'Product 2', '/text/show/7'),
+(11, 8, 'Product 3', '/text/show/8'),
+(12, 8, 'Product 4', '/text/show/9'),
+(13, 8, 'Product 5', '/text/show/10'),
+(14, 8, 'Product 6', '/text/show/11'),
+(15, NULL, 'Partners & Customers', '/text/show/12'),
+(16, NULL, 'References', '/text/show/13'),
+(17, NULL, 'Support', '/text/show/14'),
+(18, NULL, 'Press Material', '/gallery'),
+(19, NULL, 'Contact', '/contact'),
+(20, NULL, 'Admin', '/admin');
 
 -- --------------------------------------------------------
 

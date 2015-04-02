@@ -1,16 +1,16 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=menu&action=adminindex">menu admin site</a>.</p>
+	<p>Go back to the <a href="/menu/adminindex">menu admin site</a>.</p>
 </div>
 {% else %}
 <h1>Create Menu</h1>
-<form role="form" method="post" action="index.php?controller=menu&action=processcreate">
+<form role="form" method="post" action="/menu/processcreate">
 	<div class="form-group">
 		<label for="parentid">Parent Menu</label>
 		<p>The system only allows a menu depth of two menus.</p>
@@ -31,5 +31,5 @@
 	</div>
 	<button class="btn btn-default" type="submit">Create</button>
 </form>
-<a href="index.php?controller=menu&action=adminindex">Back to the menu admin site.</a>
+<a href="/menu/adminindex">Back to the menu admin site.</a>
 {% endif %}

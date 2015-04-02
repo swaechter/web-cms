@@ -69,7 +69,7 @@ class Website
 		
 		// Create the router and get the route
 		$router = new Router($this->configuration);
-		$route = $router->getRoute(Utils::getGet("controller"), Utils::getGet("action"));
+		$route = $router->getRoute(Utils::getServer("REQUEST_URI"));
 		
 		// Get all menus
 		$menus = $menumanager->getMenus();

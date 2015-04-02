@@ -1,19 +1,19 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=index">login site</a>.</p>
+	<p>Go back to the <a href="/admin/index">login site</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
 </div>
 {% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="btn-group pull-right">
-				<a href="index.php?controller=text&action=create" class="btn btn-default btn-xs">Create Text</a>
+				<a href="/text/create" class="btn btn-default btn-xs">Create Text</a>
 			</div>
 			<h1 class="panel-title">Texts</h1>
 		</div>
@@ -34,8 +34,8 @@
 							<td>{{TEXT.getID}}</td>
 							<td>{{TEXT.getTitle}}</td>
 							<td class="table-edit-cell">
-								<a href="index.php?controller=text&action=edit&id={{TEXT.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
-								<a href="index.php?controller=text&action=delete&id={{TEXT.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+								<a href="/text/edit/{{TEXT.getId}}"><span class="glyphicon glyphicon-pencil"></span></a>
+								<a href="/text/delete/{{TEXT.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
 							</td>
 						</tr>
 						{% endfor %}
@@ -47,6 +47,6 @@
 			{% endif %}
 		</div>
 	</div>
-	<a href="index.php?controller=admin&action=adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Back to the admin site.</a>
 </div>
 {% endif %}

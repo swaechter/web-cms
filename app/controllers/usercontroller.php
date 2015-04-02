@@ -77,10 +77,10 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if($this->getDataContainer()->getRoute()->getIdValue())
 			{
 				$usermodel = new UserModel($this);
-				$user = $usermodel->getUser(Utils::getGet("id"));
+				$user = $usermodel->getUser($this->getDataContainer()->getRoute()->getIdValue());
 				if($user)
 				{
 					$this->getView()->setData("ID", $user->getId());
@@ -111,10 +111,10 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id") && Utils::hasPostString("name") && Utils::hasPostEmail("email") && Utils::hasPostString("passworda") && Utils::hasPostString("passwordb"))
+			if($this->getDataContainer()->getRoute()->getIdValue() && Utils::hasPostString("name") && Utils::hasPostEmail("email") && Utils::hasPostString("passworda") && Utils::hasPostString("passwordb"))
 			{
 				$usermodel = new UserModel($this);
-				$user = $usermodel->getUser(Utils::getGet("id"));
+				$user = $usermodel->getUser($this->getDataContainer()->getRoute()->getIdValue());
 				if($user)
 				{
 					$user->setName(Utils::getPost("name"));
@@ -157,9 +157,9 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if($this->getDataContainer()->getRoute()->getIdValue())
 			{
-				$this->getView()->setData("ID", Utils::getGet("id"));
+				$this->getView()->setData("ID", $this->getDataContainer()->getRoute()->getIdValue());
 			}
 			else
 			{
@@ -180,10 +180,10 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if($this->getDataContainer()->getRoute()->getIdValue())
 			{
 				$usermodel = new UserModel($this);
-				$user = $usermodel->getUser(Utils::getGet("id"));
+				$user = $usermodel->getUser($this->getDataContainer()->getRoute()->getIdValue());
 				if($user)
 				{
 					if(count($usermodel->getUsers()) == 1)

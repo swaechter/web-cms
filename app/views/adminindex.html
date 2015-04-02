@@ -1,6 +1,6 @@
 {% if not SUCCESS %}
 <h1>Login</h1>
-<form role="form" method="post" action="index.php?controller=admin&action=login">
+<form role="form" method="post" action="/admin/login">
 	<div class="form-group">
 		<label for="email">Email</label>
 		<input class="form-control" type="email" name="email" id="email" placeholder="Your email address" maxlength="50" required>
@@ -14,6 +14,6 @@
 {% else %}
 <div class="alert alert-success" role="alert">
 	<p>{{SUCCESS}}</p>
-	<p>Continue to the <a href="index.php?controller=admin&action=adminindex">admin site</a>.</p>
+	<p>Continue to the <a href="/admin/adminindex">admin site</a>.</p>
 </div>
 {% endif %}
