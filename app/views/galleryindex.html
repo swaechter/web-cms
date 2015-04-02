@@ -8,7 +8,7 @@
 <ul class="row galleryitem">
 	{% for IMAGE in IMAGES %}
 	<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 galleryitem">
-		<img class="img-responsive" src="public/data/{{IMAGE.getFileName}}" alt="Image missing">
+		<img class="img-responsive" src="/public/data/{{IMAGE.getFileName}}" alt="Image missing">
 		<p class="text-centered">{{IMAGE.getTitle}}</p>
 	</li>
 	{% endfor %}

@@ -32,7 +32,9 @@
 		<label for="link">Link</label>
 		<input class="form-control" type="text" name="link" id="link" placeholder="Menu link" value="{{LINK}}" maxlength="50">
 	</div>
-	<button class="btn btn-default" type="submit">Save</button>
+	<div class="form-group dialogbox">
+		<a class="btn btn-default pull-left" href="/menu/adminindex">Cancel</a>
+		<button class="btn btn-default pull-right" type="submit">Save</button>
+	</div>
 </form>
-<a href="/menu/adminindex">Back to the menu admin site.</a>
 {% endif %}

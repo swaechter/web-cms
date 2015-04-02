@@ -14,6 +14,7 @@ class ResourceController extends Controller implements SystemController
 		if($adminmodel->isUserLoggedIn())
 		{
 			$resourcemodel = new ResourceModel($this);
+			$this->getView()->setData("DATADIRECTORY", DATA_DIRECTORY);
 			$this->getView()->setData("RESOURCES", $resourcemodel->getResources());
 		}
 		else

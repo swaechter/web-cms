@@ -27,7 +27,9 @@
 		<label for="passwordb">Repeat Password</label>
 		<input class="form-control" type="password" name="passwordb" id="passwordb" placeholder="Repeated user password" maxlength="50" required>
 	</div>
-	<button class="btn btn-default" type="submit">Create</button>
+	<div class="form-group dialogbox">
+		<a class="btn btn-default pull-left" href="/user/adminindex">Cancel</a>
+		<button class="btn btn-default pull-right" type="submit">Create</button>
+	</div>
 </form>
-<a href="/user/adminindex">Back to the user admin site.</a>
 {% endif %}

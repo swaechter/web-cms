@@ -18,6 +18,9 @@
 		<label for="fileupload">Select an resource</label>
 		<input type="file" name="fileupload" id="fileupload" accept="text/plain, application/pdf, image/png, image/jpeg, image/pjpeg, image/jpeg, image/pjpeg, image/gif, video/mp4" required>
 	</div>
-	<button class="btn btn-default" type="submit">Upload</button>
+	<div class="form-group dialogbox">
+		<a class="btn btn-default pull-left" href="/resource/adminindex">Cancel</a>
+		<button class="btn btn-default pull-right" type="submit">Upload</button>
+	</div>
 </form>
 {% endif %}

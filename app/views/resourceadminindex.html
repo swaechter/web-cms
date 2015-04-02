@@ -24,7 +24,7 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Filename</th>
+							<th>Filepath</th>
 							<th class="table-edit-cell">Edit</th>
 						</tr>
 					</thead>
@@ -32,7 +32,7 @@
 						{% for RESOURCE in RESOURCES %}
 						<tr>
 							<td>{{RESOURCE.getID}}</td>
-							<td>{{RESOURCE.getFileName}}</td>
+							<td>/{{DATADIRECTORY}}{{RESOURCE.getFileName}}</td>
 							<td class="table-edit-cell">
 								<a href="/resource/delete/{{RESOURCE.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
 							</td>

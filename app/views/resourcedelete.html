@@ -10,7 +10,13 @@
 </div>
 {% else %}
 <form role="form" method="post" action="/resource/processdelete/{{ID}}">
-	<p>Do you really want to delete this resource? If not, go <a href="/resource/adminindex">back</a> to the resource admin site</p>
-	<button class="btn btn-default" type="submit">Delete</button>
+	<div class="form-group">
+		<label>Attention</label>
+		<p>Do you really want to delete this resource? If not, press the cancel button.</p>
+	</div>
+	<div class="form-group dialogbox">
+		<a class="btn btn-default pull-left" href="/resource/adminindex">Cancel</a>
+		<button class="btn btn-default pull-right" type="submit">Delete</button>
+	</div>
 </form>
 {% endif %}
