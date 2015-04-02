@@ -31,14 +31,14 @@ class Router
 	 */
 	public function getRoute($uri)
 	{
+		// Trim the URI
+		$uri = ltrim($uri, URI_DELIMITER);
+		
 		// If the URI is empty, use the default URI
 		if(empty($uri))
 		{
-			$uri = $this->configuration->getDefaultUri();
+			$uri = ltrim($this->configuration->getDefaultUri(), URI_DELIMITER);
 		}
-		
-		// Trim the URI
-		$uri = ltrim($uri, URI_DELIMITER);
 		
 		// Split the URI
 		$params = explode(URI_DELIMITER, $uri);
