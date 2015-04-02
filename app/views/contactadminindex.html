@@ -9,29 +9,35 @@
 	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
 </div>
 {% else %}
-<h1>Edit Contact</h1>
-<form role="form" method="post" action="/contact/processadminindex">
-	<div class="form-group">
-		<label for="smtpserver">SMTP Server</label>
-		<input class="form-control" type="text" name="smtpserver" id="smtpserver" placeholder="Your SMTP server" value="{{SMTPSERVER}}" maxlength="50" required>
+<div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="btn-group pull-right">
+				<a href="/contact/edit" class="btn btn-default btn-xs">Edit Contact</a>
+			</div>
+			<h1 class="panel-title">Contact</h1>
+		</div>
+		<div class="panel-body">
+			<form role="form" method="post" action="/contact/processadminindex">
+				<div class="form-group">
+					<label for="smtpserver">SMTP Server</label>
+					<input class="form-control" type="text" name="smtpserver" id="smtpserver" placeholder="Your SMTP server" value="{{SMTPSERVER}}" disabled>
+				</div>
+				<div class="form-group">
+					<label for="port">TLS Port</label>
+					<input class="form-control" type="number" name="port" id="port" placeholder="Your TLS port of the SMTP server" value="{{PORT}}" disabled>
+				</div>
+				<div class="form-group">
+					<label for="sender">Sender</label>
+					<input class="form-control" type="email" name="sender" id="sender" placeholder="Your sender email address" value="{{SENDER}}" disabled>
+				</div>
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input class="form-control" type="text" name="username" id="username" placeholder="Your username" value="{{USERNAME}}" disabled>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="port">TLS Port</label>
-		<input class="form-control" type="number" name="port" id="port" placeholder="Your TLS port of the SMTP server" value="{{PORT}}" required>
-	</div>
-	<div class="form-group">
-		<label for="sender">Sender</label>
-		<input class="form-control" type="email" name="sender" id="sender" placeholder="Your sender email address" value="{{SENDER}}" maxlength="50" required>
-	</div>
-	<div class="form-group">
-		<label for="username">Username</label>
-		<input class="form-control" type="text" name="username" id="username" placeholder="Your username" value="{{USERNAME}}" maxlength="50" required>
-	</div>
-	<div class="form-group">
-		<label for="password">Password</label>
-		<input class="form-control" type="password" name="password" id="password" placeholder="Your password" maxlength="50" required>
-	</div>
-	<button class="btn btn-default" type="submit">Send</button>
-</form>
-<a href="/admin/adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Back to the admin site.</a>
+</div>
 {% endif %}

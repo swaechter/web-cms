@@ -84,14 +84,42 @@ class ContactController extends Controller implements ModuleController
 	}
 	
 	/**
-	 * Process the admin index action
+	 * Edit the contact.
 	 */
-	public function processadminindex()
+	public function edit()
 	{
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasPostEmail("smtpserver", 50) && Utils::hasPostNumber("port") && Utils::hasPostEmail("sender") && Utils::hasPostString("username") && Utils::hasPostString("password"))
+			$contactmodel = new ContactModel($this);
+			$mailconfiguration = $contactmodel->getMailConfiguration();
+			if($mailconfiguration)
+			{
+				$this->getView()->setData("SMTPSERVER", $mailconfiguration->getSmtpServer());
+				$this->getView()->setData("PORT", $mailconfiguration->getPort());
+				$this->getView()->setData("SENDER", $mailconfiguration->getSender());
+				$this->getView()->setData("USERNAME", $mailconfiguration->getUsername());
+			}
+			else
+			{
+				$this->getView()->setData("ERROR", "The mail settings are not properly stored.");
+			}
+		}
+		else
+		{
+			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+		}
+	}
+	
+	/**
+	 * Process the admin index action
+	 */
+	public function processedit()
+	{
+		$adminmodel = new AdminModel($this);
+		if($adminmodel->isUserLoggedIn())
+		{
+			if(Utils::hasPostString("smtpserver") && Utils::hasPostNumber("port") && Utils::hasPostEmail("sender") && Utils::hasPostString("username") && Utils::hasPostString("password"))
 			{
 				$contactmodel = new ContactModel($this);
 				$mailconfiguration = $contactmodel->getMailConfiguration();
