@@ -83,12 +83,6 @@ class Router
 			}
 		}
 		
-		// If the action method does not exist, throw an exception
-		if(!method_exists($controllerclassname, $actionname))
-		{
-			throw new Exception("The router cannot find the method for this router.");
-		}
-		
 		// Lowercase the action name to prevent file system problems
 		$actionname = strtolower($actionname);
 		

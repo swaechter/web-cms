@@ -110,7 +110,7 @@ class Menu
 	 */
 	public function addChildrenMenu($childrenmenu)
 	{
-		$this->childrenmenus->add($childrenmenus);
+		$this->childrenmenus->add($childrenmenu);
 	}
 	
 	/**

@@ -39,7 +39,7 @@ class DatabaseManager
 		$database = $configuration->getDatabaseName();
 		
 		// Set the directories for the entity manager
-		$directories = array(getcwd() . "/" . CMS_DIRECTORY, getcwd() . "/" . APP_DIRECTORY);
+		$directories = array(getcwd() . "/" . CMS_ENTITY_DIRECTORY, getcwd() . "/" . APP_ENTITY_DIRECTORY);
 		
 		// Setup the connection
 		$dataconfiguration = Setup::createAnnotationMetadataConfiguration($directories, true);

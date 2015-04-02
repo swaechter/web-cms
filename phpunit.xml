@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true">
+<phpunit bootstrap="./cms/website.php" colors="true">
 	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">cms/</directory>
+		<whitelist>
+			<directory>./cms/</directory>
 		</whitelist>
 	</filter>
 	<testsuites>
@@ -10,4 +10,7 @@
 			<directory suffix="test.php">./tests/</directory>
 		</testsuite>
 	</testsuites>
+	<logging>
+		<log type="coverage-html" target="./coverage"/>
+	</logging>
 </phpunit>

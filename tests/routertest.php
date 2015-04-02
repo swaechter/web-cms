@@ -1,8 +1,8 @@
 <?php
 
-require("routertest/foocontroller.php");
-require("routertest/barcontroller.php");
-require("routertest/foobarcontroller.php");
+require_once("routertest/foocontroller.php");
+require_once("routertest/barcontroller.php");
+require_once("routertest/foobarcontroller.php");
 
 /**
  * The class RouterTest is a test for the router
@@ -14,10 +14,8 @@ class RouterTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testRouter()
 	{
-		// Create the configuration
-		$configuration = new Configuration("Web-CMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms");
+		$configuration = new Configuration("Web-CMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms_test");
 		
-		// Create the router
 		$router = new Router($configuration);
 		
 		// Set the user controller name empty (Configuration problem). Expected controller name should be foobar

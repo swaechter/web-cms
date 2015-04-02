@@ -1,29 +1,30 @@
 <?php
 
 // Include the entites
-require("entities/menu.php");
-require("entities/user.php");
+require_once("entities/menu.php");
+require_once("entities/user.php");
 
 // Include the interfaces
-require("interfaces/modulecontroller.php");
-require("interfaces/systemcontroller.php");
+require_once("interfaces/modulecontroller.php");
+require_once("interfaces/systemcontroller.php");
 
 // Include the system
-require("globals.php");
-require("configuration.php");
-require("databasemanager.php");
-require("datacontainer.php");
-require("plugin.php");
-require("pluginmanager.php");
-require("route.php");
-require("router.php");
-require("model.php");
-require("view.php");
-require("controller.php");
-require("item.php");
-require("menumanager.php");
-require("viewmanager.php");
-require("utils.php");
+require_once("globals.php");
+require_once("configuration.php");
+require_once("databasemanager.php");
+require_once("datacontainer.php");
+require_once("plugin.php");
+require_once("pluginmanager.php");
+require_once("route.php");
+require_once("router.php");
+require_once("model.php");
+require_once("view.php");
+require_once("controller.php");
+require_once("item.php");
+require_once("menumanager.php");
+require_once("viewmanager.php");
+require_once("utils.php");
+
 /**
  * The class Website is the main class of the whole system. It is responsible
  * for handling the user request and generating a displayable site.
@@ -46,6 +47,9 @@ class Website
 	{
 		// Set the configuration
 		$this->configuration = $configuration;
+		
+		// Start the session
+		session_start();
 	}
 	
 	/**
@@ -59,7 +63,7 @@ class Website
 		$pluginmanager = new PluginManager(APP_DIRECTORY);
 		
 		// Create the database manager
-		$databasemanager = new Databasemanager($this->configuration);
+		$databasemanager = new DatabaseManager($this->configuration);
 		
 		// Create the view manager
 		$viewmanager = new ViewManager($this->configuration);

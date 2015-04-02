@@ -45,7 +45,7 @@ class AdminModel extends Model
 	 */
 	public function logoutUser()
 	{
-		Utils::unsetSession();
+		session_unset();
 	}
 	
 	/**

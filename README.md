@@ -34,6 +34,7 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Create and import the database
 
+	mysql -u root -p -e "CREATE DATABASE webcms_test;"
 	mysql -u root -p -e "CREATE DATABASE webcms;"
 	mysql -u root -p webcms < sql/webcms.sql
 

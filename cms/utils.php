@@ -62,18 +62,6 @@ class Utils
 	}
 	
 	/**
-	 * Check if a POST ID value does exist.
-	 *
-	 * @param string $key POST ID Key
-	 * @return boolean Status of existence
-	 */
-	public static function hasPostId($key)
-	{
-		$value = Utils::getPost($key);
-		return $value != null && is_numeric($value) && $value > 0;
-	}
-	
-	/**
 	 * Check if a possible POST ID value does exist and check it.
 	 *
 	 * @param string $key Possible POST ID Key
@@ -81,7 +69,7 @@ class Utils
 	 */
 	public static function hasPossiblePostId($key)
 	{
-		if(!Utils::hasGet($key))
+		if(!Utils::hasPost($key))
 		{
 			return true;
 		}
@@ -184,6 +172,14 @@ class Utils
 	}
 	
 	/**
+	 * Destroy all POST variables
+	 */
+	public static function unsetPost()
+	{
+		$_POST = array();
+	}
+	
+	/**
 	 * Get a SERVER value. If the value does not exist, null will be returned.
 	 *
 	 * @param string $key SERVER Key
@@ -204,6 +200,17 @@ class Utils
 	public static function hasFiles($variable, $key)
 	{
 		return isset($_FILES[$variable][$key]) && strlen(trim($_FILES[$variable][$key])) > 0 ? true : false;
+	}
+	
+	/**
+	 * Set a FILE value.
+	 * @param string $variable Variable
+	 * @param string $key FILE Key
+	 * @param string $value FILE value
+	 */
+	public static function setFiles($variable, $key, $value)
+	{
+		$_FILES[$variable][$key] = $value;
 	}
 	
 	/**
@@ -249,22 +256,6 @@ class Utils
 	public static function getSession($key)
 	{
 		return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
-	}
-	
-	/**
-	 * Destroy the current session and make the clientside cookie invalid
-	 */
-	public static function unsetSession()
-	{
-		session_unset();
-	}
-	
-	/**
-	 * Destroy the all POST variables
-	 */
-	public static function unsetPost()
-	{
-		$_POST = array();
 	}
 }
 
