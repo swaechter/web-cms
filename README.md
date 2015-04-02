@@ -10,7 +10,7 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Install all system dependencies
 
-	sudo apt-get install apache2 php5 php5-xsl php5-mysql mysql-client
+	sudo apt-get install apache2 php5 php5-xdebug php5-xsl php5-mysql mysql-client
 
 ### Clone the repository
 
@@ -18,16 +18,16 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 	git clone https://github.com/swaechter/web-cms.git www.example.com (Your domain)
 	cd wwww.example.com
 
-# Enable Apache mod_rewrite
+### Enable Apache mod_rewrite
 
 	sudo a2enmod rewrite
 
-# Create a virtuel host
+### Create a virtuel host
 
 	Create an Apache virtual host for www.example.com that points to /var/www/example.com
 	sudo a2ensite www.example.com
 
-# Create the upload directory and set the chmod
+### Create the upload directory and set the chmod
 
 	mkdir public/data/
 	sudo chmod -R 777 public/data/
@@ -59,9 +59,13 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Cleanup for production
 
+	rm -rf sql/
+	rm -rf tests/
+	rm -rf coverage/
 	rm composer.phar
 	rm index_tests.php
 	rm index_documentation.php
+	rm phpunit.xml
 
 ## License
 
