@@ -84,6 +84,60 @@ class ContactModel extends Model
 			return false;
 		}
 	}
+	
+	/**
+	 * Generate a captcha image.
+	 *
+	 * @return boolean Status of the action
+	 */
+	public function generateCaptchaImage()
+	{
+		$width = 60;
+		$height = 30;
+		$noise_level = 15;
+		$code = rand(1000, 9999);
+		
+		$image = imagecreatetruecolor($width, $height);
+		$background = imagecolorallocate($image, 230, 80, 0);
+		$foreground = imagecolorallocate($image, 255, 255, 255);
+		$noise = imagecolorallocate($image, 200, 200, 200);
+		
+		imagefill($image, 0, 0, $background);
+		
+		imagestring($image, 5, 10, 8,  $code, $foreground);
+		
+		for ($i = 0; $i < $noise_level; $i++)
+		{
+			for ($j = 0; $j < $noise_level; $j++)
+			{
+				imagesetpixel($image, rand(0, $width), rand(0, $height), $noise);
+			}
+		}
+		
+		//generate the png image
+		if(!imagepng($image, DATA_DIRECTORY . "image_captcha.png"))
+		{
+			return false;
+		}
+		
+		imagedestroy($image);
+		
+		Utils::setSession("ContactCaptcha", $code);
+		
+		return true;
+	}
+	
+	/**
+	 * Get the user captcha from his session and clear it
+	 *
+	 * @return string Captcha string
+	 */
+	public function getUserCaptcha()
+	{
+		$captcha = Utils::getSession("ContactCaptcha");
+		Utils::setSession("ContactCaptcha", null);
+		return $captcha;
+	}
 }
 
 ?>

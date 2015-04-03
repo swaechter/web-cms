@@ -11,7 +11,18 @@ class ContactController extends Controller implements ModuleController
 	public function index()
 	{
 		$contactmodel = new ContactModel($this);
-		if(!$contactmodel->hasMailConfiguration())
+		if($contactmodel->hasMailConfiguration())
+		{
+			if($contactmodel->generateCaptchaImage())
+			{
+				$this->getView()->setData("FILEPATH", DATA_DIRECTORY . "image_captcha.png");
+			}
+			else
+			{
+				$this->getView()->setData("ERROR", "The system is unable to generate a captcha image");
+			}
+		}
+		else
 		{
 			$this->getView()->setData("ERROR", "The mail settings are not configured. Please contact the site admin.");
 		}
@@ -25,28 +36,35 @@ class ContactController extends Controller implements ModuleController
 		$contactmodel = new ContactModel($this);
 		if($contactmodel->hasMailConfiguration())
 		{
-			if(Utils::hasPostEmail("email") && Utils::hasPostString("name") && Utils::hasPostString("title") && Utils::hasPostText("text"))
+			if(Utils::hasPostString("captcha") && Utils::hasPostEmail("email") && Utils::hasPostString("name") && Utils::hasPostString("title") && Utils::hasPostText("text"))
 			{
-				$mailconfiguration = $contactmodel->getMailConfiguration();
-				if($mailconfiguration)
+				if($contactmodel->getUserCaptcha() == Utils::getPost("captcha"))
 				{
-					if($contactmodel->sendMail($mailconfiguration, Utils::getPost("email"), Utils::getPost("name"), Utils::getPost("title"), Utils::getPost("text")))
+					$mailconfiguration = $contactmodel->getMailConfiguration();
+					if($mailconfiguration)
 					{
-						$this->getView()->setData("SUCCESS", "The mail was successfully sent.");
+						if($contactmodel->sendMail($mailconfiguration, Utils::getPost("email"), Utils::getPost("name"), Utils::getPost("title"), Utils::getPost("text")))
+						{
+							$this->getView()->setData("SUCCESS", "The mail was successfully sent.");
+						}
+						else
+						{
+							$this->getView()->setData("ERROR", "The system was unable to send the mail.");
+						}
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to send the mail.");
+						$this->getView()->setData("ERROR", "The mail settings are not configured. Please contact the site admin.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The mail settings are not configured. Please contact the site admin.");
+					$this->getView()->setData("ERROR", "Your input captcha doesn't match with the image captcha.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a user name, email address, title and text.");
+				$this->getView()->setData("ERROR", "Please provide a captcha, user name, email address, title and text.");
 			}
 		}
 		else

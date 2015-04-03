@@ -12,7 +12,7 @@ define("CMS_DIRECTORY", "cms/");
  *
  * @var string
  */
-define("CMS_ENTITY_DIRECTORY", "cms/entities");
+define("CMS_ENTITY_DIRECTORY", "cms/entities/");
 
 /**
  * This variable represents the directory where the application is located.
@@ -26,7 +26,7 @@ define("APP_DIRECTORY", "app/");
  *
  * @var string
  */
-define("APP_ENTITY_DIRECTORY", "app/entities");
+define("APP_ENTITY_DIRECTORY", "app/entities/");
 
 /**
  * This variable represents the directory where the plugin data are located.

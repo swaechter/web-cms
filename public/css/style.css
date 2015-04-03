@@ -23,9 +23,9 @@ body
 	padding: 20px;
 }
 
-.dialogbox
+.captcha-image
 {
-	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
 .text-centered
@@ -48,9 +48,9 @@ body
 	max-height: 50px;
 }
 
-textarea
+.dialogbox
 {
-	resize: vertical;
+	padding-bottom: 20px;
 }
 
 .galleryitem ul
@@ -122,4 +122,9 @@ textarea
 	{
 		display: none;
 	}
+}
+
+textarea
+{
+	resize: vertical;
 }
