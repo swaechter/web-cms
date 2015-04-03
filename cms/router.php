@@ -46,6 +46,12 @@ class Router
 		$actionname = !empty($params[1]) ? $params[1] : null;
 		$idvalue = !empty($params[2]) ? $params[2] : null;
 		
+		// If a ID value exists, add it to the GET array
+		if(!empty($idvalue))
+		{
+			Utils::setGet("id", $idvalue);
+		}
+		
 		// If the controller was not found, use the fallback URI
 		if(!class_exists($controllername . CONTROLLER_SUFFIX))
 		{

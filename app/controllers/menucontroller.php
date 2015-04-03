@@ -78,10 +78,10 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue())
+			if(Utils::hasGetId("id"))
 			{
 				$menumodel = new MenuModel($this);
-				$menu = $menumodel->getMenu($this->getDataContainer()->getRoute()->getIdValue());
+				$menu = $menumodel->getMenu(Utils::getGet("id"));
 				if($menu)
 				{
 					if($menu->getParentMenu())
@@ -125,10 +125,10 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue() && Utils::hasPossiblePostId("parentid") && Utils::hasPostString("displayname") && Utils::hasPossiblePostString("link"))
+			if(Utils::hasGetId("id") && Utils::hasPossiblePostId("parentid") && Utils::hasPostString("displayname") && Utils::hasPossiblePostString("link"))
 			{
 				$menumodel = new MenuModel($this);
-				$menu = $menumodel->getMenu($this->getDataContainer()->getRoute()->getIdValue());
+				$menu = $menumodel->getMenu(Utils::getGet("id"));
 				if($menu)
 				{
 					$parentmenu = null;
@@ -173,9 +173,9 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue())
+			if(Utils::hasGetId("id"))
 			{
-				$this->getView()->setData("ID", $this->getDataContainer()->getRoute()->getIdValue());
+				$this->getView()->setData("ID", Utils::getGet("id"));
 			}
 			else
 			{
@@ -196,10 +196,10 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue())
+			if(Utils::hasGetId("id"))
 			{
 				$menumodel = new MenuModel($this);
-				$menu = $menumodel->getMenu($this->getDataContainer()->getRoute()->getIdValue());
+				$menu = $menumodel->getMenu(Utils::getGet("id"));
 				if($menu)
 				{
 					if($menumodel->deleteMenu($menu))

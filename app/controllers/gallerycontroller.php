@@ -96,9 +96,9 @@ class GalleryController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue())
+			if(Utils::hasGetId("id"))
 			{
-				$this->getView()->setData("ID", $this->getDataContainer()->getRoute()->getIdValue());
+				$this->getView()->setData("ID", Utils::getGet("id"));
 			}
 			else
 			{
@@ -119,10 +119,10 @@ class GalleryController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue())
+			if(Utils::hasGetId("id"))
 			{
 				$gallerymodel = new GalleryModel($this);
-				$image = $gallerymodel->getImage($this->getDataContainer()->getRoute()->getIdValue());
+				$image = $gallerymodel->getImage(Utils::getGet("id"));
 				if($image)
 				{
 					if($gallerymodel->deleteImage($image))

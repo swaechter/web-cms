@@ -19,10 +19,10 @@ class NewsController extends Controller implements ModuleController
 	 */
 	public function show()
 	{
-		if($this->getDataContainer()->getRoute()->getIdValue())
+		if(Utils::hasGetId("id"))
 		{
 			$newsmodel = new NewsModel($this);
-			$news = $newsmodel->getNews($this->getDataContainer()->getRoute()->getIdValue());
+			$news = $newsmodel->getNews(Utils::getGet("id"));
 			{
 				if($news)
 				{
@@ -108,10 +108,10 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue())
+			if(Utils::hasGetId("id"))
 			{
 				$newsmodel = new NewsModel($this);
-				$news = $newsmodel->getNews($this->getDataContainer()->getRoute()->getIdValue());
+				$news = $newsmodel->getNews(Utils::getGet("id"));
 				if($news)
 				{
 					$this->getView()->setData("ID", $news->getId());
@@ -142,10 +142,10 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue() && Utils::hasPostString("title") && Utils::hasPostText("text"))
+			if(Utils::hasGetId("id") && Utils::hasPostString("title") && Utils::hasPostText("text"))
 			{
 				$newsmodel = new NewsModel($this);
-				$news = $newsmodel->getNews($this->getDataContainer()->getRoute()->getIdValue());
+				$news = $newsmodel->getNews(Utils::getGet("id"));
 				if($news)
 				{
 					$news->setTitle(Utils::getPost("title"));
@@ -183,9 +183,9 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue())
+			if(Utils::hasGetId("id"))
 			{
-				$this->getView()->setData("ID", $this->getDataContainer()->getRoute()->getIdValue());
+				$this->getView()->setData("ID", Utils::getGet("id"));
 			}
 			else
 			{
@@ -206,10 +206,10 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if($this->getDataContainer()->getRoute()->getIdValue())
+			if(Utils::hasGetId("id"))
 			{
 				$newsmodel = new NewsModel($this);
-				$news = $newsmodel->getNews($this->getDataContainer()->getRoute()->getIdValue());
+				$news = $newsmodel->getNews(Utils::getGet("id"));
 				if($news)
 				{
 					if($newsmodel->deleteNews($news))

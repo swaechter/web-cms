@@ -76,7 +76,7 @@ class Utils
 		else
 		{
 			$value = Utils::getPost($key);
-			return $value != null && is_numeric($value) && $value > 0;
+			return $value != null && is_numeric($value);
 		}
 		return false;
 	}
