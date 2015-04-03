@@ -12,9 +12,6 @@ class ObjectTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testMenu()
 	{
-		$configuration = new Configuration("Web-CMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms_test");
-		$databasemanager = new DatabaseManager($configuration);
-		
 		$parentmenu = new Menu();
 		$parentmenu->setDisplayName("Parent");
 		$parentmenu->setLink(null);
