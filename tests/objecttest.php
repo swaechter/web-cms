@@ -97,9 +97,9 @@ class ObjectTest extends PHPUnit_Framework_TestCase
 	public function testGlobals()
 	{
 		$this->assertSame(CMS_DIRECTORY, "cms/");
-		$this->assertSame(CMS_ENTITY_DIRECTORY, "cms/entities");
+		$this->assertSame(CMS_ENTITY_DIRECTORY, "cms/entities/");
 		$this->assertSame(APP_DIRECTORY, "app/");
-		$this->assertSame(APP_ENTITY_DIRECTORY, "app/entities");
+		$this->assertSame(APP_ENTITY_DIRECTORY, "app/entities/");
 		$this->assertSame(DATA_DIRECTORY, "public/data/");
 		$this->assertSame(TEMPLATE_DIRECTORY, "public/html/");
 		$this->assertSame(SUBTEMPLATE_DIRECTORY, "app/views/");
