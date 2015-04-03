@@ -4,7 +4,7 @@
 </div>
 {% else %}
 <h1>News</h1>
-{% if NEWS|length > 0 %}
+{% if NEWSS|length > 0 %}
 {% for NEWS in NEWSS %}
 <h2>{{NEWS.getTitle}}</h2>
 <p><b>Date:</b> {{NEWS.getDate}} <b>Link:</b> <a href="/news/show/{{NEWS.getId}}">Click here</a></p>

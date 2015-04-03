@@ -1,5 +1,7 @@
 <?php
 
+use Gajus\Dindent\Indenter;
+
 /**
  * The class ViewManager is responsible for the view creation and parsing.
  */
@@ -65,6 +67,11 @@ class ViewManager
 		$loader = new Twig_Loader_Filesystem($view->getTemplateDirectory());
 		$environment = new Twig_Environment($loader, array("autoescape" => true));
 		$content = $environment->render($view->getTemplateName(), $data);
+		
+		$indenter = new Indenter();
+		$indenter->setElementType('a', Indenter::ELEMENT_TYPE_BLOCK);
+		$indenter->setElementType('span', Indenter::ELEMENT_TYPE_BLOCK);
+		$content = $indenter->indent($content);
 		
 		return $content;
 	}

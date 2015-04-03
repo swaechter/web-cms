@@ -5,6 +5,7 @@
 		"twig/twig": "*",
 		"phpmailer/phpmailer": "*",
 		"erusev/parsedown": "*",
+		"gajus/dindent": "*",
 		"twitter/bootstrap": "*",
 		"frameworks/jquery": "*"
 	},
