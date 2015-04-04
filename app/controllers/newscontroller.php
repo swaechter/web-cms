@@ -114,9 +114,7 @@ class NewsController extends Controller implements ModuleController
 				$news = $newsmodel->getNews(Utils::getGet("id"));
 				if($news)
 				{
-					$this->getView()->setData("ID", $news->getId());
-					$this->getView()->setData("TITLE", $news->getTitle());
-					$this->getView()->setData("TEXT", $news->getMarkdownText());
+					$this->getView()->setData("NEWS", $news);
 				}
 				else
 				{
@@ -166,7 +164,7 @@ class NewsController extends Controller implements ModuleController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an. title and text.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID, einen Titel und einen Text an.");
 			}
 		}
 		else

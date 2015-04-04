@@ -6,7 +6,8 @@
 <h1>News</h1>
 {% if NEWSS|length > 0 %}
 {% for NEWS in NEWSS %}
-<h2>{{NEWS.getTitle}}</h2>
+<hr>
+<h1>{{NEWS.getTitle}}</h1>
 <p><b>Datum:</b> {{NEWS.getDate}} <b>Link:</b> <a href="/news/show/{{NEWS.getId}}">Hier</a></p>
 {{NEWS.getParsedText|raw}}
 {% endfor %}

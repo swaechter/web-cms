@@ -128,3 +128,10 @@ textarea
 {
 	resize: vertical;
 }
+
+hr
+{
+    border: none;
+    height: 1px;
+    background-color: grey;
+}

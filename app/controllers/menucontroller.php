@@ -61,7 +61,7 @@ class MenuController extends Controller implements SystemController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a displayable menu name and link.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie einen gültigen Namen und einen Link an.");
 			}
 		}
 		else

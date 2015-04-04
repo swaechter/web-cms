@@ -114,9 +114,7 @@ class TextController extends Controller implements ModuleController
 				$text = $textmodel->getText(Utils::getGet("id"));
 				if($text)
 				{
-					$this->getView()->setData("ID", $text->getId());
-					$this->getView()->setData("TITLE", $text->getTitle());
-					$this->getView()->setData("TEXT", $text->getMarkdownText());
+					$this->getView()->setData("TEXT", $text);
 				}
 				else
 				{
@@ -166,7 +164,7 @@ class TextController extends Controller implements ModuleController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an. title and text.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID, einen Titel und einen Text an.");
 			}
 		}
 		else

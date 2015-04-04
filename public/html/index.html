@@ -6,6 +6,23 @@
 		<script src="/vendor/frameworks/jquery/jquery.min.js"></script>
 		<script src="/vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="/public/js/script.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				if(document.getElementById("markdown-text"))
+				{
+					{% if TEXT is defined %}
+					val = (function() {/*{{TEXT.getMarkdownText}}*/}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
+					document.getElementById("markdown-text").value = val;
+					{% endif %}
+					
+					{% if NEWS is defined %}
+					val = (function() {/*{{NEWS.getMarkdownText}}*/}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
+					document.getElementById("markdown-text").value = val;
+					{% endif %}
+				}
+			});
+		</script>
 		<link href="/vendor/twitter/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/public/css/style.css" rel="stylesheet">
 		<title>{{TITLE}}</title>
