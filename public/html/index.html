@@ -12,12 +12,12 @@
 				if(document.getElementById("markdown-text"))
 				{
 					{% if TEXT is defined %}
-					val = (function() {/*{{TEXT.getMarkdownText}}*/}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
+					val = (function() {/*{{TEXT.getMarkdownText|raw}}*/}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
 					document.getElementById("markdown-text").value = val;
 					{% endif %}
 					
 					{% if NEWS is defined %}
-					val = (function() {/*{{NEWS.getMarkdownText}}*/}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
+					val = (function() {/*{{NEWS.getMarkdownText|raw}}*/}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
 					document.getElementById("markdown-text").value = val;
 					{% endif %}
 				}
