@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2015 at 01:28 PM
+-- Generation Time: Apr 04, 2015 at 07:56 PM
 -- Server version: 5.5.42-1
 -- PHP Version: 5.6.7-1
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `Menu` (
   `parentmenu_id` int(11) DEFAULT NULL,
   `displayname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(50) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `Menu`
@@ -91,8 +91,7 @@ INSERT INTO `Menu` (`id`, `parentmenu_id`, `displayname`, `link`) VALUES
 (16, NULL, 'Referenzen', '/text/show/13'),
 (17, NULL, 'Support', '/text/show/14'),
 (18, NULL, 'Gallery', '/gallery'),
-(19, NULL, 'Kontakt', '/contact'),
-(20, NULL, 'Admin', '/admin');
+(19, NULL, 'Kontakt', '/contact');
 
 -- --------------------------------------------------------
 
@@ -242,7 +241,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `Menu`
 --
 ALTER TABLE `Menu`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `News`
 --
