@@ -4,7 +4,9 @@
 </div>
 {% else %}
 {% if TEXTS|length > 0 %}
+<h1>Texte</h1>
 {% for TEXT in TEXTS %}
+<hr>
 <h1>{{TEXT.getTitle}}</h1>
 <p><b>Link:</b> <a href="/text/show/{{TEXT.getId}}">Hier</a></p>
 {{TEXT.getParsedText|raw}}
