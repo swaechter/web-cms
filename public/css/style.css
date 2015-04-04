@@ -4,6 +4,12 @@ body
 	margin: 20px;
 }
 
+.container-fluid
+{
+	max-width: 980px;
+	margin: 0 auto;
+}
+
 .header
 {
 	margin-top: 20px;
