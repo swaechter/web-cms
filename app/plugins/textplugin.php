@@ -32,7 +32,7 @@ class TextPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "The plugin 'Text' provides a text system with articles.";
+		return "Das Plugin 'Text' stellt einfache Textseiten mit Markdownverarbeitung zur Verfügung.";
 	}
 	
 	/**
@@ -42,7 +42,7 @@ class TextPlugin implements Plugin
 	 */
 	public function getItems()
 	{
-		return array(new Item("text", "Text"));
+		return array(new Item("text", "Texte"));
 	}
 }
 

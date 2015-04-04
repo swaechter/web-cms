@@ -1,27 +1,27 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/news/adminindex">news admin site</a>.</p>
+	<p>Zurück zur <a href="/news/adminindex">Newsübersicht</a>.</p>
 </div>
 {% else %}
-<h1>Create News</h1>
+<h1>News erstellen</h1>
 <form role="form" method="post" action="/news/processcreate">
 	<div class="form-group">
-		<label for="title">Title</label>
-		<input class="form-control" type="text" name="title" id="title" max="15" placeholder="Your title" maxlength="50" required>
+		<label for="title">Titel</label>
+		<input class="form-control" type="text" name="title" id="title" max="15" placeholder="Ihr Titel" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="text">Text</label>
-		<textarea class="form-control" name="text" id="title" placeholder="Your text" rows="20" required></textarea>
+		<textarea class="form-control" name="text" id="title" placeholder="Ihr Text" rows="20" required></textarea>
 	</div>
 	<div class="form-group dialogbox">
-		<a class="btn btn-default pull-left" href="/news/adminindex">Cancel</a>
-		<button class="btn btn-default pull-right" type="submit">Create</button>
+		<a class="btn btn-default pull-left" href="/news/adminindex">Abbrechen</a>
+		<button class="btn btn-default pull-right" type="submit">Erstellen</button>
 	</div>
 </form>
 {% endif %}

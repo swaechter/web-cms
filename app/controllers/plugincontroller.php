@@ -18,7 +18,7 @@ class PluginController extends Controller implements SystemController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }

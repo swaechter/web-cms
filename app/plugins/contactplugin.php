@@ -22,7 +22,7 @@ class ContactPlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Contact";
+		return "Kontakt";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class ContactPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "The plugin 'Contact' provides a contact form and a mail system.";
+		return "Das Plugin 'Kontakt' stellt ein Kontaktformular zur Verfügung.";
 	}
 	
 	/**
@@ -42,7 +42,7 @@ class ContactPlugin implements Plugin
 	 */
 	public function getItems()
 	{
-		return array(new Item("contact", "Contact"));
+		return array(new Item("contact", "Kontakt"));
 	}
 }
 

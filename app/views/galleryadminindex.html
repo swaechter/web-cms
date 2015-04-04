@@ -1,21 +1,19 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
+	<p>Zurück zur <a href="/admin/adminindex">Administratorenübersicht</a>.</p>
 </div>
 {% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<div class="btn-group pull-right">
-				<a href="/gallery/create" class="btn btn-default btn-xs">Upload Image</a>
-			</div>
-			<h1 class="panel-title">Images</h1>
+			<div class="btn-group pull-right"><a href="/gallery/create" class="btn btn-default btn-xs">Bild hochladen</a></div>
+			<h1 class="panel-title">Bilder</h1>
 		</div>
 		<div class="panel-body">
 			{% if IMAGES|length > 0 %}
@@ -23,24 +21,24 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr>
-							<th>Image</th>
+							<th>Bild</th>
 							<th>ID</th>
-							<th>Date</th>
-							<th>Title</th>
-							<th>Filename</th>
-							<th class="table-edit-cell">Edit</th>
+							<th>Datum</th>
+							<th>Titel</th>
+							<th>Dateipfad</th>
+							<th class="table-edit-cell">Bearbeiten</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for IMAGE in IMAGES %}
 						<tr>
 							<td>
-								<img src="/public/data/{{IMAGE.getFileName}}" alt="Image missing" class="table-image-cell">
+								<img src="/public/data/{{IMAGE.getFileName}}" alt="Fehlendes Bild" class="table-image-cell">
 							</td>
 							<td class="table-centered-cell">{{IMAGE.getId}}</td>
 							<td class="table-centered-cell">{{IMAGE.getDate}}</td>
 							<td class="table-centered-cell">{{IMAGE.getTitle}}</td>
-							<td class="table-centered-cell">{{IMAGE.getFileName}}</td>
+							<td class="table-centered-cell">/{{DATADIRECTORY}}{{IMAGE.getFileName}}</td>
 							<td class="table-centered-cell table-edit-cell">
 								<a href="/gallery/delete/{{IMAGE.getId}}" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
 							</td>
@@ -50,10 +48,10 @@
 				</table>
 			</div>
 			{% else %}
-			<p>At the moment, no images have been added to the gallery.</p>
+			<p>Im Moment sind keine Bilder vorhanden.</p>
 			{% endif %}
 		</div>
 	</div>
-	<a href="/admin/adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Zurück zur Administratorenübersicht.</a>
 </div>
 {% endif %}

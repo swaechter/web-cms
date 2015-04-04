@@ -19,12 +19,12 @@ class ContactController extends Controller implements ModuleController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "The system is unable to generate a captcha image");
+				$this->getView()->setData("ERROR", "Das System kann kein Captcha Bild generieren.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ERROR", "The mail settings are not configured. Please contact the site admin.");
+			$this->getView()->setData("ERROR", "Die Maileinstellungen sind nicht richtig konfiguriert. Bitte kontaktieren Sie den Seitenbetreiber.");
 		}
 	}
 	
@@ -45,31 +45,31 @@ class ContactController extends Controller implements ModuleController
 					{
 						if($contactmodel->sendMail($mailconfiguration, Utils::getPost("email"), Utils::getPost("name"), Utils::getPost("title"), Utils::getPost("text")))
 						{
-							$this->getView()->setData("SUCCESS", "The mail was successfully sent.");
+							$this->getView()->setData("SUCCESS", "Ihre Mail wurde erfolgreich versendet.");
 						}
 						else
 						{
-							$this->getView()->setData("ERROR", "The system was unable to send the mail.");
+							$this->getView()->setData("ERROR", "Ihre Mail konnte nicht versendet werden.");
 						}
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The mail settings are not configured. Please contact the site admin.");
+						$this->getView()->setData("ERROR", "Die Maileinstellungen sind nicht richtig konfiguriert. Bitte kontaktieren Sie den Seitenbetreiber.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "Your input captcha doesn't match with the image captcha.");
+					$this->getView()->setData("ERROR", "Ihr eingegebener Captcha stimmt nicht mit dem Captcha des Bildes überein.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a captcha, user name, email address, title and text.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie den Captcha, den Namen, die Emailadresse, den Titel und den Text an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ERROR", "The mail settings are not configured. Please contact the site admin.");
+			$this->getView()->setData("ERROR", "Die Maileinstellungen sind nicht richtig konfiguriert. Bitte kontaktieren Sie den Seitenbetreiber.");
 		}
 	}
 	
@@ -92,12 +92,12 @@ class ContactController extends Controller implements ModuleController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "The mail settings are not properly stored.");
+				$this->getView()->setData("ERROR", "Das System verfügt über kein gültiges Kontaktobjekt und kann dieses nicht selber erstellen.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -120,12 +120,12 @@ class ContactController extends Controller implements ModuleController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "The mail settings are not properly stored.");
+				$this->getView()->setData("ERROR", "Das System verfügt über kein gültiges Kontaktobjekt und kann dieses nicht selber erstellen.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -150,26 +150,26 @@ class ContactController extends Controller implements ModuleController
 					$mailconfiguration->setPassword(Utils::getPost("password"));
 					if($contactmodel->saveMailConfiguration($mailconfiguration))
 					{
-						$this->getView()->setData("SUCCESS", "The mail configuration was successfully updated.");
+						$this->getView()->setData("SUCCESS", "Die Maileinstellungen wurden erfolgreich gespeichert.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to update the mail configuration.");
+						$this->getView()->setData("ERROR", "Die Maileinstellungen konnten nicht gespeichert werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The mail settings are not properly stored.");
+					$this->getView()->setData("ERROR", "Das System verfügt über kein gültiges Kontaktobjekt und kann dieses nicht selber erstellen.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a SMTP server, port, sender address, username and password.");
-			}
+				$this->getView()->setData("ERROR", "Bitte geben Sie den SMTP Server, den Port, die Absenderadress, den Benutzernamen und das Passwort an.");
+			} 
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }

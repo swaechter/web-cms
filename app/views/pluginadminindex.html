@@ -1,12 +1,12 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
+	<p>Zurück zur <a href="/admin/adminindex">Administratorenübersicht</a>.</p>
 </div>
 {% else %}
 <div>
@@ -19,9 +19,9 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr>
+							<th>Systemname</th>
 							<th>Name</th>
-							<th>Displayable Name</th>
-							<th>Description</th>
+							<th>Beschreibung</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -37,6 +37,6 @@
 			</div>
 		</div>
 	</div>
-	<a href="/admin/adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Zurück zur Administratorenübersicht.</a>
 </div>
 {% endif %}

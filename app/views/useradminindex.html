@@ -1,21 +1,19 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
+	<p>Zurück zur <a href="/admin/adminindex">Administratorenübersicht</a>.</p>
 </div>
 {% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<div class="btn-group pull-right">
-				<a href="/user/create" class="btn btn-default btn-xs">Create User</a>
-			</div>
-			<h1 class="panel-title">Users</h1>
+			<div class="btn-group pull-right"><a href="/user/create" class="btn btn-default btn-xs">Benutzer erstellen</a></div>
+			<h1 class="panel-title">Benutzer</h1>
 		</div>
 		<div class="panel-body">
 			{% if USERS|length > 0 %}
@@ -24,9 +22,9 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Name</th>
-							<th>Email</th>
-							<th class="table-edit-cell">Edit</th>
+							<th>Benutzername</th>
+							<th>Emailadresse</th>
+							<th class="table-edit-cell">Bearbeiten</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -45,10 +43,10 @@
 				</table>
 			</div>
 			{% else %}
-			<p>At the moment, no users have been added to the system.</p>
+			<p>Im Moment sind keine Benutzer vorhanden.</p>
 			{% endif %}
 		</div>
 	</div>
-	<a href="/admin/adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Zurück zur Administratorenübersicht.</a>
 </div>
 {% endif %}

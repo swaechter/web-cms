@@ -1,21 +1,19 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
+	<p>Zurück zur <a href="/admin/adminindex">Administratorenübersicht</a>.</p>
 </div>
 {% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<div class="btn-group pull-right">
-				<a href="/text/create" class="btn btn-default btn-xs">Create Text</a>
-			</div>
-			<h1 class="panel-title">Texts</h1>
+			<div class="btn-group pull-right"><a href="/text/create" class="btn btn-default btn-xs">Text erstellen</a></div>
+			<h1 class="panel-title">Texte</h1>
 		</div>
 		<div class="panel-body">
 			{% if TEXTS|length > 0 %}
@@ -24,8 +22,8 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Title</th>
-							<th class="table-edit-cell">Edit</th>
+							<th>Titel</th>
+							<th class="table-edit-cell">Bearbeiten</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -43,10 +41,10 @@
 				</table>
 			</div>
 			{% else %}
-			<p>At the moment, no texts have been added to the system.</p>
+			<p>Im Moment sind keine Texte vorhanden.</p>
 			{% endif %}
 		</div>
 	</div>
-	<a href="/admin/adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Zurück zur Administratorenübersicht.</a>
 </div>
 {% endif %}

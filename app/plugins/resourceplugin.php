@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The plugin Resource provides a resource system which can manage all resources.
+ * The plugin Ressource provides a resource system which can manage all resources.
  */
 class ResourcePlugin implements Plugin
 {
@@ -22,7 +22,7 @@ class ResourcePlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Resource";
+		return "Ressource";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class ResourcePlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "The plugin 'Resource' provides a resource management systen.";
+		return "Das Plugin 'Ressource' provides a resource management systen.";
 	}
 	
 	/**
@@ -42,7 +42,7 @@ class ResourcePlugin implements Plugin
 	 */
 	public function getItems()
 	{
-		return array(new Item("resource", "Resource"));
+		return array(new Item("resource", "Ressourcen"));
 	}
 }
 

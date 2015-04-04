@@ -18,7 +18,7 @@ class MenuController extends Controller implements SystemController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -35,7 +35,7 @@ class MenuController extends Controller implements SystemController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -52,11 +52,11 @@ class MenuController extends Controller implements SystemController
 				$menumodel = new MenuModel($this);
 				if($menumodel->createMenu(Utils::getPost("parentid"), Utils::getPost("displayname"), Utils::getPost("link")))
 				{
-					$this->getView()->setData("SUCCESS", "The menu was successfully created.");
+					$this->getView()->setData("SUCCESS", "Das Menü wurde erfogreich erstellt.");
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to create the menu.");
+					$this->getView()->setData("ERROR", "Das Menü konnte nicht erstellt werden.");
 				}
 			}
 			else
@@ -66,7 +66,7 @@ class MenuController extends Controller implements SystemController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -103,17 +103,17 @@ class MenuController extends Controller implements SystemController
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the menu.");
+					$this->getView()->setData("ERROR", "Das Menü konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -142,26 +142,26 @@ class MenuController extends Controller implements SystemController
 					$menu->setLink(Utils::getPost("link"));
 					if($menumodel->updateMenu($menu))
 					{
-						$this->getView()->setData("SUCCESS", "The menu was successfully updated.");
+						$this->getView()->setData("SUCCESS", "Das Menü wurde erfolreich gespeichert.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to update the menu.");
+						$this->getView()->setData("ERROR", "Das Menü konnte nicht gespeichert werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the menu.");
+					$this->getView()->setData("ERROR", "Das Menü konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID, display name and link.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an. display name and link.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -179,12 +179,12 @@ class MenuController extends Controller implements SystemController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -204,26 +204,26 @@ class MenuController extends Controller implements SystemController
 				{
 					if($menumodel->deleteMenu($menu))
 					{
-						$this->getView()->setData("SUCCESS", "The menu was successfully deleted.");
+						$this->getView()->setData("SUCCESS", "Das Menü wurde erfolreich gelöscht.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to delete the menu. Maybe do some other menus depend on this menu.");
+						$this->getView()->setData("ERROR", "Das Menü konnte nicht gelöscht werden. Eventuell wird es von anderen Menüs verwendet?");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the menu.");
+					$this->getView()->setData("ERROR", "Das Menu konnte nicht gefunden werden");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }

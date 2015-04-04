@@ -6,10 +6,10 @@
 {% if TEXTS|length > 0 %}
 {% for TEXT in TEXTS %}
 <h1>{{TEXT.getTitle}}</h1>
-<p>(Click <a href="/text/show/{{TEXT.getId}}">here</a> to read the text on a single site.)</p>
+<p><b>Link:</b> <a href="/text/show/{{TEXT.getId}}">Hier</a></p>
 {{TEXT.getParsedText|raw}}
 {% endfor %}
 {% else %}
-<p>At the moment, no texts have been added to the text list.</p>
+<p>Im Moment sind keine Texte vorhanden.</p>
 {% endif %}
 {% endif %}

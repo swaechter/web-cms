@@ -7,10 +7,10 @@
 {% if NEWSS|length > 0 %}
 {% for NEWS in NEWSS %}
 <h2>{{NEWS.getTitle}}</h2>
-<p><b>Date:</b> {{NEWS.getDate}} <b>Link:</b> <a href="/news/show/{{NEWS.getId}}">Click here</a></p>
+<p><b>Datum:</b> {{NEWS.getDate}} <b>Link:</b> <a href="/news/show/{{NEWS.getId}}">Hier</a></p>
 {{NEWS.getParsedText|raw}}
 {% endfor %}
 {% else %}
-<p>At the moment, no news have been added to the news list.</p>
+<p>Im Moment sind keine News vorhanden.</p>
 {% endif %}
 {% endif %}

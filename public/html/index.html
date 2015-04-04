@@ -25,17 +25,13 @@
 						{% for MENU in MENUS %}
 						{% if MENU.getParentMenu == null %}
 						{% if MENU.getChildrenMenus|length == 0 %}
-						<li>
-							<a href="{{MENU.getLink}}">{{MENU.getDisplayName}}</a>
-						</li>
+						<li><a href="{{MENU.getLink}}">{{MENU.getDisplayName}}</a></li>
 						{% else %}
 						<li class="dropdown">
 							<a href="{{MENU.getLink}}" class="dropdown-toggle" data-toggle="dropdown">{{MENU.getDisplayName}}<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 							{% for SUBMENU in MENU.getChildrenMenus %}
-								<li>
-									<a href="{{SUBMENU.getLink}}">{{SUBMENU.getDisplayName}}</a>
-								</li>
+								<li><a href="{{SUBMENU.getLink}}">{{SUBMENU.getDisplayName}}</a></li>
 							{% endfor %}
 							</ul>
 						</li>
@@ -49,7 +45,7 @@
 				{{SUBTEMPLATE|raw}}
 			</div>
 				<div class="footer img-rounded">
-					<p>(C) Web-CMS by Simon Wächter  <a href="https://github.com/swaechter/web-cms">Source code</a></p>
+					<p>(C) Web-CMS von Simon Wächter  <a href="https://github.com/swaechter/web-cms">Sourcecode</a></p>
 				</div>
 		</div>
 	</body>

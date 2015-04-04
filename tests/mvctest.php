@@ -125,7 +125,7 @@ class MvcTest extends PHPUnit_Framework_TestCase
 		$controller->$actionname();
 		
 		$html = $viewmanager->parseView($view);
-		$this->assertContains("Login", $html);
+		$this->assertContains("Anmelden", $html);
 	}
 }
 

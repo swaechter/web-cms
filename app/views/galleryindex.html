@@ -8,13 +8,13 @@
 <ul class="row galleryitem">
 	{% for IMAGE in IMAGES %}
 	<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 galleryitem">
-		<img class="img-responsive" src="/public/data/{{IMAGE.getFileName}}" alt="Image missing">
+		<img class="img-responsive" src="/{{DATADIRECTORY}}{{IMAGE.getFileName}}" alt="Fehlendes Bild">
 		<p class="text-centered">{{IMAGE.getTitle}}</p>
 	</li>
 	{% endfor %}
 </ul>
 {% else %}
-<p>At the moment, no images have been added to the gallery.</p>
+<p>Im Moment sind keine Bilder vorhanden.</p>
 {% endif %}
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 	<div class="modal-dialog">

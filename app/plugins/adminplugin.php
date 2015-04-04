@@ -32,7 +32,7 @@ class AdminPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "The plugin 'Admin' provides a admin interface and a authentication system.";
+		return "Das Plugin 'Admin' stellt ein einfaches Interface zur Datenverwaltung bereit.";
 	}
 	
 	/**
@@ -42,7 +42,7 @@ class AdminPlugin implements Plugin
 	 */
 	public function getItems()
 	{
-		return array(new Item("admin", "Admin"), new Item("user", "User"), new Item("menu", "Menu"), new Item("plugin", "Plugin"));
+		return array(new Item("admin", "Admin"), new Item("user", "Benutzer"), new Item("menu", "Menüs"), new Item("plugin", "Plugins"));
 	}
 }
 

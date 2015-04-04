@@ -32,7 +32,7 @@ class NewsPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "The plugin 'News' provides a news system.";
+		return "Das Plugin 'News' stellt einen Newsfeed mit einzelnen News zur Verfügung.";
 	}
 	
 	/**

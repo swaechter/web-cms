@@ -11,6 +11,7 @@ class GalleryController extends Controller implements ModuleController
 	public function index()
 	{
 		$gallerymodel = new GalleryModel($this);
+		$this->getView()->setData("DATADIRECTORY", DATA_DIRECTORY);
 		$this->getView()->setData("IMAGES", $gallerymodel->getImages());
 	}
 	
@@ -23,11 +24,12 @@ class GalleryController extends Controller implements ModuleController
 		if($adminmodel->isUserLoggedIn())
 		{
 			$gallerymodel = new GalleryModel($this);
+			$this->getView()->setData("DATADIRECTORY", DATA_DIRECTORY);
 			$this->getView()->setData("IMAGES", $gallerymodel->getImages());
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -39,7 +41,7 @@ class GalleryController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if(!$adminmodel->isUserLoggedIn())
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -60,31 +62,31 @@ class GalleryController extends Controller implements ModuleController
 					{
 						if($gallerymodel->createImage(Utils::getFiles("fileupload", "tmp_name"), Utils::getFiles("fileupload", "name"), Utils::getPost("title")))
 						{
-							$this->getView()->setData("SUCCESS", "The image was successfully uploaded.");
+							$this->getView()->setData("SUCCESS", "Das Bild wurde erfolgreich hochgeladen.");
 						}
 						else
 						{
-							$this->getView()->setData("ERROR", "The system was unable to upload the image.");
+							$this->getView()->setData("ERROR", "Das Bild konnte nicht hochgeladen werden.");
 						}
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "Please provide an images with a *.png, *.jpeg or *.gif extension.");
+						$this->getView()->setData("ERROR", "Bitte geben Sie eine Datei mit der passenden Dateiendung an (*.png, *.jpeg, *.gif oder *.mp4).");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "An error occured during the file upload.");
+					$this->getView()->setData("ERROR", "Während des Hochladens ist ein Fehler aufgetreten.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a file object and an image title.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie ein gültiges Dateiobjekt an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -102,12 +104,12 @@ class GalleryController extends Controller implements ModuleController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -127,26 +129,26 @@ class GalleryController extends Controller implements ModuleController
 				{
 					if($gallerymodel->deleteImage($image))
 					{
-						$this->getView()->setData("SUCCESS", "The image was successfully deleted.");
+						$this->getView()->setData("SUCCESS", "Das Bild wurde erfolgreich gelöscht.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to delete the image.");
+						$this->getView()->setData("ERROR", "Das Bild konnte nicht gelöscht werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the image.");
+					$this->getView()->setData("ERROR", "Das Bild konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }

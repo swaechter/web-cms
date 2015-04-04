@@ -1,22 +1,22 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/menu/adminindex">menu admin site</a>.</p>
+	<p>Zurück zur <a href="/menu/adminindex">Menüübersicht</a>.</p>
 </div>
 {% else %}
 <form role="form" method="post" action="/menu/processdelete/{{ID}}">
 	<div class="form-group">
-		<label>Attention</label>
-		<p>Do you really want to delete this menu? If not, press the cancel button.</p>
+		<h1>Achtung</h1>
+		<p>Möchten Sie dieses Menü wirklich löschen? Falls nicht, klicken Sie auf 'Abbrechen'.</p>
 	</div>
 	<div class="form-group dialogbox">
-		<a class="btn btn-default pull-left" href="/menu/adminindex">Cancel</a>
-		<button class="btn btn-default pull-right" type="submit">Delete</button>
+		<a class="btn btn-default pull-left" href="/menu/adminindex">Abbrechen</a>
+		<button class="btn btn-default pull-right" type="submit">Löschen</button>
 	</div>
 </form>
 {% endif %}

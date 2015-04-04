@@ -1,7 +1,7 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
@@ -10,27 +10,23 @@
 {% else %}
 <div>
 	<h1>{{TITLE}}</h1>
-	<h2>Information</h2>
-	<p>Welcome to the admin interface! Here you can create user, menus and edit all plugins.</p>
-	<h2>System Categories</h2>
+	<h2>Einleitung</h2>
+	<p>Sie befinden sich in der Administratorenübersicht. Hier können Sie neue Datensätze erstellen, löschen oder bisherige ändern.</p>
+	<h2>Systembereich</h2>
 	<ul>
 		{% for SYSTEMCONTROLLERITEM in SYSTEMCONTROLLERITEMS %}
-		<li>
-			<a href="/{{SYSTEMCONTROLLERITEM.getName}}/adminindex">{{SYSTEMCONTROLLERITEM.getDisplayName}}</a>
-		</li>
+		<li><a href="/{{SYSTEMCONTROLLERITEM.getName}}/adminindex">{{SYSTEMCONTROLLERITEM.getDisplayName}}</a></li>
 		{% endfor %}
 	</ul>
-	<h2>Module Categories</h2>
+	<h2>Modulbereich</h2>
 	<ul>
 		{% for MODULECONTROLLERITEM in MODULECONTROLLERITEMS %}
 		{% if MODULECONTROLLERITEM.getName() != "admin" %}
-		<li>
-			<a href="/{{MODULECONTROLLERITEM.getName}}/adminindex">{{MODULECONTROLLERITEM.getDisplayName}}</a>
-		</li>
+		<li><a href="/{{MODULECONTROLLERITEM.getName}}/adminindex">{{MODULECONTROLLERITEM.getDisplayName}}</a></li>
 		{% endif %}
 		{% endfor %}
 	</ul>
-	<h2>Logout</h2>
-	<p>Click <a href="/admin/logout">here</a> to log out the user from the system.</p>
+	<h2>Abmelden</h2>
+	<p>Klicken Sie <a href="/admin/logout">hier</a>, um sich vom Administratoreninterface abzumelden.</p>
 </div>
 {% endif %}

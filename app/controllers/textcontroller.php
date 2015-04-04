@@ -30,13 +30,13 @@ class TextController extends Controller implements ModuleController
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The text was not found.");
+					$this->getView()->setData("ERROR", "Der Text konnte nicht gefunden werden.");
 				}
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ERROR", "Please provide a valid ID.");
+			$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 		}
 	}
 	
@@ -53,7 +53,7 @@ class TextController extends Controller implements ModuleController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -65,7 +65,7 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if(!$adminmodel->isUserLoggedIn())
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -82,21 +82,21 @@ class TextController extends Controller implements ModuleController
 				$textmodel = new TextModel($this);
 				if($textmodel->createText(Utils::getPost("title"), Utils::getPost("text")))
 				{
-					$this->getView()->setData("SUCCESS", "The text was successfully created.");
+					$this->getView()->setData("SUCCESS", "Der Text wurde erfolgreich erstellt.");
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to create the text.");
+					$this->getView()->setData("ERROR", "Der Text konnte nicht erstellt werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid title and text.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie den Titel und den Text an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -120,17 +120,17 @@ class TextController extends Controller implements ModuleController
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the text.");
+					$this->getView()->setData("ERROR", "Der Text konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -152,26 +152,26 @@ class TextController extends Controller implements ModuleController
 					$text->setMarkdownText(Utils::getPost("text"));
 					if($textmodel->updateText($text))
 					{
-						$this->getView()->setData("SUCCESS", "The text was successfully updated.");
+						$this->getView()->setData("SUCCESS", "Der Text wurde erfolgreich gespeichert.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to update the text.");
+						$this->getView()->setData("ERROR", "Der Text konnte nicht gespeichert werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the text.");
+					$this->getView()->setData("ERROR", "Der Text konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID, title and text.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an. title and text.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -189,12 +189,12 @@ class TextController extends Controller implements ModuleController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -214,26 +214,26 @@ class TextController extends Controller implements ModuleController
 				{
 					if($textmodel->deleteText($text))
 					{
-						$this->getView()->setData("SUCCESS", "The text was successfully deleted.");
+						$this->getView()->setData("SUCCESS", "Der Text wurde erfolgreich gelöscht.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to delete the text.");
+						$this->getView()->setData("ERROR", "Der Text konnte nicht gelöscht werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the text.");
+					$this->getView()->setData("ERROR", "Der Text konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }

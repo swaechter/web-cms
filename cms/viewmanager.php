@@ -69,7 +69,6 @@ class ViewManager
 		$content = $environment->render($view->getTemplateName(), $data);
 		
 		$indenter = new Indenter();
-		$indenter->setElementType('a', Indenter::ELEMENT_TYPE_BLOCK);
 		$indenter->setElementType('span', Indenter::ELEMENT_TYPE_BLOCK);
 		$content = $indenter->indent($content);
 		

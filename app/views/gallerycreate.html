@@ -1,30 +1,30 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/gallery/adminindex">gallery admin site</a>.</p>
+	<p>Zurück zur <a href="/gallery/adminindex">Galleryübersicht</a>.</p>
 </div>
 {% else %}
-<h1>Upload Image</h1>
+<h1>Bild hochladen</h1>
 <form role="form" method="post" action="/gallery/processcreate" enctype="multipart/form-data">
 	<div class="form-group">
-		<p>Please select an image and press upload.</p>
+		<p>Bitte wählen Sie ein Bild oder Video aus.</p>
 	</div>
 	<div class="form-group">
-		<label for="fileupload">Select an image</label>
+		<label for="fileupload">Dateiauswahl</label>
 		<input type="file" name="fileupload" id="fileupload" accept="image/png, image/jpeg, image/pjpeg, image/jpeg, image/pjpeg, image/gif, video/mp4"  required>
 	</div>
 	<div class="form-group">
-		<label for="title">Title (Max. 15 Characters)</label>
-		<input class="form-control" type="text" name="title" id="title" placeholder="Your image title" maxlength="15" required>
+		<label for="title">Titel (Max. 15 Characters)</label>
+		<input class="form-control" type="text" name="title" id="title" placeholder="Ihr Titel" maxlength="15" required>
 	</div>
 	<div class="form-group dialogbox">
-		<a class="btn btn-default pull-left" href="/gallery/adminindex">Cancel</a>
-		<button class="btn btn-default pull-right" type="submit">Upload</button>
+		<a class="btn btn-default pull-left" href="/gallery/adminindex">Abbrechen</a>
+		<button class="btn btn-default pull-right" type="submit">Hochladen</button>
 	</div>
 </form>
 {% endif %}

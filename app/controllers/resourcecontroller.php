@@ -19,7 +19,7 @@ class ResourceController extends Controller implements SystemController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -31,7 +31,7 @@ class ResourceController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if(!$adminmodel->isUserLoggedIn())
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -52,31 +52,31 @@ class ResourceController extends Controller implements SystemController
 					{
 						if($resourcemodel->createResource(Utils::getFiles("fileupload", "tmp_name"), Utils::getFiles("fileupload", "name")))
 						{
-							$this->getView()->setData("SUCCESS", "The resource was successfully uploaded.");
+							$this->getView()->setData("SUCCESS", "Die Ressource wurde erfolgreich hochgeladen.");
 						}
 						else
 						{
-							$this->getView()->setData("ERROR", "The system was unable to upload the resource.");
+							$this->getView()->setData("ERROR", "Die Ressource konnte nicht hochgeladen werden.");
 						}
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "Please provide a resources with a *.txt, *.pdf, *.png, *.jpeg, *.gif or *.mp4 extension.");
+						$this->getView()->setData("ERROR", "Bitte geben Sie eine Datei mit der passenden Dateiendung an (*.txt, *.pdf, *.png, *.jpeg, *.gif oder *.mp4).");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "An error occured during the file upload.");
+					$this->getView()->setData("ERROR", "Während des Hochladens ist ein Fehler aufgetreten.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a file object and a resource title.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie ein gültiges Dateiobjekt an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -94,12 +94,12 @@ class ResourceController extends Controller implements SystemController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -119,26 +119,26 @@ class ResourceController extends Controller implements SystemController
 				{
 					if($resourcemodel->deleteResource($resource))
 					{
-						$this->getView()->setData("SUCCESS", "The resource was successfully deleted.");
+						$this->getView()->setData("SUCCESS", "Die Ressource wurde erfolgreich gelöscht.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to delete the resource.");
+						$this->getView()->setData("ERROR", "Die Ressource konnte nicht gelöscht werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the resource.");
+					$this->getView()->setData("ERROR", "Die Ressource konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }

@@ -3,31 +3,31 @@
 	<p>{{ERROR}}</p>
 </div>
 {% else %}
-<h1>Contact Us</h1>
+<h1>Kontaktieren Sie uns</h1>
 <form role="form" method="post" action="/contact/processindex">
 	<div class="form-group">
-		<label for="email">Email</label>
-		<input class="form-control" type="email" name="email" id="email" placeholder="Your email address" maxlength="50" required>
+		<label for="email">Emailadresse</label>
+		<input class="form-control" type="email" name="email" id="email" placeholder="Ihre Emailadresse" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="name">Name</label>
-		<input class="form-control" type="text" name="name" id="name" placeholder="Your name" maxlength="50" required>
+		<input class="form-control" type="text" name="name" id="name" placeholder="Ihr Name" maxlength="50" required>
 	</div>
 	<div class="form-group">
-		<label for="text">Title</label>
-		<input class="form-control" type="text" name="title" id="title" placeholder="Your message title" maxlength="50" required>
+		<label for="text">Betreff</label>
+		<input class="form-control" type="text" name="title" id="title" placeholder="Ihr Betreff" maxlength="50" required>
 	</div>
 	<div class="form-group">
-		<label for="text">Text</label>
-		<textarea class="form-control" name="text" id="text" placeholder="Your message text" rows="20" required></textarea>
+		<label for="text">Nachricht</label>
+		<textarea class="form-control" name="text" id="text" placeholder="Ihre Nachricht" rows="20" required></textarea>
 	</div>
 	<div>
 		<label for="captcha">Captcha</label>
-		<input class="form-control" type="text" name="captcha" id="captcha" placeholder="Message captcha" minlength="4" maxlength="4" required>
-		<img class="captcha-image" src="/{{FILEPATH}}" alt="Image missing">
+		<input class="form-control" type="text" name="captcha" id="captcha" placeholder="Captcha" minlength="4" maxlength="4" required>
+		<img class="captcha-image" src="/{{FILEPATH}}" alt="Fehlendes Bild">
 	</div>
 	<div class="form-group dialogbox">
-		<button class="btn btn-default pull-right" type="submit">Send</button>
+		<button class="btn btn-default pull-right" type="submit">Senden</button>
 	</div>
 </form>
 {% endif %}

@@ -29,21 +29,21 @@ class AdminController extends Controller implements ModuleController
 			{
 				if($adminmodel->loginUser(Utils::getPost("email"), Utils::getPost("password")))
 				{
-					$this->getView()->setData("SUCCESS", "You were successfully logged in.");
+					$this->getView()->setData("SUCCESS", "Sie wurden erfolgreich angemeldet.");
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "Your user account was not found.");
+					$this->getView()->setData("ERROR", "Ihr Benutzer konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please fill in all form fields.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie den Benutzernamen und das Passwort an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("SUCCESS", "You are already logged in.");
+			$this->getView()->setData("SUCCESS", "Sie sind bereits angemeldet.");
 		}
 	}
 	
@@ -56,11 +56,11 @@ class AdminController extends Controller implements ModuleController
 		if($adminmodel->isUserLoggedIn())
 		{
 			$adminmodel->logoutUser();
-			$this->getView()->setData("SUCCESS", "You were successfully logged out.");
+			$this->getView()->setData("SUCCESS", "Sie wurden erfolgreich abgemeldet.");
 		}
 		else
 		{
-			$this->getView()->setData("ERROR", "You are not logged in.");
+			$this->getView()->setData("ERROR", "Sie sind nicht angemeldet.");
 		}
 	}
 	
@@ -78,7 +78,7 @@ class AdminController extends Controller implements ModuleController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }

@@ -1,26 +1,26 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/resource/adminindex">resource admin site</a>.</p>
+	<p>Zurück zur <a href="/resource/adminindex">Ressourcenübersicht</a>.</p>
 </div>
 {% else %}
-<h1>Upload Resource</h1>
+<h1>Ressource hochladen</h1>
 <form role="form" method="post" action="/resource/processcreate" enctype="multipart/form-data">
 	<div class="form-group">
-		<p>Please select an resource and press upload.</p>
+		<p>Bitte wählen Sie eine Ressource wie Textdatei, PDF, Bild oder Video aus.</p>
 	</div>
 	<div class="form-group">
-		<label for="fileupload">Select an resource</label>
+		<label for="fileupload">Dateiauswahl</label>
 		<input type="file" name="fileupload" id="fileupload" accept="text/plain, application/pdf, image/png, image/jpeg, image/pjpeg, image/jpeg, image/pjpeg, image/gif, video/mp4" required>
 	</div>
 	<div class="form-group dialogbox">
-		<a class="btn btn-default pull-left" href="/resource/adminindex">Cancel</a>
-		<button class="btn btn-default pull-right" type="submit">Upload</button>
+		<a class="btn btn-default pull-left" href="/resource/adminindex">Abbrechen</a>
+		<button class="btn btn-default pull-right" type="submit">Hochladen</button>
 	</div>
 </form>
 {% endif %}

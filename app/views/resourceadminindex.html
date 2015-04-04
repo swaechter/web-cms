@@ -1,21 +1,19 @@
 {% if ADMINERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ADMINERROR}}</p>
-	<p>Go back to the <a href="/admin/index">login site</a>.</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
 </div>
 {% elseif ERROR %}
 <div class="alert alert-danger" role="alert">
 	<p>{{ERROR}}</p>
-	<p>Go back to the <a href="/admin/adminindex">admin site</a>.</p>
+	<p>Zurück zur <a href="/admin/adminindex">Administratorenübersicht</a>.</p>
 </div>
 {% else %}
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<div class="btn-group pull-right">
-				<a href="/resource/create" class="btn btn-default btn-xs">Upload Resource</a>
-			</div>
-			<h1 class="panel-title">Resources</h1>
+			<div class="btn-group pull-right"><a href="/resource/create" class="btn btn-default btn-xs">Ressource hochladen</a></div>
+			<h1 class="panel-title">Ressourcen</h1>
 		</div>
 		<div class="panel-body">
 			{% if RESOURCES|length > 0 %}
@@ -24,8 +22,8 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Filepath</th>
-							<th class="table-edit-cell">Edit</th>
+							<th>Dateipfad</th>
+							<th class="table-edit-cell">Bearbeiten</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -42,10 +40,10 @@
 				</table>
 			</div>
 			{% else %}
-			<p>At the moment, no resources have been added to the system.</p>
+			<p>Im Moment sind keine Ressourcen vorhanden.</p>
 			{% endif %}
 		</div>
 	</div>
-	<a href="/admin/adminindex">Back to the admin site.</a>
+	<a href="/admin/adminindex">Zurück zur Administratorenübersicht.</a>
 </div>
 {% endif %}

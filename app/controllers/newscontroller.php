@@ -30,13 +30,13 @@ class NewsController extends Controller implements ModuleController
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The news was not found.");
+					$this->getView()->setData("ERROR", "Die News konnte nicht gefunden werden.");
 				}
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ERROR", "Please provide a valid ID.");
+			$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 		}
 	}
 	
@@ -53,7 +53,7 @@ class NewsController extends Controller implements ModuleController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -65,7 +65,7 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if(!$adminmodel->isUserLoggedIn())
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -82,21 +82,21 @@ class NewsController extends Controller implements ModuleController
 				$newsmodel = new NewsModel($this);
 				if($newsmodel->createNews(Utils::getPost("title"), Utils::getPost("text")))
 				{
-					$this->getView()->setData("SUCCESS", "The news was successfully created.");
+					$this->getView()->setData("SUCCESS", "Die News wurde erfolgreich erstellt.");
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to create the news.");
+					$this->getView()->setData("ERROR", "Die News konnte nicht erstellt werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid title and news.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie den Titel und den Text an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -120,17 +120,17 @@ class NewsController extends Controller implements ModuleController
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the news.");
+					$this->getView()->setData("ERROR", "Die News konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -152,26 +152,26 @@ class NewsController extends Controller implements ModuleController
 					$news->setMarkdownText(Utils::getPost("text"));
 					if($newsmodel->updateNews($news))
 					{
-						$this->getView()->setData("SUCCESS", "The news was successfully updated.");
+						$this->getView()->setData("SUCCESS", "Die News wurde erfolgreich gespeichert.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to update the news.");
+						$this->getView()->setData("ERROR", "Die News konnte nicht gespeichert werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the news.");
+					$this->getView()->setData("ERROR", "Die News konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID, title and text.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an. title and text.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -189,12 +189,12 @@ class NewsController extends Controller implements ModuleController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -214,26 +214,26 @@ class NewsController extends Controller implements ModuleController
 				{
 					if($newsmodel->deleteNews($news))
 					{
-						$this->getView()->setData("SUCCESS", "The news was successfully deleted.");
+						$this->getView()->setData("SUCCESS", "Die News wurde erfolgreich gelöscht.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to delete the news.");
+						$this->getView()->setData("ERROR", "Die News konnte nicht gelöscht werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the news.");
+					$this->getView()->setData("ERROR", "Die News konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }

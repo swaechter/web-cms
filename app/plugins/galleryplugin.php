@@ -32,7 +32,7 @@ class GalleryPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "The plugin 'Gallery' provides a gallery with images.";
+		return "Das Plugin 'Gallery' stellt eine Bildergallery zur Verfügung.";
 	}
 	
 	/**

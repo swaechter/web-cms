@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2015 at 08:53 AM
+-- Generation Time: Apr 04, 2015 at 01:28 PM
 -- Server version: 5.5.42-1
 -- PHP Version: 5.6.7-1
 
@@ -74,24 +74,24 @@ CREATE TABLE IF NOT EXISTS `Menu` (
 
 INSERT INTO `Menu` (`id`, `parentmenu_id`, `displayname`, `link`) VALUES
 (1, NULL, 'Home', '/text/show/1'),
-(2, NULL, 'About Us', '/text/show/2'),
+(2, NULL, 'Über uns', '/text/show/2'),
 (3, NULL, 'News', '/news'),
-(4, NULL, 'Services', ''),
-(5, 4, 'Service 1', '/text/show/3'),
-(6, 4, 'Service 2', '/text/show/4'),
-(7, 4, 'Service 3', '/text/show/5'),
-(8, NULL, 'Products', ''),
-(9, 8, 'Product 1', '/text/show/6'),
-(10, 8, 'Product 2', '/text/show/7'),
-(11, 8, 'Product 3', '/text/show/8'),
-(12, 8, 'Product 4', '/text/show/9'),
-(13, 8, 'Product 5', '/text/show/10'),
-(14, 8, 'Product 6', '/text/show/11'),
-(15, NULL, 'Partners & Customers', '/text/show/12'),
-(16, NULL, 'References', '/text/show/13'),
+(4, NULL, 'Dienstleistungen', ''),
+(5, 4, 'Dienstleistung 1', '/text/show/3'),
+(6, 4, 'Dienstleistung 2', '/text/show/4'),
+(7, 4, 'Dienstleistung 3', '/text/show/5'),
+(8, NULL, 'Produkte', ''),
+(9, 8, 'Produkt 1', '/text/show/6'),
+(10, 8, 'Produkt 2', '/text/show/7'),
+(11, 8, 'Produkt 3', '/text/show/8'),
+(12, 8, 'Produkt 4', '/text/show/9'),
+(13, 8, 'Produkt 5', '/text/show/10'),
+(14, 8, 'Produkt 6', '/text/show/11'),
+(15, NULL, 'Partner & Kunden', '/text/show/12'),
+(16, NULL, 'Referenzen', '/text/show/13'),
 (17, NULL, 'Support', '/text/show/14'),
-(18, NULL, 'Press Material', '/gallery'),
-(19, NULL, 'Contact', '/contact'),
+(18, NULL, 'Gallery', '/gallery'),
+(19, NULL, 'Kontakt', '/contact'),
 (20, NULL, 'Admin', '/admin');
 
 -- --------------------------------------------------------
@@ -112,8 +112,8 @@ CREATE TABLE IF NOT EXISTS `News` (
 --
 
 INSERT INTO `News` (`id`, `date`, `title`, `text`) VALUES
-(1, '', 'News 1', 'News 1'),
-(2, '', 'News 2', 'News 2');
+(1, '04.04.2015 13:24:30', 'News 1', 'News 1'),
+(2, '04.04.2015 13:24:38', 'News 2', 'News 2');
 
 -- --------------------------------------------------------
 
@@ -144,18 +144,18 @@ CREATE TABLE IF NOT EXISTS `Text` (
 
 INSERT INTO `Text` (`id`, `title`, `text`) VALUES
 (1, 'Home', 'Home'),
-(2, 'About Us', 'About Us'),
-(3, 'Service 1', 'Service 1'),
-(4, 'Service 2', 'Service 2'),
-(5, 'Service 3', 'Service 3'),
-(6, 'Product 1', 'Product 1'),
-(7, 'Product 2', 'Product 2'),
-(8, 'Product 3', 'Product 3'),
-(9, 'Product 4', 'Product 4'),
-(10, 'Product 5', 'Product 5'),
-(11, 'Product 6', 'Product 6'),
-(12, 'Partner & Customers', 'Partner & Customers'),
-(13, 'References', 'References'),
+(2, 'Über uns', 'Über uns'),
+(3, 'Dienstleistung 1', 'Dienstleistung 1'),
+(4, 'Dienstleistung 2', 'Dienstleistung 2'),
+(5, 'Dienstleistung 3', 'Dienstleistung 3'),
+(6, 'Produkt 1', 'Produkt 1'),
+(7, 'Produkt 2', 'Produkt 2'),
+(8, 'Produkt 3', 'Produkt 3'),
+(9, 'Produkt 4', 'Produkt 4'),
+(10, 'Produkt 5', 'Produkt 5'),
+(11, 'Produkt 6', 'Produkt 6'),
+(12, 'Partner & Kunden', 'Partner & Kunden'),
+(13, 'Referenzen', 'Referenzen'),
 (14, 'Support', 'Support');
 
 -- --------------------------------------------------------

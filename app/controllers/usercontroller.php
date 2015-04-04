@@ -18,7 +18,7 @@ class UserController extends Controller implements SystemController
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -30,7 +30,7 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if(!$adminmodel->isUserLoggedIn())
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -47,25 +47,25 @@ class UserController extends Controller implements SystemController
 				$usermodel = new UserModel($this);
 				if(Utils::getPost("passworda") != Utils::getPost("passwordb"))
 				{
-					$this->getView()->setData("ERROR", "Both password do not match.");
+					$this->getView()->setData("ERROR", "Die beiden Passwörter stimmen nicht überein.");
 				}
 				else if($usermodel->createUser(Utils::getPost("name"), Utils::getPost("email"), Utils::getPost("passworda")))
 				{
-					$this->getView()->setData("SUCCESS", "The user was successfully created.");
+					$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich erstellt.");
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to create the user.");
+					$this->getView()->setData("ERROR", "Der Benutzer konnte nicht erstelllt werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide an email address, username and both passwords.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie die Emailadresse, den Benutzernamen und beide Passwörter an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -89,17 +89,17 @@ class UserController extends Controller implements SystemController
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the user.");
+					$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -122,30 +122,30 @@ class UserController extends Controller implements SystemController
 					$user->setPassword(hash("sha512", Utils::getPost("passworda")));
 					if(Utils::getPost("passworda") != Utils::getPost("passwordb"))
 					{
-						$this->getView()->setData("ERROR", "Both password do not match.");
+						$this->getView()->setData("ERROR", "Die beiden Passwörter stimmen nicht überein.");
 					}
 					else if($usermodel->updateUser($user))
 					{
-						$this->getView()->setData("SUCCESS", "The user was successfully updated.");
+						$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich bearbeitet.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to update the user.");
+						$this->getView()->setData("ERROR", "Der Benutzer konnte nicht bearbeitet werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the user.");
+					$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID, name, email and both passwords.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie die ID, den Benutzernamen, die Emailadresse und beide Passwörter an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -163,12 +163,12 @@ class UserController extends Controller implements SystemController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 	
@@ -188,30 +188,30 @@ class UserController extends Controller implements SystemController
 				{
 					if(count($usermodel->getUsers()) == 1)
 					{
-						$this->getView()->setData("ERROR", "You cannot delete the last user.");
+						$this->getView()->setData("ERROR", "Sie können den letzten Benutzer nicht löschen.");
 					}
 					else if($usermodel->deleteUser($user))
 					{
-						$this->getView()->setData("SUCCESS", "The user was successfully deleted.");
+						$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich gelöscht.");
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "The system was unable to delete the user.");
+						$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gelöscht werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "The system was unable to find the user.");
+					$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Please provide a valid ID.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else
 		{
-			$this->getView()->setData("ADMINERROR", "You do not have the privileges to access this site.");
+			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
 	}
 }
