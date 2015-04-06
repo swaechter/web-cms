@@ -15,8 +15,7 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 ### Clone the repository
 
 	cd /var/www/
-	git clone https://github.com/swaechter/web-cms.git www.example.com (Your domain)
-	cd wwww.example.com
+	git clone https://github.com/swaechter/web-cms.git web-cms.org (Your domain)
 
 ### Enable Apache mod_rewrite
 
@@ -24,13 +23,15 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Create a virtuel host
 
-	Create an Apache virtual host for www.example.com that points to /var/www/example.com
-	sudo a2ensite www.example.com
+	Create an Apache virtual host for www.web-cms.org that points to /var/www/web-cms.org
+	sudo a2ensite web-cms.org
 
-### Create the upload directory and set the chmod
+### Create the upload directory and set the permissions
 
-	mkdir public/data/
-	sudo chmod -R 777 public/data/
+	mkdir web-cms.org/public/data/
+	sudo chmod -R 777 web-cms.org/public/data/
+	sudo chown -R www-data:www-data web-cms.org/
+	cd web-cms.org
 
 ### Create and import the database
 
