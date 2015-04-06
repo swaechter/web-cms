@@ -29,7 +29,7 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<div>
+			<div class="banner img-rounded">
 				<img class="img-responsive" src="/public/images/banner.gif" alt="Fehlendes Bild">
 			</div>
 			<div class="header navbar navbar-default img-rounded" role="navigation">
@@ -64,9 +64,12 @@
 			<div class="content img-rounded">
 				{{SUBTEMPLATE|raw}}
 			</div>
-				<div class="footer img-rounded">
-					<p>(C) Web-CMS von Simon Wächter  <a href="https://github.com/swaechter/web-cms">Sourcecode</a> / <a href="/admin/index">Admin-Interface</a></p>
-				</div>
+		</div>
+		<div class="navbar navbar-default navbar-fixed-bottom">
+			<div class="container" id="footer">
+				<p class="navbar-text"><b>Web-CMS</b> von Simon Wächter <a href="https://github.com/swaechter/web-cms">Sourcecode</a> / <a href="/admin/index">Admin-Interface</a></p>
+				<a id="contact-button" class="navbar-btn btn-primary btn pull-right desktop-only" href="/contact/index">Kontakt</a>
+			</div>
 		</div>
 	</body>
 </html>
