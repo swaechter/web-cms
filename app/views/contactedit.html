@@ -13,19 +13,19 @@
 <form role="form" method="post" action="/contact/processedit">
 	<div class="form-group">
 		<label for="smtpserver">SMTP Server</label>
-		<input class="form-control" type="text" name="smtpserver" id="smtpserver" placeholder="Ihr SMTP Server" value="{{SMTPSERVER}}" maxlength="50" required>
+		<input class="form-control" type="text" name="smtpserver" id="smtpserver" placeholder="Ihr SMTP Server" value="{{MAILCONFIGURATION.getSmtpServer}}" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="port">SMTP TLS Port</label>
-		<input class="form-control" type="number" name="port" id="port" placeholder="Ihr TLS Port des SMTP Servers" value="{{PORT}}" min="1" max="9999" required>
+		<input class="form-control" type="number" name="port" id="port" placeholder="Ihr TLS Port des SMTP Servers" value="{{MAILCONFIGURATION.getPort}}" min="1" max="9999" required>
 	</div>
 	<div class="form-group">
 		<label for="sender">Absenderadresse</label>
-		<input class="form-control" type="email" name="sender" id="sender" placeholder="Ihre Absenderadresse" value="{{SENDER}}" maxlength="50" required>
+		<input class="form-control" type="email" name="sender" id="sender" placeholder="Ihre Absenderadresse" value="{{MAILCONFIGURATION.getSender}}" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="username">Benutzername</label>
-		<input class="form-control" type="text" name="username" id="username" placeholder="Ihr Benutzername" value="{{USERNAME}}" maxlength="50" required>
+		<input class="form-control" type="text" name="username" id="username" placeholder="Ihr Benutzername" value="{{MAILCONFIGURATION.getUsername}}" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="password">Passwort</label>

@@ -85,10 +85,7 @@ class ContactController extends Controller implements ModuleController
 			$mailconfiguration = $contactmodel->getMailConfiguration();
 			if($mailconfiguration)
 			{
-				$this->getView()->setData("SMTPSERVER", $mailconfiguration->getSmtpServer());
-				$this->getView()->setData("PORT", $mailconfiguration->getPort());
-				$this->getView()->setData("SENDER", $mailconfiguration->getSender());
-				$this->getView()->setData("USERNAME", $mailconfiguration->getUsername());
+				$this->getView()->setData("MAILCONFIGURATION", $mailconfiguration);
 			}
 			else
 			{
@@ -113,10 +110,7 @@ class ContactController extends Controller implements ModuleController
 			$mailconfiguration = $contactmodel->getMailConfiguration();
 			if($mailconfiguration)
 			{
-				$this->getView()->setData("SMTPSERVER", $mailconfiguration->getSmtpServer());
-				$this->getView()->setData("PORT", $mailconfiguration->getPort());
-				$this->getView()->setData("SENDER", $mailconfiguration->getSender());
-				$this->getView()->setData("USERNAME", $mailconfiguration->getUsername());
+				$this->getView()->setData("MAILCONFIGURATION", $mailconfiguration);
 			}
 			else
 			{

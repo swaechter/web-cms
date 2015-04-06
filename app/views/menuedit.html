@@ -10,30 +10,32 @@
 </div>
 {% else %}
 <h1>Menü bearbeiten</h1>
-<form role="form" method="post" action="/menu/processedit/{{ID}}">
+<form role="form" method="post" action="/menu/processedit/{{CHILDMENU.getId}}">
 	<div class="form-group">
 		<p><b>Hinweis:</b> Das System erlaubt nur eine Menüverschachtlung von 2 Ebenen (Menü A kann ein Untermenü B haben, Menü B aber kein Untermenü C mehr).</p>
 	</div>
 	<div class="form-group">
 		<label for="parentid">Übergeordnetes Menü</label>
-		<select class="form-control" name="parentid" id="parentid" required>
-			<option value="0">-</option>
+		<select class="form-control" name="parentid" id="parentid">
+			<option value="">-</option>
 			{% for MENU in MENUS %}
-			{% if PARENTMENU and MENU.getParentMenu and MENU.getParentMenu.getId == PARENTMENU.getId %}
+			{% if MENU.getId != CHILDMENU.getId %}
+			{% if PARENTMENU and CHILDMENU.getParentMenu and MENU.getId == CHILDMENU.getParentMenu.getId %}
 			<option value="{{PARENTMENU.getId}}" selected>{{PARENTMENU.getDisplayName}}</option>
 			{% else %}
 			<option value="{{MENU.getId}}">{{MENU.getDisplayName}}</option>
+			{% endif %}
 			{% endif %}
 			{% endfor %}
 		</select>
 	</div>
 	<div class="form-group">
 		<label for="displayname">Name</label>
-		<input class="form-control" type="text" name="displayname" id="displayname" placeholder="Menu Name" value="{{DISPLAYNAME}}" maxlength="50" required>
+		<input class="form-control" type="text" name="displayname" id="displayname" placeholder="Menu Name" value="{{CHILDMENU.getDisplayName}}" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="link">Link</label>
-		<input class="form-control" type="text" name="link" id="link" placeholder="Menu Link" value="{{LINK}}" maxlength="50">
+		<input class="form-control" type="text" name="link" id="link" placeholder="Menu Link" value="{{CHILDMENU.getLink}}" maxlength="50">
 	</div>
 	<div class="form-group dialogbox">
 		<a class="btn btn-default pull-left" href="/menu/adminindex">Abbrechen</a>

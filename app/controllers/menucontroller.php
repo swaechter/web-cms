@@ -84,21 +84,21 @@ class MenuController extends Controller implements SystemController
 				$menu = $menumodel->getMenu(Utils::getGet("id"));
 				if($menu)
 				{
+					$parentmenu = null;
 					if($menu->getParentMenu())
 					{
 						$parentmenu = $menumodel->getMenu($menu->getParentMenu()->getId());
-						if($parentmenu)
-						{
-							$this->getView()->setData("PARENTMENU", $parentmenu);
-						}
 					}
-					$this->getView()->setData("MENUS", $menumodel->getMenus());
-					$this->getView()->setData("ID", $menu->getId());
-					$this->getView()->setData("DISPLAYNAME", $menu->getDisplayName());
-					$this->getView()->setData("LINK", $menu->getLink());
-					if($menu->getParentMenu())
+					
+					if($parentmenu && $menu->getId() == $parentmenu->getId())
 					{
-						$this->getView()->setData("PARENTID", $menu->getId());
+						$this->getView()->setData("ERROR", "Ein Menü kann sich nicht selber untergeordnet sein.");
+					}
+					else
+					{
+						$this->getView()->setData("MENUS", $menumodel->getMenus());
+						$this->getView()->setData("CHILDMENU", $menu);
+						$this->getView()->setData("PARENTMENU", $parentmenu);
 					}
 				}
 				else
@@ -156,7 +156,7 @@ class MenuController extends Controller implements SystemController
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an. display name and link.");
+				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 			}
 		}
 		else

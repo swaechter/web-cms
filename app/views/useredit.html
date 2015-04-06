@@ -10,22 +10,22 @@
 </div>
 {% else %}
 <h1>Benutzer erstellen</h1>
-<form role="form" method="post" action="/user/processedit/{{ID}}">
+<form role="form" method="post" action="/user/processedit/{{USER.getId}}">
 	<div class="form-group">
 		<label for="name">Benutzername</label>
-		<input class="form-control" type="text" name="name" id="name" placeholder="Benutzername" value="{{NAME}}" maxlength="50" required>
+		<input class="form-control" type="text" name="name" id="name" placeholder="Benutzername" value="{{USER.getId}}" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="email">Email</label>
-		<input class="form-control" type="email" name="email" id="email" placeholder="Emailadresse" value="{{EMAIL}}" maxlength="50" required>
+		<input class="form-control" type="email" name="email" id="email" placeholder="Emailadresse" value="{{USER.getEmail}}" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="passworda">Passwort</label>
-		<input class="form-control" type="password" name="passworda" id="passworda" placeholder="Passwort" value="{{PASSWORDA}}" maxlength="50" required>
+		<input class="form-control" type="password" name="passworda" id="passworda" placeholder="Passwort" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="passwordb">Passwort (Bestätigt)</label>
-		<input class="form-control" type="password" name="passwordb" id="passwordb" placeholder="Bestätigtes Passwort" value="{{PASSWORDB}}" maxlength="50" required>
+		<input class="form-control" type="password" name="passwordb" id="passwordb" placeholder="Bestätigtes Passwort" maxlength="50" required>
 	</div>
 	<div class="form-group dialogbox">
 		<a class="btn btn-default pull-left" href="/user/adminindex">Abbrechen</a>

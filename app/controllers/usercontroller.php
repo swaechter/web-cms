@@ -83,9 +83,7 @@ class UserController extends Controller implements SystemController
 				$user = $usermodel->getUser(Utils::getGet("id"));
 				if($user)
 				{
-					$this->getView()->setData("ID", $user->getId());
-					$this->getView()->setData("NAME", $user->getName());
-					$this->getView()->setData("EMAIL", $user->getEmail());
+					$this->getView()->setData("USER", $user);
 				}
 				else
 				{
