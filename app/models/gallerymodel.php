@@ -66,7 +66,7 @@ class GalleryModel extends Model
 	 */
 	public function isImageFile($filepath)
 	{
-		$mimetypes = array("image/png", "image/jpeg", "image/pjpeg", "image/jpeg", "image/pjpeg", "image/gif", "video/mp4");
+		$mimetypes = array("image/png", "image/jpeg", "image/pjpeg", "image/jpeg", "image/pjpeg", "image/gif");
 		$handle = finfo_open(FILEINFO_MIME_TYPE);
 		$mimetype = finfo_file($handle, $filepath);
 		return in_array($mimetype, $mimetypes);

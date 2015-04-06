@@ -71,7 +71,7 @@ class GalleryController extends Controller implements ModuleController
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "Bitte geben Sie eine Datei mit der passenden Dateiendung an (*.png, *.jpeg, *.gif oder *.mp4).");
+						$this->getView()->setData("ERROR", "Bitte geben Sie eine Datei mit der passenden Dateiendung an (*.png, *.jpeg oder *.gif).");
 					}
 				}
 				else

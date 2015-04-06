@@ -12,14 +12,14 @@
 <h1>Bild hochladen</h1>
 <form role="form" method="post" action="/gallery/processcreate" enctype="multipart/form-data">
 	<div class="form-group">
-		<p>Bitte wählen Sie ein Bild oder Video aus.</p>
+		<p>Bitte wählen Sie ein Bild oder Video aus. <b>Hinweis:</b> Laden Sie nur Bilder mit der gleichen oder ähnlichen Auflösung hoch, da es sonst zu Darstellungsfehlern kommen kann.</p>
 	</div>
 	<div class="form-group">
 		<label for="fileupload">Dateiauswahl</label>
-		<input type="file" name="fileupload" id="fileupload" accept="image/png, image/jpeg, image/pjpeg, image/jpeg, image/pjpeg, image/gif, video/mp4"  required>
+		<input type="file" name="fileupload" id="fileupload" accept="image/png, image/jpeg, image/pjpeg, image/jpeg, image/pjpeg, image/gif" required>
 	</div>
 	<div class="form-group">
-		<label for="title">Titel (Max. 15 Characters)</label>
+		<label for="title">Titel (Max. 15 Zeichen)</label>
 		<input class="form-control" type="text" name="title" id="title" placeholder="Ihr Titel" maxlength="15" required>
 	</div>
 	<div class="form-group dialogbox">
