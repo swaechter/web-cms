@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file gallerycontroller.php contains the gallery controller and
+ * provides a gallery for uploading and displaying images.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class GalleryController is responsible for the gallery with all images.
  */
 class GalleryController extends Controller implements ModuleController

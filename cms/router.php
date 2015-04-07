@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file router.php provides a router that can handle the user input and
+ * provides a route that is used by the siystem.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Router handles the user input and generates the controller
  * name and the action name.
  */

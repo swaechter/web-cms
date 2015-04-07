@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file provides a method for creating, editing and deleting text
+ * entries.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class TextModel provides an article reader system.
  */
 class TextModel extends Model

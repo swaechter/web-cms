@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file globals.php contains several variables that are used accross the
+ * system.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * This variable represents the directory where the CMS is located.
  *
  * @var string

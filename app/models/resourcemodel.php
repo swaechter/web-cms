@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file resourcemodel.php is responsible for uploading resources
+ * like text files, PDF files and images or videos.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class ResourceModel provides a resource system.
  */
 class ResourceModel extends Model

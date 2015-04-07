@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file galleryplugin.php contains the gallery plugin and provides an
+ * image gallery.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The plugin Gallery provides an image gallery with images.
  */
 class GalleryPlugin implements Plugin

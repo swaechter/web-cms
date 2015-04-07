@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file utils.php contains multiple helper functions for reading and
+ * writing user input in a secure way.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Utils is a collection of usefull functions.
  */
 class Utils

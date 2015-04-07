@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file textplugin.php provides the text plugin which is responsible
+ * for creating, editing and deleting text entries.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The plugin Text provides an article system for text sites.
  */
 class TextPlugin implements Plugin

@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file news.php provides a news entity that contains the news title
+ * and news text.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class News represents a news.
  *
  * @Entity

@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file model.php provides a model that can be used to access the
+ * database and generate data.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Model provides a way to interact with the database over
  * the database manager.
  */

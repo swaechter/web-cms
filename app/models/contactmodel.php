@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * The file contactmodel.php contains the functionality to send mails.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class ContactModel provides a mail system.
  */
 class ContactModel extends Model

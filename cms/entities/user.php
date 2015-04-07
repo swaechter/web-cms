@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file user.php contains the user entity that is loaded by Doctrine. The
+ * user entity is used for the authentication.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class User represents a person that can access and change the system.
  *
  * @Entity

@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file mailconfiguration.php provides a mail configuration entity which
+ * can be used by the contact form.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class MailConfiguration contains the whole mail server configuration.
  *
  * @Entity

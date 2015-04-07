@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * The file viewmanager.php provides a manager, that takes a view with data
+ * and generates a displayable HTML site.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
 use Gajus\Dindent\Indenter;
 
 /**

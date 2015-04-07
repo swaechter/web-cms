@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file controllermodel.php is capable of detecting all system and
+ * module controllers that are loaded.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class ControllerModel is responsible for the system and module controller items.
  */
 class ControllerModel extends Model

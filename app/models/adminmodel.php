@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file adminmodel.php contains the admin functionality like the login
+ * and logout system.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class AdminModel model provides an authentication system.
  */
 class AdminModel extends Model

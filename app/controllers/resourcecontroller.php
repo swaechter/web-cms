@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file resourcecontroller.php provides a resource controller for uploading
+ * resources like text files, PDF files and images or videos.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class ResourceController is responsible for the resource management.
  */
 class ResourceController extends Controller implements SystemController

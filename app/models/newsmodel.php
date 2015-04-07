@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file newsmodel.php provides a method to create, edit and delete news
+ * entries.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class NewsModel provides a news reader system.
  */
 class NewsModel extends Model

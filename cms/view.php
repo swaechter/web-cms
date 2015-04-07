@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file view provides a view that can be filled with data. The view is
+ * then used by the view manager to generate a displayable HTML site.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class View is responsible for holding all data before they get parsed.
  */
 class View

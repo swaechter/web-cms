@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file item.php contains a fine granulated information class for a
+ * controller like the system name and the displayable name.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Item holds all data of a controller.
  */
 class Item

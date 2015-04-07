@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file usercontroller.php provides an user controller which is capable of
+ * creating, editing and deleting users that have access to the CMS system.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class UserController is responsible for the user management.
  */
 class UserController extends Controller implements SystemController

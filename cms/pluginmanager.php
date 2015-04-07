@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file pluginmanager.php provides a plugin manager that loads all
+ * plugins in the app directory.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class PluginManager is responsible for the plugin loading.
  */
 class PluginManager

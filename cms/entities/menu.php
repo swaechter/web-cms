@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * The file menu.php contains the menu entity that is loaded by Doctrine. The
+ * menu represents an item of the navigation.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * The file website.php provides the class Website which hides all the
+ * complexity of the system. The class Website makes it posible to generate
+ * a whole site with one method.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
 // Include the entites
 require_once("entities/menu.php");
 require_once("entities/user.php");

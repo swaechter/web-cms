@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file gallerymodel.php provides the functionality for uploadin
+ * images.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class GalleryModel provides an image gallery system.
  */
 class GalleryModel extends Model

@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file configuration.php contains the whole configuration of the CMS
+ * system. These information are accessed by different modules.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class configuration contains all information that are required by the
  * CMS system.
  */

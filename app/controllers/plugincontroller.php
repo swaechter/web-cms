@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * The file plugincontroller provides an overview about the installed plugins.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class PluginMenu is responsible for the plugin management.
  */
 class PluginController extends Controller implements SystemController

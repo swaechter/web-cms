@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file adminplugin.php contains the admin plugin and is responsible
+ * for all basic operation in the CMS system.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The plugin Admin provides an admin interface and an authentication system.
  */
 class AdminPlugin implements Plugin

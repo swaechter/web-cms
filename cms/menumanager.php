@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file menumanager.php contains the menu manager which reads all menu
+ * items.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class MenuManager is responsible for the menu entries and for the site
  * navigation.
  */

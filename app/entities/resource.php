@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file resource.php provides a resource entity that contains the
+ * file name.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Resource represents an resource.
  *
  * @Entity

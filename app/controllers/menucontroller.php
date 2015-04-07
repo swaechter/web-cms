@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file menucontroller.php contains the menu controller which is
+ * responsible for the menu management.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class MenuController is responsible for the menu management.
  */
 class MenuController extends Controller implements SystemController

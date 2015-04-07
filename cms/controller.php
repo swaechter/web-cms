@@ -1,6 +1,16 @@
 <?php
 
 /**
+ * The file controller.php provides an abstract controller that can
+ * be used by a controller of a plugin. Additionally, a controller
+ * has to implement the SystemController or ModuleController interface.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Controller provides a class that can be used to create a part
  * for a plugin.
  */

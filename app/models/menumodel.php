@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file menumodel.php is responsible for the menu management like
+ * creating, editing and deleting menu entries.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class MenuModel provides a menu system.
  */
 class MenuModel extends Model

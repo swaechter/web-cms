@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file plugin.php contains the plugin functionality. A plugin acts
+ * as a container for controllers.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The interface Plugin provides information about a plugin.
  *
  */

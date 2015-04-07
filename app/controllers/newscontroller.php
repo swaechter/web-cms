@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file newscontroller.php provides a news controller which is capable of
+ * creating, editing and displaying news as feed or single entry.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class NewsController is responsible for all news entries.
  */
 class NewsController extends Controller implements ModuleController

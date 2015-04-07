@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file usermodel.php is responsible for the user creation, editing
+ * and deleting.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class UserModel provides a user system.
  */
 class UserModel extends Model

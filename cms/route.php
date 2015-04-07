@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file provides a route that contains all data that are generated
+ * from the user input which was passed to the controller.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Route contains all information about the controller and the
  * action.
  */

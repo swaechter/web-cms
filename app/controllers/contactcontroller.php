@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file contactcontroller.php is contains the contact controller which
+ * is responsible for the contact form and sending mails.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class ContactController is responsible for the contact form.
  */
 class ContactController extends Controller implements ModuleController

@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file text.php provides a text entity that contains the news title
+ * and text content.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Text represents a text.
  *
  * @Entity

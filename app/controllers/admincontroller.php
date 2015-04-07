@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file admincontroller.php contains the admin controller which is
+ * responsible for the login management.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class AdminController is responsible for the admin interface.
  */
 class AdminController extends Controller implements ModuleController

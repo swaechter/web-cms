@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file resourceplugin.php is responsible for the resource management
+ * like uploading files.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The plugin Ressource provides a resource system which can manage all resources.
  */
 class ResourcePlugin implements Plugin

@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file contactplugin.php contains the contact plugin and is responsible
+ * for sending user mails to the website owner.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The plugin Contact provides a contact form with a mail engine as backend.
  */
 class ContactPlugin implements Plugin

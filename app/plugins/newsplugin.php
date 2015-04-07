@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file newsplugin.php provides the news plugin which is responsible
+ * for creating, editing and deleting news entries in a news feed.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The plugin News provide a news system with news entries.
  */
 class NewsPlugin implements Plugin

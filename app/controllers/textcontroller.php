@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file text controller is responsible for creating, editing
+ * and deleting texts.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class TextController is responsible for all articles.
  */
 class TextController extends Controller implements ModuleController

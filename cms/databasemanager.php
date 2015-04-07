@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * The file databasemanager provides access to the database via the Doctrine
+ * object relational mapper.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
 use Doctrine\ORM\Mapping;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\Tools\SchemaTool;

@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file datacontainer.php contains all information about the user input
+ * like the user URI.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class DataContainer contains all information that are needed by the system.
  */
 class DataContainer

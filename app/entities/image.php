@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * The file image.php provides an image entity that contains a
+ * file name and a title.
+ *
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Simon Wächter
+ * @version 1.0
+ */
+
+/**
  * The class Image represents an image.
  *
  * @Entity
