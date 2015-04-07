@@ -111,7 +111,7 @@ class Utils
 	public static function hasPostString($key)
 	{
 		$value = Utils::getPost($key);
-		return $value != null && strlen($value) != 0 && strlen($value) <= 60;
+		return $value != null && strlen($value) != 0 && strlen($value) <= 50;
 	}
 	
 	/**
@@ -129,7 +129,7 @@ class Utils
 		else
 		{
 			$value = Utils::getPost($key);
-			return $value != null && strlen($value) != 0 && strlen($value) <= 60;
+			return $value != null && strlen($value) != 0 && strlen($value) <= 50;
 		}
 		return false;
 	}
@@ -155,7 +155,7 @@ class Utils
 	public static function hasPostEmail($key)
 	{
 		$value = Utils::getPost($key);
-		return $value != null && filter_var($value, FILTER_VALIDATE_EMAIL) && strlen($value) <= 60;
+		return $value != null && filter_var($value, FILTER_VALIDATE_EMAIL) && strlen($value) <= 50;
 	}
 	
 	/**
