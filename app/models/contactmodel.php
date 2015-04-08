@@ -77,7 +77,7 @@ class ContactModel extends Model
 			$mail->SMTPAuth = true;
 			$mail->Username = $mailconfiguration->getUsername();
 			$mail->Password = $mailconfiguration->getPassword();
-			$mail->SMTPSecure = 'tls';
+			$mail->SMTPSecure = "tls";
 			$mail->Port = $mailconfiguration->getPort();
 			$mail->From = $email;
 			$mail->FromName = $name;

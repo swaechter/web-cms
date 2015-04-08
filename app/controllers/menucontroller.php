@@ -23,7 +23,7 @@ class MenuController extends Controller implements SystemController
 		if($adminmodel->isUserLoggedIn())
 		{
 			$menumodel = new MenuModel($this);
-			$this->getView()->setData('MENUS', $menumodel->getMenus());
+			$this->getView()->setData("MENUS", $menumodel->getMenus());
 		}
 		else
 		{
@@ -40,7 +40,7 @@ class MenuController extends Controller implements SystemController
 		if($adminmodel->isUserLoggedIn())
 		{
 			$menumodel = new MenuModel($this);
-			$this->getView()->setData('MENUS', $menumodel->getMenus());
+			$this->getView()->setData("MENUS", $menumodel->getMenus());
 		}
 		else
 		{
@@ -56,7 +56,7 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasPossiblePostId('parentid') && Utils::hasPostString("displayname") && Utils::hasPossiblePostString("link"))
+			if(Utils::hasPossiblePostId("parentid") && Utils::hasPostString("displayname") && Utils::hasPossiblePostString("link"))
 			{
 				$menumodel = new MenuModel($this);
 				if($menumodel->createMenu(Utils::getPost("parentid"), Utils::getPost("displayname"), Utils::getPost("link")))

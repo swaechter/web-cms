@@ -23,7 +23,7 @@ class UserController extends Controller implements SystemController
 		if($adminmodel->isUserLoggedIn())
 		{
 			$usermodel = new UserModel($this);
-			$this->getView()->setData('USERS', $usermodel->getUsers());
+			$this->getView()->setData("USERS", $usermodel->getUsers());
 		}
 		else
 		{
