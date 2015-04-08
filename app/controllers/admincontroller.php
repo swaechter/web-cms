@@ -22,7 +22,7 @@ class AdminController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			$this->getView()->setData("SUCCESS", "You are already logged in.");
+			$this->getView()->setData("SUCCESS", "Sie sind bereits angemeldet.");
 		}
 	}
 	
