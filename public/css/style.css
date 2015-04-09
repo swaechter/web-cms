@@ -5,8 +5,8 @@ body
 
 .container-fluid
 {
-	max-width: 980px;
 	margin: 0 auto;
+	max-width: 980px;
 }
 
 .container
@@ -28,9 +28,8 @@ body
 
 .content
 {
-	margin-bottom: 150px;
-	margin-top: 10px;
 	padding: 20px;
+	margin-top: 10px;
 	background-color: #ffffff !important;
 	box-shadow: 0px 7px 7px 5px #c0c0c0;
 	border-top: 2px #c0c0c0 !important;
@@ -38,9 +37,9 @@ body
 
 .footer
 {
-	background-color: #f8f8f8;
 	margin-bottom: 20px;
-	padding: 20px;
+	background-color: #f8f8f8;
+	box-shadow: 0px 7px 7px 5px #c0c0c0;
 }
 
 .navbar
@@ -66,21 +65,11 @@ body
 	text-align: left !important;
 }
 
-#navimg
-{
-	vertical-align: top;
-}
-
-#navText
-{
-	font-size: 20px !important;
-}
-
 .navbar-default
 {
+	margin-top: 20px;
 	background-color: #ffffff !important;
 	box-shadow: 0px 7px 7px 5px #c0c0c0;
-	margin-top: 20px;
 	border-top: 2px #c0c0c0 !important;
 }
 
@@ -189,8 +178,8 @@ body
 
 .galleryitem li
 {
-	list-style: none;
 	margin-bottom: 25px;
+	list-style: none;
 }
 
 .galleryitem ul li img
@@ -216,10 +205,10 @@ body
 
 .controls
 {
+	padding-top: 8px;
 	width: 50px;
 	display: block;
 	font-size: 11px;
-	padding-top: 8px;
 	font-weight: bold;
 }
 
@@ -231,8 +220,8 @@ body
 
 .modal-dialog
 {
-	max-width: 500px;
 	padding-top: 90px;
+	max-width: 500px;
 }
 
 @media screen and (min-width: 768px)
@@ -262,7 +251,7 @@ hr
 h1, h2, h3, h4
 {
 	word-wrap: break-word;
-	word-break: break-word;
+	word-break: break-all;
 }
 
 textarea
