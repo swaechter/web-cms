@@ -19,7 +19,12 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Enable Apache mod_rewrite
 
+	Edit the file /etc/apache2/apache2.conf and allow rewrite
 	sudo a2enmod rewrite
+
+### Increase the PHP and Apache file upload size
+
+	Edit the file /etc/php5/apache2/php.ini and modify the value upload_max_filesize
 
 ### Create a virtuel host
 
