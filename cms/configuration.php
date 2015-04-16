@@ -10,7 +10,7 @@
  */
 
 /**
- * The class configuration contains all information that are required by the
+ * The class Configuration contains all information that are required by the
  * CMS system.
  */
 class Configuration
@@ -58,16 +58,24 @@ class Configuration
 	private $databasename;
 	
 	/**
+	 * The LDAP configuration of the system
+	 *
+	 * @var LdapConfiguration
+	 */
+	private $ldapconfiguration;
+	
+	/**
 	 * Constructor of the class Configuration.
 	 *
 	 * @param string $websitename The name of the website
-	 * @param array $defaulturi Default URI
+	 * @param string $defaulturi Default URI
 	 * @param string $databasehostname The database hostname
 	 * @param string $databaseusername The database username
 	 * @param string $databasepassword The database user password
 	 * @param string $databasename The database name
+	 * @param LdapConfiguration $ldapconfiguration The possible LDAP configuration
 	 */
-	public function __construct($websitename, $defaulturi, $databasehostname, $databaseusername, $databasepassword, $databasename)
+	public function __construct($websitename, $defaulturi, $databasehostname, $databaseusername, $databasepassword, $databasename, $ldapconfiguration)
 	{
 		$this->websitename = $websitename;
 		$this->defaulturi = $defaulturi;
@@ -75,6 +83,7 @@ class Configuration
 		$this->databaseusername = $databaseusername;
 		$this->databasepassword = $databasepassword;
 		$this->databasename = $databasename;
+		$this->ldapconfiguration = $ldapconfiguration;
 	}
 	
 	/**
@@ -135,6 +144,16 @@ class Configuration
 	public function getDatabaseName()
 	{
 		return $this->databasename;
+	}
+	
+	/**
+	 * Get the LDAP configuration.
+	 *
+	 * @return LdapConfiguration LDAP configuration
+	 */
+	public function getLdapConfiguration()
+	{
+		return $this->ldapconfiguration;
 	}
 }
 

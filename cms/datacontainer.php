@@ -29,15 +29,24 @@ class DataContainer
 	private $menus;
 	
 	/**
+	 * The configuration.
+	 *
+	 * @var Configuration
+	 */
+	private $configuration;
+	
+	/**
 	 * Constructor of the class DataContainer all information.
 	 * 
 	 * @param Route $route Route
 	 * @param array $menus All menus
+	 * @param Configuration $configuration Configuration
 	 */
-	public function __construct($route, $menus)
+	public function __construct($route, $menus, $configuration)
 	{
 		$this->route = $route;
 		$this->menus = $menus;
+		$this->configuration = $configuration;
 	}
 	
 	/**
@@ -58,6 +67,16 @@ class DataContainer
 	public function getMenus()
 	{
 		return $this->menus;
+	}
+	
+	/**
+	 * Get the configuration.
+	 *
+	 * @return Configuration Configuration
+	 */
+	public function getConfiguration()
+	{
+		return $this->configuration;
 	}
 }
 

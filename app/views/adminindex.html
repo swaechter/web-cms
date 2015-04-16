@@ -2,8 +2,8 @@
 <h1>Anmelden</h1>
 <form role="form" method="post" action="/admin/login">
 	<div class="form-group">
-		<label for="email">Email</label>
-		<input class="form-control" type="email" name="email" id="email" placeholder="Ihre Emailadresse" maxlength="50" required>
+		<label for="username">{{USERNAMETITLE}}</label>
+		<input class="form-control" type="{{USERNAMETYPE}}" name="username" id="username" placeholder="{{USERNAMEDESCRIPTION}}" maxlength="50" required>
 	</div>
 	<div class="form-group">
 		<label for="password">Passwort</label>

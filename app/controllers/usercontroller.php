@@ -22,8 +22,15 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			$usermodel = new UserModel($this);
-			$this->getView()->setData("USERS", $usermodel->getUsers());
+			if(!$adminmodel->hasLdapBackend())
+			{
+				$usermodel = new UserModel($this);
+				$this->getView()->setData("USERS", $usermodel->getUsers());
+			}
+			else
+			{
+				$this->getView()->setData("ERROR", "Diese Funktion steht bei der Verwendung von LDAP nicht zur Verfügung.");
+			}
 		}
 		else
 		{
@@ -37,7 +44,14 @@ class UserController extends Controller implements SystemController
 	public function create()
 	{
 		$adminmodel = new AdminModel($this);
-		if(!$adminmodel->isUserLoggedIn())
+		if($adminmodel->isUserLoggedIn())
+		{
+			if($adminmodel->hasLdapBackend())
+			{
+				$this->getView()->setData("ERROR", "Diese Funktion steht bei der Verwendung von LDAP nicht zur Verfügung.");
+			}
+		}
+		else
 		{
 			$this->getView()->setData("ADMINERROR", "Sie verfügen nicht über die notwendigen Berechtigungen, um auf diese Seite zugreifen zu dürfen.");
 		}
@@ -51,25 +65,32 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasPostString("name") && Utils::hasPostEmail("email") && Utils::hasPostString("passworda") && Utils::hasPostString("passwordb"))
+			if(!$adminmodel->hasLdapBackend())
 			{
-				$usermodel = new UserModel($this);
-				if(Utils::getPost("passworda") != Utils::getPost("passwordb"))
+				if(Utils::hasPostString("name") && Utils::hasPostEmail("email") && Utils::hasPostString("passworda") && Utils::hasPostString("passwordb"))
 				{
-					$this->getView()->setData("ERROR", "Die beiden Passwörter stimmen nicht überein.");
-				}
-				else if($usermodel->createUser(Utils::getPost("name"), Utils::getPost("email"), Utils::getPost("passworda")))
-				{
-					$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich erstellt.");
+					$usermodel = new UserModel($this);
+					if(Utils::getPost("passworda") != Utils::getPost("passwordb"))
+					{
+						$this->getView()->setData("ERROR", "Die beiden Passwörter stimmen nicht überein.");
+					}
+					else if($usermodel->createUser(Utils::getPost("name"), Utils::getPost("email"), Utils::getPost("passworda")))
+					{
+						$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich erstellt.");
+					}
+					else
+					{
+						$this->getView()->setData("ERROR", "Der Benutzer konnte nicht erstelllt werden.");
+					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "Der Benutzer konnte nicht erstelllt werden.");
+					$this->getView()->setData("ERROR", "Bitte geben Sie die Emailadresse, den Benutzernamen und beide Passwörter an.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Bitte geben Sie die Emailadresse, den Benutzernamen und beide Passwörter an.");
+				$this->getView()->setData("ERROR", "Diese Funktion steht bei der Verwendung von LDAP nicht zur Verfügung.");
 			}
 		}
 		else
@@ -86,22 +107,29 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(!$adminmodel->hasLdapBackend())
 			{
-				$usermodel = new UserModel($this);
-				$user = $usermodel->getUser(Utils::getGet("id"));
-				if($user)
+				if(Utils::hasGetId("id"))
 				{
-					$this->getView()->setData("USER", $user);
+					$usermodel = new UserModel($this);
+					$user = $usermodel->getUser(Utils::getGet("id"));
+					if($user)
+					{
+						$this->getView()->setData("USER", $user);
+					}
+					else
+					{
+						$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
+					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
+					$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
+				$this->getView()->setData("ERROR", "Diese Funktion steht bei der Verwendung von LDAP nicht zur Verfügung.");
 			}
 		}
 		else
@@ -118,36 +146,43 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id") && Utils::hasPostString("name") && Utils::hasPostEmail("email") && Utils::hasPostString("passworda") && Utils::hasPostString("passwordb"))
+			if(!$adminmodel->hasLdapBackend())
 			{
-				$usermodel = new UserModel($this);
-				$user = $usermodel->getUser(Utils::getGet("id"));
-				if($user)
+				if(Utils::hasGetId("id") && Utils::hasPostString("name") && Utils::hasPostEmail("email") && Utils::hasPostString("passworda") && Utils::hasPostString("passwordb"))
 				{
-					$user->setName(Utils::getPost("name"));
-					$user->setEmail(Utils::getPost("email"));
-					$user->setPassword(hash("sha512", Utils::getPost("passworda")));
-					if(Utils::getPost("passworda") != Utils::getPost("passwordb"))
+					$usermodel = new UserModel($this);
+					$user = $usermodel->getUser(Utils::getGet("id"));
+					if($user)
 					{
-						$this->getView()->setData("ERROR", "Die beiden Passwörter stimmen nicht überein.");
-					}
-					else if($usermodel->updateUser($user))
-					{
-						$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich bearbeitet.");
+						$user->setName(Utils::getPost("name"));
+						$user->setEmail(Utils::getPost("email"));
+						$user->setPassword(hash("sha512", Utils::getPost("passworda")));
+						if(Utils::getPost("passworda") != Utils::getPost("passwordb"))
+						{
+							$this->getView()->setData("ERROR", "Die beiden Passwörter stimmen nicht überein.");
+						}
+						else if($usermodel->updateUser($user))
+						{
+							$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich bearbeitet.");
+						}
+						else
+						{
+							$this->getView()->setData("ERROR", "Der Benutzer konnte nicht bearbeitet werden.");
+						}
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "Der Benutzer konnte nicht bearbeitet werden.");
+						$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
+					$this->getView()->setData("ERROR", "Bitte geben Sie die ID, den Benutzernamen, die Emailadresse und beide Passwörter an.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Bitte geben Sie die ID, den Benutzernamen, die Emailadresse und beide Passwörter an.");
+				$this->getView()->setData("ERROR", "Diese Funktion steht bei der Verwendung von LDAP nicht zur Verfügung.");
 			}
 		}
 		else
@@ -164,13 +199,20 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(!$adminmodel->hasLdapBackend())
 			{
-				$this->getView()->setData("ID", Utils::getGet("id"));
+				if(Utils::hasGetId("id"))
+				{
+					$this->getView()->setData("ID", Utils::getGet("id"));
+				}
+				else
+				{
+					$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
+				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
+				$this->getView()->setData("ERROR", "Diese Funktion steht bei der Verwendung von LDAP nicht zur Verfügung.");
 			}
 		}
 		else
@@ -187,33 +229,40 @@ class UserController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(!$adminmodel->hasLdapBackend())
 			{
-				$usermodel = new UserModel($this);
-				$user = $usermodel->getUser(Utils::getGet("id"));
-				if($user)
+				if(Utils::hasGetId("id"))
 				{
-					if(count($usermodel->getUsers()) == 1)
+					$usermodel = new UserModel($this);
+					$user = $usermodel->getUser(Utils::getGet("id"));
+					if($user)
 					{
-						$this->getView()->setData("ERROR", "Sie können den letzten Benutzer nicht löschen.");
-					}
-					else if($usermodel->deleteUser($user))
-					{
-						$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich gelöscht.");
+						if(count($usermodel->getUsers()) == 1)
+						{
+							$this->getView()->setData("ERROR", "Sie können den letzten Benutzer nicht löschen.");
+						}
+						else if($usermodel->deleteUser($user))
+						{
+							$this->getView()->setData("SUCCESS", "Der Benutzer wurde erfolgreich gelöscht.");
+						}
+						else
+						{
+							$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gelöscht werden.");
+						}
 					}
 					else
 					{
-						$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gelöscht werden.");
+						$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
 					}
 				}
 				else
 				{
-					$this->getView()->setData("ERROR", "Der Benutzer konnte nicht gefunden werden.");
+					$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
 				}
 			}
 			else
 			{
-				$this->getView()->setData("ERROR", "Bitte geben Sie eine gültige ID an.");
+				$this->getView()->setData("ERROR", "Diese Funktion steht bei der Verwendung von LDAP nicht zur Verfügung.");
 			}
 		}
 		else

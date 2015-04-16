@@ -20,7 +20,22 @@ class AdminController extends Controller implements ModuleController
 	public function index()
 	{
 		$adminmodel = new AdminModel($this);
-		if($adminmodel->isUserLoggedIn())
+		if(!$adminmodel->isUserLoggedIn())
+		{
+			if(!$adminmodel->hasLdapBackend())
+			{
+				$this->getView()->setData("USERNAMETITLE", "Email");
+				$this->getView()->setData("USERNAMEDESCRIPTION", "Ihre Emailadresse");
+				$this->getView()->setData("USERNAMETYPE", "email");
+			}
+			else
+			{
+				$this->getView()->setData("USERNAMETITLE", "Benutzername");
+				$this->getView()->setData("USERNAMEDESCRIPTION", "Ihr Benutzername");
+				$this->getView()->setData("USERNAMETYPE", "text");
+			}
+		}
+		else
 		{
 			$this->getView()->setData("SUCCESS", "Sie sind bereits angemeldet.");
 		}
@@ -34,9 +49,9 @@ class AdminController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if(!$adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasPostEmail("email") && Utils::hasPostString("password"))
+			if(Utils::hasPostString("username") && Utils::hasPostString("password"))
 			{
-				if($adminmodel->loginUser(Utils::getPost("email"), Utils::getPost("password")))
+				if($adminmodel->loginUser(Utils::getPost("username"), Utils::getPost("password")))
 				{
 					$this->getView()->setData("SUCCESS", "Sie wurden erfolgreich angemeldet.");
 				}

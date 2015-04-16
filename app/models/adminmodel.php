@@ -21,31 +21,54 @@ class AdminModel extends Model
 	 */
 	public function isUserLoggedIn()
 	{
-		return Utils::getSession("UserLoginStatus");
+		return Utils::getSession("UserStatus");
 	}
 	
 	/**
-	 * Login a user based on the email address and the password.
+	 * Login a user based on the email address/user name and the password.
 	 *
-	 * @param string $email Email address
+	 * @param string $username Email address or the user name
 	 * @param string $password Password
 	 * @return boolean Status of the login
 	 */
-	public function loginUser($email, $password)
+	public function loginUser($username, $password)
 	{
-		$passwordhash = hash("sha512", $password);
-		$users = $this->getDatabaseManager()->getEntries("User");
-		
-		foreach($users as $user)
+		if(!$this->hasLdapBackend())
 		{
-			if(!strcasecmp($user->getEmail(), $email) && !strcasecmp($user->getPassword(), $passwordhash))
+			$passwordhash = hash("sha512", $password);
+			$users = $this->getDatabaseManager()->getEntries("User");
+			foreach($users as $user)
 			{
-				Utils::setSession("UserLoginStatus", true);
-				Utils::setSession("UserLoginName", $user->getName());
-				return true;
+				if(!strcasecmp($user->getEmail(), $username) && !strcasecmp($user->getPassword(), $passwordhash))
+				{
+					Utils::setSession("UserStatus", true);
+					Utils::setSession("UserUsername", $username);
+					Utils::setSession("UserLoginPassword", $password);
+					return true;
+				}
 			}
 		}
-		
+		else
+		{
+			Utils::setSession("UserStatus", true);
+			return true;
+			$ldapconfiguration = $this->getDataContainer()->getConfiguration()->getLdapConfiguration();
+			$ldaphostname = $ldapconfiguration->getHostname();
+			$ldapdn = $ldapconfiguration->getDn();
+			$connection = ldap_connect($ldaphostname, 389);
+			if($connection)
+			{
+				$bind = @ldap_bind($connection, $username . "@" . $ldapdn, $password);
+				if($bind)
+				{
+					Utils::setSession("UserStatus", true);
+					Utils::setSession("UserUsername", $username);
+					Utils::setSession("UserPassword", $password);
+					return true;
+				}
+				ldap_unbind($connection);
+			}
+		}
 		return false;
 	}
 	
@@ -59,10 +82,32 @@ class AdminModel extends Model
 	
 	/**
 	 * Get the name of the user.
+	 *
+	 * @return string User name
 	 */
 	public function getUserName()
 	{
-		return Utils::getSession("UserLoginName");
+		return Utils::getSession("UserUsername");
+	}
+	
+	/**
+	 * Get the password of the user.
+	 *
+	 * @return string Password
+	 */
+	public function getUserPassword()
+	{
+		return Utils::getSession("UserPassword");
+	}
+	
+	/**
+	 * Check if the system uses a LDAP backend.
+	 *
+	 * @¶eturn boolean Status of the backend
+	 */
+	public function hasLdapBackend()
+	{
+		return $this->getDataContainer()->getConfiguration()->getLdapConfiguration() ? true : false;
 	}
 }
 

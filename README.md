@@ -10,7 +10,7 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Install all system dependencies
 
-	sudo apt-get install apache2 php5 php5-xdebug php5-xsl php5-mysql mysql-client
+	sudo apt-get install apache2 php5 php5-xdebug php5-xsl php5-ldap php5-mysql mysql-client
 
 ### Clone the repository
 

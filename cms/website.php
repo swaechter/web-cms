@@ -21,6 +21,7 @@ require_once("interfaces/systemcontroller.php");
 // Include the system
 require_once("globals.php");
 require_once("configuration.php");
+require_once("ldapconfiguration.php");
 require_once("databasemanager.php");
 require_once("datacontainer.php");
 require_once("plugin.php");
@@ -89,7 +90,7 @@ class Website
 		$menus = $menumanager->getMenus();
 		
 		// Create the data container
-		$datacontainer = new DataContainer($route, $menus);
+		$datacontainer = new DataContainer($route, $menus, $this->configuration);
 		
 		// Create a view
 		$view = $viewmanager->createView($datacontainer);
