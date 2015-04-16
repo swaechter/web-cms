@@ -42,16 +42,16 @@
 				</div>
 				<div class="collapse navbar-collapse" id="navigation">
 					<ul class="nav navbar-nav">
-						{% for MENU in MENUS %}
-						{% if MENU.getParentMenu == null %}
-						{% if MENU.getChildrenMenus|length == 0 %}
-						<li><a href="{{MENU.getLink}}">{{MENU.getDisplayName}}</a></li>
+						{% for NAVIGATIONMENU in NAVIGATIONMENUS %}
+						{% if NAVIGATIONMENU.getParentMenu == null %}
+						{% if NAVIGATIONMENU.getChildrenMenus|length == 0 %}
+						<li><a href="{{NAVIGATIONMENU.getLink}}">{{NAVIGATIONMENU.getDisplayName}}</a></li>
 						{% else %}
 						<li class="dropdown">
-							<a href="{{MENU.getLink}}" class="dropdown-toggle" data-toggle="dropdown">{{MENU.getDisplayName}}<b class="caret"></b></a>
+							<a href="{{NAVIGATIONMENU.getLink}}" class="dropdown-toggle" data-toggle="dropdown">{{NAVIGATIONMENU.getDisplayName}}<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-							{% for SUBMENU in MENU.getChildrenMenus %}
-								<li><a href="{{SUBMENU.getLink}}">{{SUBMENU.getDisplayName}}</a></li>
+							{% for SUBNAVIGATIONMENU in NAVIGATIONMENU.getChildrenMenus %}
+								<li><a href="{{SUBNAVIGATIONMENU.getLink}}">{{SUBNAVIGATIONMENU.getDisplayName}}</a></li>
 							{% endfor %}
 							</ul>
 						</li>

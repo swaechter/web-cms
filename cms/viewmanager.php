@@ -48,9 +48,9 @@ class ViewManager
 		$subtemplatename = $datacontainer->getRoute()->getControllerName() . $datacontainer->getRoute()->getActionName() . TEMPLATE_EXTENSION;
 		
 		// Set the data
-		$data["WEBSITE_NAME"] = $this->configuration->getWebsiteName();
+		$data["WEBSITENAME"] = $this->configuration->getWebsiteName();
 		$data["TITLE"] = $this->configuration->getWebsiteName();
-		$data["MENUS"] = $datacontainer->getMenus();
+		$data["NAVIGATIONMENUS"] = $datacontainer->getMenus();
 		
 		// Create and return the view
 		return new View($templatedirectory, $templatename, $subtemplatedirectory, $subtemplatename, $data);
