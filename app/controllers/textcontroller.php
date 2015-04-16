@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The file text controller is responsible for creating, editing
+ * The file textcontroller.php is responsible for creating, editing
  * and deleting texts.
  *
  * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

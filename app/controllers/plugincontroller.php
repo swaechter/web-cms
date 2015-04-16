@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The file plugincontroller provides an overview about the installed plugins.
+ * The file plugincontroller.php provides an overview about the installed plugins.
  *
  * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @author Simon Wächter

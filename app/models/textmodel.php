@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The file provides a method for creating, editing and deleting text
+ * The file textmodel.php provides a method for creating, editing and deleting text
  * entries.
  *
  * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
