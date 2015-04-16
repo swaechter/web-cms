@@ -53,6 +53,16 @@ class ContactPlugin implements Plugin
 	{
 		return array(new Item("contact", "Kontakt"));
 	}
+	
+	/**
+	 * Get the plugin dependencies as array.
+	 *
+	 * @return array Plugin dependencies
+	 */
+	public function getDependencies()
+	{
+		return array("admin");
+	}
 }
 
 ?>

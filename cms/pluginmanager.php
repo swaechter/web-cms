@@ -31,6 +31,28 @@ class PluginManager
 		{
 			include($file->getPathname());
 		}
+		
+		// Check the dependencies
+		foreach(get_declared_classes() as $classname)
+		{
+			if(is_subclass_of($classname, "Plugin"))
+			{
+				$plugin = new $classname();
+				foreach($plugin->getDependencies() as $dependencypluginname)
+				{
+					$dependencyclassname = $dependencypluginname . PLUGIN_SUFFIX;
+					if(!class_exists($dependencyclassname))
+					{
+						$pluginname = $plugin->getName();
+						throw new Exception("The system was unable to find the plugin {$dependencypluginname} that is required by the plugin {$pluginname}.");
+					}
+					else if(!is_subclass_of($dependencyclassname, "Plugin"))
+					{
+						throw new Exception("The plugin dependency {$dependencyclassname} is not a real plugin");
+					}
+				}
+			}
+		}
 	}
 }
 

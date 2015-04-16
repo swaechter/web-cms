@@ -53,6 +53,16 @@ class NewsPlugin implements Plugin
 	{
 		return array(new Item("news", "News"));
 	}
+	
+	/**
+	 * Get the plugin dependencies as array.
+	 *
+	 * @return array Plugin dependencies
+	 */
+	public function getDependencies()
+	{
+		return array("admin");
+	}
 }
 
 ?>

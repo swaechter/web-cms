@@ -80,6 +80,13 @@ define("TEMPLATE_EXTENSION", ".html");
 define("URI_DELIMITER", "/");
 
 /**
+ * This variable represents the plugin suffix.
+ *
+ * @var string
+ */
+define("PLUGIN_SUFFIX", "plugin");
+
+/**
  * This variable represents the controller suffix.
  *
  * @var string

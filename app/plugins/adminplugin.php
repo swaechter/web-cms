@@ -53,6 +53,16 @@ class AdminPlugin implements Plugin
 	{
 		return array(new Item("admin", "Admin"), new Item("user", "Benutzer"), new Item("menu", "Menüs"), new Item("plugin", "Plugins"));
 	}
+	
+	/**
+	 * Get the plugin dependencies as array.
+	 *
+	 * @return array Plugin dependencies
+	 */
+	public function getDependencies()
+	{
+		return array();
+	}
 }
 
 ?>

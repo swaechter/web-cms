@@ -53,6 +53,16 @@ class ResourcePlugin implements Plugin
 	{
 		return array(new Item("resource", "Ressourcen"));
 	}
+	
+	/**
+	 * Get the plugin dependencies as array.
+	 *
+	 * @return array Plugin dependencies
+	 */
+	public function getDependencies()
+	{
+		return array("admin");
+	}
 }
 
 ?>

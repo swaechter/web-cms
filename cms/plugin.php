@@ -42,6 +42,13 @@ interface Plugin
 	 * @return array Plugin controller items
 	 */
 	public function getItems();
+	
+	/**
+	 * Get the plugin dependencies.
+	 *
+	 * @return array Plugin dependencies
+	 */
+	public function getDependencies();
 }
 
 ?>
