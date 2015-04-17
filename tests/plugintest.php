@@ -10,7 +10,23 @@ class PluginTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testPluginManager()
 	{
-		$pluginmanager = new Pluginmanager("tests/plugintest/");
+		try
+		{
+			$pluginmanager = new PluginManager("tests/plugintest/");
+		}
+		catch(Exception $exception) {}
+		
+		try
+		{
+			$pluginmanager = new PluginManager("tests/pluginfake/");
+		}
+		catch(Exception $exception) {}
+		
+		try
+		{
+			$pluginmanager = new PluginManager("tests/plugininvalid/");
+		}
+		catch(Exception $exception) {}
 		
 		$plugins = array();
 		
@@ -25,7 +41,7 @@ class PluginTest extends PHPUnit_Framework_TestCase
 		$fooplugin = new FooPlugin();
 		$barplugin = new BarPlugin();
 		
-		$this->assertEquals(count($plugins), 2);
+		$this->assertEquals(count($plugins), 4);
 		
 		$this->assertSame($fooplugin->getName(), "foo");
 		$this->assertSame($fooplugin->getDisplayName(), "Foo");

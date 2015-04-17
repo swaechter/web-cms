@@ -97,9 +97,9 @@ class ResourceController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
-				$this->getView()->setData("ID", Utils::getGet("id"));
+				$this->getView()->setData("ID", Utils::getGet("data0"));
 			}
 			else
 			{
@@ -120,10 +120,10 @@ class ResourceController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
 				$resourcemodel = new ResourceModel($this);
-				$resource = $resourcemodel->getResource(Utils::getGet("id"));
+				$resource = $resourcemodel->getResource(Utils::getGet("data0"));
 				if($resource)
 				{
 					if($resourcemodel->deleteResource($resource))

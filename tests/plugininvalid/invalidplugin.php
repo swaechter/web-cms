@@ -3,7 +3,7 @@
 /**
  * Test plugin.
  */
-class FooPlugin implements Plugin
+class InvalidPlugin implements Plugin
 {
 	/**
 	 * Get the plugin name.
@@ -12,7 +12,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getName()
 	{
-		return "foo";
+		return "invalid";
 	}
 	
 	/**
@@ -22,7 +22,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Foo";
+		return "Invalid";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "Foo is a test plugin.";
+		return "Invalid is a test plugin.";
 	}
 	
 	/**
@@ -52,7 +52,8 @@ class FooPlugin implements Plugin
 	 */
 	public function getDependencies()
 	{
-		return array();
+		die("lalalala");
+		return array("nonexistingplugin");
 	}
 }
 

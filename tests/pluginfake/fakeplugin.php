@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Test plugin.
+ * Fake plugin.
  */
-class FooPlugin implements Plugin
+class FakePlugin implements Plugin
 {
 	/**
 	 * Get the plugin name.
@@ -12,7 +12,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getName()
 	{
-		return "foo";
+		return "fake";
 	}
 	
 	/**
@@ -22,7 +22,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDisplayName()
 	{
-		return "Foo";
+		return "Fake";
 	}
 	
 	/**
@@ -32,7 +32,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDescription()
 	{
-		return "Foo is a test plugin.";
+		return "Fake is a test/fake plugin.";
 	}
 	
 	/**
@@ -52,7 +52,7 @@ class FooPlugin implements Plugin
 	 */
 	public function getDependencies()
 	{
-		return array();
+		return array("otherclass");
 	}
 }
 

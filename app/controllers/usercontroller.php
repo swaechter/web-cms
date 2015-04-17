@@ -109,10 +109,10 @@ class UserController extends Controller implements SystemController
 		{
 			if(!$adminmodel->hasLdapBackend())
 			{
-				if(Utils::hasGetId("id"))
+				if(Utils::hasGetId("data0"))
 				{
 					$usermodel = new UserModel($this);
-					$user = $usermodel->getUser(Utils::getGet("id"));
+					$user = $usermodel->getUser(Utils::getGet("data0"));
 					if($user)
 					{
 						$this->getView()->setData("USER", $user);
@@ -148,10 +148,10 @@ class UserController extends Controller implements SystemController
 		{
 			if(!$adminmodel->hasLdapBackend())
 			{
-				if(Utils::hasGetId("id") && Utils::hasPostString("name") && Utils::hasPostEmail("email") && Utils::hasPostString("passworda") && Utils::hasPostString("passwordb"))
+				if(Utils::hasGetId("data0") && Utils::hasPostString("name") && Utils::hasPostEmail("email") && Utils::hasPostString("passworda") && Utils::hasPostString("passwordb"))
 				{
 					$usermodel = new UserModel($this);
-					$user = $usermodel->getUser(Utils::getGet("id"));
+					$user = $usermodel->getUser(Utils::getGet("data0"));
 					if($user)
 					{
 						$user->setName(Utils::getPost("name"));
@@ -201,9 +201,9 @@ class UserController extends Controller implements SystemController
 		{
 			if(!$adminmodel->hasLdapBackend())
 			{
-				if(Utils::hasGetId("id"))
+				if(Utils::hasGetId("data0"))
 				{
-					$this->getView()->setData("ID", Utils::getGet("id"));
+					$this->getView()->setData("ID", Utils::getGet("data0"));
 				}
 				else
 				{
@@ -231,10 +231,10 @@ class UserController extends Controller implements SystemController
 		{
 			if(!$adminmodel->hasLdapBackend())
 			{
-				if(Utils::hasGetId("id"))
+				if(Utils::hasGetId("data0"))
 				{
 					$usermodel = new UserModel($this);
-					$user = $usermodel->getUser(Utils::getGet("id"));
+					$user = $usermodel->getUser(Utils::getGet("data0"));
 					if($user)
 					{
 						if(count($usermodel->getUsers()) == 1)

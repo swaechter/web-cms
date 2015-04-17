@@ -28,10 +28,10 @@ class TextController extends Controller implements ModuleController
 	 */
 	public function show()
 	{
-		if(Utils::hasGetId("id"))
+		if(Utils::hasGetId("data0"))
 		{
 			$textmodel = new TextModel($this);
-			$text = $textmodel->getText(Utils::getGet("id"));
+			$text = $textmodel->getText(Utils::getGet("data0"));
 			{
 				if($text)
 				{
@@ -117,10 +117,10 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
 				$textmodel = new TextModel($this);
-				$text = $textmodel->getText(Utils::getGet("id"));
+				$text = $textmodel->getText(Utils::getGet("data0"));
 				if($text)
 				{
 					$this->getView()->setData("TEXT", $text);
@@ -149,10 +149,10 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id") && Utils::hasPostString("title") && Utils::hasPostText("text"))
+			if(Utils::hasGetId("data0") && Utils::hasPostString("title") && Utils::hasPostText("text"))
 			{
 				$textmodel = new TextModel($this);
-				$text = $textmodel->getText(Utils::getGet("id"));
+				$text = $textmodel->getText(Utils::getGet("data0"));
 				if($text)
 				{
 					$text->setTitle(Utils::getPost("title"));
@@ -190,9 +190,9 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
-				$this->getView()->setData("ID", Utils::getGet("id"));
+				$this->getView()->setData("ID", Utils::getGet("data0"));
 			}
 			else
 			{
@@ -213,10 +213,10 @@ class TextController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
 				$textmodel = new TextModel($this);
-				$text = $textmodel->getText(Utils::getGet("id"));
+				$text = $textmodel->getText(Utils::getGet("data0"));
 				if($text)
 				{
 					if($textmodel->deleteText($text))

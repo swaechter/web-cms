@@ -10,7 +10,9 @@ class MvcTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testMvc()
 	{
-		$configuration = new Configuration("Web-CMS", "/admin/index", "127.0.0.1", "root", "123456", "webcms_test");
+		$ldapconfiguration = new LdapConfiguration("smb42", "web-cms.org");
+		
+		$configuration = new Configuration("Web-CMS", "/admin/index", "127.0.0.1", "root", "123456", "webcms_test", $ldapconfiguration);
 		
 		$databasemanager = new DatabaseManager($configuration);
 		
@@ -101,7 +103,10 @@ class MvcTest extends PHPUnit_Framework_TestCase
 		
 		$menus = $menumanager->getMenus();
 		
-		$datacontainer = new DataContainer($route, $menus);
+		$datacontainer = new DataContainer($route, $menus, $configuration);
+		$this->assertSame($datacontainer->getRoute(), $route);
+		$this->assertSame($datacontainer->getMenus(), $menus);
+		$this->assertSame($datacontainer->getConfiguration(), $configuration);
 		
 		$view = $viewmanager->createView($datacontainer);
 		$view->setData("FOO", "BAR");

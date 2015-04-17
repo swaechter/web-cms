@@ -28,10 +28,10 @@ class NewsController extends Controller implements ModuleController
 	 */
 	public function show()
 	{
-		if(Utils::hasGetId("id"))
+		if(Utils::hasGetId("data0"))
 		{
 			$newsmodel = new NewsModel($this);
-			$news = $newsmodel->getNews(Utils::getGet("id"));
+			$news = $newsmodel->getNews(Utils::getGet("data0"));
 			{
 				if($news)
 				{
@@ -117,10 +117,10 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
 				$newsmodel = new NewsModel($this);
-				$news = $newsmodel->getNews(Utils::getGet("id"));
+				$news = $newsmodel->getNews(Utils::getGet("data0"));
 				if($news)
 				{
 					$this->getView()->setData("NEWS", $news);
@@ -149,10 +149,10 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id") && Utils::hasPostString("title") && Utils::hasPostText("text"))
+			if(Utils::hasGetId("data0") && Utils::hasPostString("title") && Utils::hasPostText("text"))
 			{
 				$newsmodel = new NewsModel($this);
-				$news = $newsmodel->getNews(Utils::getGet("id"));
+				$news = $newsmodel->getNews(Utils::getGet("data0"));
 				if($news)
 				{
 					$news->setTitle(Utils::getPost("title"));
@@ -190,9 +190,9 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
-				$this->getView()->setData("ID", Utils::getGet("id"));
+				$this->getView()->setData("ID", Utils::getGet("data0"));
 			}
 			else
 			{
@@ -213,10 +213,10 @@ class NewsController extends Controller implements ModuleController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
 				$newsmodel = new NewsModel($this);
-				$news = $newsmodel->getNews(Utils::getGet("id"));
+				$news = $newsmodel->getNews(Utils::getGet("data0"));
 				if($news)
 				{
 					if($newsmodel->deleteNews($news))

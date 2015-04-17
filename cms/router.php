@@ -49,17 +49,20 @@ class Router
 			$uri = ltrim($this->configuration->getDefaultUri(), URI_DELIMITER);
 		}
 		
-		// Split the URI
+		// Explode the URI
 		$params = explode(URI_DELIMITER, $uri);
-		$controllername = !empty($params[0]) ? $params[0] : null;
-		$actionname = !empty($params[1]) ? $params[1] : null;
-		$idvalue = !empty($params[2]) ? $params[2] : null;
+		$controllername = array_shift($params);
+		$actionname = array_shift($params);
 		
-		// If a ID value exists, add it to the GET array
-		if(!empty($idvalue))
+		// Set all data elements
+		for($i = 0; $i < count($params); $i++)
 		{
-			Utils::setGet("id", $idvalue);
+			Utils::setGet("data" . $i, $params[$i]);
 		}
+		
+		// Set the data element
+		$data = implode(URI_DELIMITER, $params);
+		Utils::setGet("data", $data);
 		
 		// If the controller was not found, use the fallback URI
 		if(!class_exists($controllername . CONTROLLER_SUFFIX))
@@ -102,7 +105,7 @@ class Router
 		$actionname = strtolower($actionname);
 		
 		// Return the route
-		return new Route($controllername, $controllerclassname, $actionname, $idvalue);
+		return new Route($controllername, $controllerclassname, $actionname, $data);
 	}
 }
 

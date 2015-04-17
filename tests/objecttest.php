@@ -53,17 +53,29 @@ class ObjectTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
+	 * Test for the LdapConfiguration class.
+	 */
+	public function testLdapConfiguration()
+	{
+		$ldapconfiguration = new LdapConfiguration("smb42", "web-cms.org");
+		$this->assertSame($ldapconfiguration->getLdapHostname(), "smb42");
+		$this->assertSame($ldapconfiguration->getLdapDn(), "web-cms.org");
+	}
+	
+	/**
 	 * Test for the Configuration class.
 	 */
 	public function testConfiguration()
 	{
-		$configuration = new Configuration("Web-CMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms_test");
+		$ldapconfiguration = new LdapConfiguration("smb42", "web-cms.org");
+		$configuration = new Configuration("Web-CMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms_test", $ldapconfiguration);
 		$this->assertSame($configuration->getWebsiteName(), "Web-CMS");
 		$this->assertSame($configuration->getDefaultUri(), "/foobar/show/5");
 		$this->assertSame($configuration->getDatabaseHostname(), "127.0.0.1");
 		$this->assertSame($configuration->getDatabaseUsername(), "root");
 		$this->assertSame($configuration->getDatabasePassword(), "123456");
 		$this->assertSame($configuration->getDatabaseName(), "webcms_test");
+		$this->assertSame($configuration->getLdapConfiguration(), $ldapconfiguration);
 	}
 	
 	/**
@@ -71,11 +83,11 @@ class ObjectTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testAction()
 	{
-		$route = new Route("foo", "foocontroller", "action", "5");
+		$route = new Route("foo", "foocontroller", "action", array("5"));
 		$this->assertSame($route->getControllerName(), "foo");
 		$this->assertSame($route->getControllerClassName(), "foocontroller");
 		$this->assertSame($route->getActionName(), "action");
-		$this->assertSame($route->getIdValue(), "5");
+		$this->assertSame($route->getData(), array("5"));
 	}
 	
 	/**

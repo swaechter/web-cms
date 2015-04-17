@@ -87,10 +87,10 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
 				$menumodel = new MenuModel($this);
-				$menu = $menumodel->getMenu(Utils::getGet("id"));
+				$menu = $menumodel->getMenu(Utils::getGet("data0"));
 				if($menu)
 				{
 					$parentmenu = null;
@@ -134,10 +134,10 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id") && Utils::hasPossiblePostId("parentid") && Utils::hasPostString("displayname") && Utils::hasPossiblePostString("link"))
+			if(Utils::hasGetId("data0") && Utils::hasPossiblePostId("parentid") && Utils::hasPostString("displayname") && Utils::hasPossiblePostString("link"))
 			{
 				$menumodel = new MenuModel($this);
-				$menu = $menumodel->getMenu(Utils::getGet("id"));
+				$menu = $menumodel->getMenu(Utils::getGet("data0"));
 				if($menu)
 				{
 					$parentmenu = null;
@@ -182,9 +182,9 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
-				$this->getView()->setData("ID", Utils::getGet("id"));
+				$this->getView()->setData("ID", Utils::getGet("data0"));
 			}
 			else
 			{
@@ -205,10 +205,10 @@ class MenuController extends Controller implements SystemController
 		$adminmodel = new AdminModel($this);
 		if($adminmodel->isUserLoggedIn())
 		{
-			if(Utils::hasGetId("id"))
+			if(Utils::hasGetId("data0"))
 			{
 				$menumodel = new MenuModel($this);
-				$menu = $menumodel->getMenu(Utils::getGet("id"));
+				$menu = $menumodel->getMenu(Utils::getGet("data0"));
 				if($menu)
 				{
 					if($menumodel->deleteMenu($menu))

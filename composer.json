@@ -6,6 +6,7 @@
 		"phpmailer/phpmailer": "*",
 		"erusev/parsedown": "*",
 		"gajus/dindent": "*",
+		"icewind/smb": "*",
 		"twitter/bootstrap": "*",
 		"frameworks/jquery": "*"
 	},
