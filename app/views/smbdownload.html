@@ -1,0 +1,10 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+</div>
+{% endif %}

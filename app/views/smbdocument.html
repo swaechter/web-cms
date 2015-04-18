@@ -1,0 +1,26 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Zurück zu den <a href="/smb/documents/{{PATH}}">SMB Dokumenten</a>.</p>
+</div>
+{% else %}
+<h1>Dateiinhalt</h1>
+<form role="form" method="post" action="/text/processedit/{{TEXT.getId}}">
+	<div class="form-group">
+		<p><b>Hinweis:</b> In der jetzigen Version wird der Dateiinhalt dargestellt. In zukünftigen Versionen würde das Dokument in ein darstellbares Format konvertiert und dieses dargestellt werden.</p>
+	</div>
+	<div class="form-group">
+		<label for="markdown-text">Dateiinhalt</label>
+		<p><b>
+		<textarea class="form-control" name="text" id="markdown-text" placeholder="Ihr Text" rows="20" disabled required>{{CONTENT}}</textarea>
+	</div>
+	<div class="form-group dialogbox">
+		<a class="btn btn-default pull-left" href="/smb/documents/{{PATH}}">Zurück</a>
+	</div>
+</form>
+{% endif %}

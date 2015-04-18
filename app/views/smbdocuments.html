@@ -1,0 +1,70 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Zurück zu den <a href="/smb/index">SMB Einstellungen</a>.</p>
+</div>
+{% else %}
+<div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="btn-group pull-right"><a href="/smb/upload/{{UPLOADPATH}}" class="btn btn-default btn-xs">Hochladen</a></div>
+			<h1 class="panel-title">SMB Dokumente</h1>
+		</div>
+		<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th class="table-edit-cell">Bearbeiten</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% if PATH %}
+						<tr>
+							<td>
+								<span class="glyphicon glyphicon-folder-open"></span>
+								<a href="/smb/documents/{{PATH}}">..</a>
+							</td>
+							<td>
+							</td>
+						</tr>
+						{% endif %}
+						{% for DOCUMENT in DOCUMENTS %}
+						{% if DOCUMENT.isDirectory %}
+						<tr>
+							<td>
+								<span class="glyphicon glyphicon-folder-open"></span>
+								<a href="/smb/documents/{{DOCUMENT.getPath}}">{{DOCUMENT.getName}}</a>
+							</td>
+							<td class="table-edit-cell">
+							</td>
+						</tr>
+						{% endif %}
+						{% endfor %}
+						{% for DOCUMENT in DOCUMENTS %}
+						{% if not DOCUMENT.isDirectory %}
+						<tr>
+							<td>
+								<span class="glyphicon glyphicon-file"></span>
+								<a href="/smb/document/{{DOCUMENT.getPath}}">{{DOCUMENT.getName}}</a>
+							</td>
+							<td class="table-edit-cell">
+								<a href="/smb/download/{{DOCUMENT.getPath}}" class="download"><span class="glyphicon glyphicon-download"></span></a>
+							</td>
+						</tr>
+						{% endif %}
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<a href="/smb/index">Zurück zu den SMB Einstellungen.</a>
+</div>
+{% endif %}

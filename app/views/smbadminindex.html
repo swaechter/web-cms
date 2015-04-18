@@ -1,0 +1,31 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Zurück zur <a href="/admin/adminindex">Administratorenübersicht</a>.</p>
+</div>
+{% else %}
+<div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="btn-group pull-right">
+				<a href="/smb/delete" class="btn btn-default btn-xs">Log löschen</a>
+			</div>
+			<h1 class="panel-title">SMB Log</h1>
+		</div>
+		<div class="panel-body">
+			<form role="form" method="post">
+				<div class="form-group">
+					<label for="text">SMB Log</label>
+					<textarea class="form-control" name="text" id="text" placeholder="SMB Log" rows="20" disabled required>{{LOG}}</textarea>
+				</div>
+			</form>
+		</div>
+	</div>
+	<a href="/admin/adminindex">Zurück zur Administratorenübersicht.</a>
+</div>
+{% endif %}

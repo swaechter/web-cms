@@ -1,0 +1,29 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+</div>
+{% else %}
+<h1>SMB Einstellungen</h1>
+<form role="form" method="post" action="/smb/processindex">
+	<div class="form-group">
+		<label for="url">SMB URL (z.B. companyserver4)</label>
+		<input class="form-control" type="text" name="url" id="url" placeholder="SMB URL" value="{{URL}}" maxlength="50" required>
+	</div>
+	<div class="form-group">
+		<label for="domain">SMB Domain (z.B. mycompany)</label>
+		<input class="form-control" type="text" name="domain" id="domain" placeholder="SMB Domain" value="{{DOMAIN}}" maxlength="50" required>
+	</div>
+	<div class="form-group">
+		<label for="share">SMB Share (z.B. documentshare)</label>
+		<input class="form-control" type="text" name="share" id="share" placeholder="SMB Share" value="{{SHARE}}" maxlength="50" required>
+	</div>
+	<div class="form-group dialogbox">
+		<button class="btn btn-default pull-right" type="submit">Speichern</button>
+	</div>
+</form>
+{% endif %}

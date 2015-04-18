@@ -1,0 +1,26 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Zurück zu den <a href="/smb/documents">SMB Dokumenten</a>.</p>
+</div>
+{% else %}
+<h1>Dokument hochladen</h1>
+<form role="form" method="post" action="/smb/processupload/{{UPLOADPATH}}" enctype="multipart/form-data">
+	<div class="form-group">
+		<p>Bitte wählen Sie ein Dokument aus.</p>
+	</div>
+	<div class="form-group">
+		<label for="fileupload">Dateiauswahl</label>
+		<input type="file" name="fileupload" id="fileupload" required>
+	</div>
+	<div class="form-group dialogbox">
+		<a class="btn btn-default pull-left" href="/smb/documents/{{UPLOADPATH}}">Abbrechen</a>
+		<button class="btn btn-default pull-right" type="submit">Hochladen</button>
+	</div>
+</form>
+{% endif %}

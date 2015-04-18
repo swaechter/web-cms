@@ -42,7 +42,7 @@ class AdminModel extends Model
 				if(!strcasecmp($user->getEmail(), $username) && !strcasecmp($user->getPassword(), $passwordhash))
 				{
 					Utils::setSession("UserStatus", true);
-					Utils::setSession("UserUsername", $username);
+					Utils::setSession("UserName", $username);
 					Utils::setSession("UserLoginPassword", $password);
 					return true;
 				}
@@ -50,11 +50,9 @@ class AdminModel extends Model
 		}
 		else
 		{
-			Utils::setSession("UserStatus", true);
-			return true;
 			$ldapconfiguration = $this->getDataContainer()->getConfiguration()->getLdapConfiguration();
-			$ldaphostname = $ldapconfiguration->getHostname();
-			$ldapdn = $ldapconfiguration->getDn();
+			$ldaphostname = $ldapconfiguration->getLdapHostname();
+			$ldapdn = $ldapconfiguration->getLdapDn();
 			$connection = ldap_connect($ldaphostname, 389);
 			if($connection)
 			{
@@ -62,7 +60,7 @@ class AdminModel extends Model
 				if($bind)
 				{
 					Utils::setSession("UserStatus", true);
-					Utils::setSession("UserUsername", $username);
+					Utils::setSession("UserName", $username);
 					Utils::setSession("UserPassword", $password);
 					return true;
 				}
@@ -85,9 +83,9 @@ class AdminModel extends Model
 	 *
 	 * @return string User name
 	 */
-	public function getUserName()
+	public function getUsername()
 	{
-		return Utils::getSession("UserUsername");
+		return Utils::getSession("UserName");
 	}
 	
 	/**
@@ -95,7 +93,7 @@ class AdminModel extends Model
 	 *
 	 * @return string Password
 	 */
-	public function getUserPassword()
+	public function getPassword()
 	{
 		return Utils::getSession("UserPassword");
 	}

@@ -1,0 +1,16 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Zurück zum <a href="/smb/documents/{{UPLOADPATH}}">SMB Verzeichnis</a>.</p>
+</div>
+{% else %}
+<div class="alert alert-success" role="alert">
+	<p>{{SUCCESS}}</p>
+	<p>Weiter zum <a href="/smb/documents/{{UPLOADPATH}}">SMB Verzeichnis</a>.</p>
+</div>
+{% endif %}

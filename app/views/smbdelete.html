@@ -1,0 +1,22 @@
+{% if ADMINERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ADMINERROR}}</p>
+	<p>Zurück zur <a href="/admin/index">Anmeldeseite</a>.</p>
+</div>
+{% elseif ERROR %}
+<div class="alert alert-danger" role="alert">
+	<p>{{ERROR}}</p>
+	<p>Zurück zur <a href="/smb/adminindex">SMB Logübersicht</a>.</p>
+</div>
+{% else %}
+<form role="form" method="post" action="/smb/processdelete">
+	<div class="form-group">
+		<h1>Achtung</h1>
+		<p>Möchten Sie die SMB Log wirklich löschen? Falls nicht, klicken Sie auf 'Abbrechen'.</p>
+	</div>
+	<div class="form-group dialogbox">
+		<a class="btn btn-default pull-left" href="/smb/adminindex">Abbrechen</a>
+		<button class="btn btn-default pull-right" type="submit">Löschen</button>
+	</div>
+</form>
+{% endif %}
