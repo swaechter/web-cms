@@ -15,7 +15,7 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 ### Clone the repository
 
 	cd /var/www/
-	git clone https://github.com/swaechter/web-cms.git web-cms.org (Your domain)
+	git clone https://github.com/swaechter/web-cms-php.git web-cms.org (Your domain)
 
 ### Enable Apache mod_rewrite
 
