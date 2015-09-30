@@ -1,8 +1,8 @@
-# Web-CMS
+# WebCMS
 
 ## Introduction
 
-Web-CMS is a content management system (CMS) based on PHP that allows a user to create, edit and delete his own content. All data are stored in a database, so the user can add, edit and remove his own content.
+WebCMS is a content management system (CMS) based on PHP that allows a user to create, edit and delete his own content. All data are stored in a database, so the user can add, edit and remove his own content.
 
 ## Installation
 
@@ -15,7 +15,7 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 ### Clone the repository
 
 	cd /var/www/
-	git clone https://github.com/swaechter/web-cms-php.git web-cms.org (Your domain)
+	git clone https://github.com/swaechter/webcms-php.git webcms.org (Your domain)
 
 ### Enable Apache mod_rewrite
 
@@ -28,15 +28,15 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Create a virtuel host
 
-	Create an Apache virtual host for www.web-cms.org that points to /var/www/web-cms.org
-	sudo a2ensite web-cms.org
+	Create an Apache virtual host for www.webcms.org that points to /var/www/webcms.org
+	sudo a2ensite webcms.org
 
 ### Create the upload directory and set the permissions
 
-	mkdir web-cms.org/public/data/
-	sudo chmod -R 777 web-cms.org/public/data/
-	sudo chown -R www-data:www-data web-cms.org/
-	cd web-cms.org
+	mkdir webcms.org/public/data/
+	sudo chmod -R 777 webcms.org/public/data/
+	sudo chown -R www-data:www-data webcms.org/
+	cd webcms.org
 
 ### Create and import the database
 
@@ -76,9 +76,9 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ## License
 
-Web-CMS is licensed under the GNU GPL v3 or later:
+WebCMS is licensed under the GNU GPL v3 or later:
 
-	Web-CMS - A content management system (CMS) based on PHP
+	WebCMS - A content management system (CMS) based on PHP
 	Copyright (C) 2015 Simon Wächter (waechter.simon@gmail.com)
 	
 	This program is free software: you can redistribute it and/or modify
