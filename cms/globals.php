@@ -114,4 +114,11 @@ define("DEFAULT_SYSTEM_ACTION_NAME", "adminindex");
  */
 define("DEFAULT_MODULE_ACTION_NAME", "index");
 
+/**
+ * This variable represents the name of the file entry point.
+ *
+ * @var string
+ */
+define("DEFAULT_FILE_NAME", "index.php");
+
 ?>

@@ -43,6 +43,12 @@ class Router
 		// Trim the URI
 		$uri = ltrim($uri, URI_DELIMITER);
 		
+		// Check if the URI is equals to index.php
+		if(strcmp($uri, DEFAULT_FILE_NAME) == 0)
+		{
+			$uri = ltrim($this->configuration->getDefaultUri(), URI_DELIMITER);
+		}
+		
 		// If the URI is empty, use the default URI
 		if(empty($uri))
 		{
