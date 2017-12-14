@@ -1,18 +1,18 @@
 {
 	"require":
 	{
-		"doctrine/orm": "*",
-		"twig/twig": "*",
-		"phpmailer/phpmailer": "*",
-		"erusev/parsedown": "*",
-		"gajus/dindent": "*",
-		"icewind/smb": "*",
-		"twitter/bootstrap": "*",
-		"frameworks/jquery": "*"
+		"doctrine/orm": "v2.5.2",
+		"twig/twig": "v1.23.1",
+		"phpmailer/phpmailer": "v5.2.14",
+		"erusev/parsedown": "1.6.0",
+		"gajus/dindent": "2.0.2",
+		"icewind/smb": "v1.0.4",
+		"twitter/bootstrap": "v3.3.6",
+		"frameworks/jquery": "2.1.4"
 	},
 	"require-dev":
 	{
-		"phpunit/phpunit": "*",
-		"phpdocumentor/phpdocumentor": "*"
+		"phpunit/phpunit": "5.7.16",
+		"phpdocumentor/phpdocumentor": "v2.8.5"
 	}
 }
