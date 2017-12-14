@@ -34,9 +34,10 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 ### Create the upload directory and set the permissions
 
 	mkdir webcms.org/public/data/
-	sudo chmod -R 777 webcms.org/public/data/
-	sudo chown -R www-data:www-data webcms.org/
 	cd webcms.org
+	sudo chown -R www-data:www-data public/data/
+	sudo chmod -R 755 public/data/
+	sudo chmod -R 644 public/data/*
 
 ### Create and import the database
 
