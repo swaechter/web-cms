@@ -26,7 +26,7 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 	Edit the file /etc/php5/apache2/php.ini and modify the value upload_max_filesize
 
-### Create a virtuel host
+### Create a virtual host
 
 	Create an Apache virtual host for www.webcms.org that points to /var/www/webcms.org
 	sudo a2ensite webcms.org
