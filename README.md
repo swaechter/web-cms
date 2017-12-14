@@ -53,6 +53,10 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 	php composer.phar install
 
+### Edit the installation
+
+	nano index.php
+
 ### Run the unit tests
 
 	php index_tests.php
@@ -60,10 +64,6 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 ### Generate the documentation
 
 	php index_documentation.php
-
-### Edit the installation
-
-	nano index.php
 
 ### Cleanup for production
 
