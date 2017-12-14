@@ -28,8 +28,29 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Create a virtual host
 
-	Create an Apache virtual host for www.webcms.org that points to /var/www/webcms.org
-	sudo a2ensite webcms.org
+	<VirtualHost *:80>
+			ServerAdmin info@webcms.org
+			ServerName webcms.org
+			ServerAlias webcms.org
+			Redirect permanent / https://webcms.org/
+	</VirtualHost>
+
+	<VirtualHost *:443>
+			<Directory /var/www/webcms.org/vendor>
+					Order Deny,allow
+					Deny from all
+			</Directory>
+
+			ServerAdmin info@webcms.org
+			ServerName webcms.org
+			ServerAlias webcms.org
+			DocumentRoot /var/www/webcms.org
+
+			SSLEngine On
+			SSLCertificateKeyFile /etc/ssl/private/webcms.org.key
+			SSLCertificateFile /etc/ssl/certs/webcms.org.pem
+			SSLCACertificateFile /etc/ssl/certs/ca.webcms.org.pem
+	</VirtualHost>
 
 ### Create the upload directory and set the permissions
 
