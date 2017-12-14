@@ -1,5 +1,12 @@
 <?php
 
+// Check if the installation was cleaned up & secured
+if(file_exists("Cleanup.sh"))
+{
+	echo("Please clean up and secure your installation via ./Cleanup.sh!");
+	exit(1);
+}
+
 // Include the vendor directory and the website
 require_once('vendor/autoload.php');
 require_once('cms/website.php');

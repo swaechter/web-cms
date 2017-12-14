@@ -66,13 +66,7 @@ The CMS runs on any Apache based system with a PHP and MySQL setup. For other sy
 
 ### Cleanup for production
 
-	rm -rf sql/
-	rm -rf tests/
-	rm -rf coverage/
-	rm composer.phar
-	rm index_tests.php
-	rm index_documentation.php
-	rm phpunit.xml
+	./Cleanup.sh
 
 ## License
 
