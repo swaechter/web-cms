@@ -6,9 +6,7 @@
 		"phpmailer/phpmailer": "v5.2.14",
 		"erusev/parsedown": "1.6.0",
 		"gajus/dindent": "2.0.2",
-		"icewind/smb": "v1.0.4",
-		"twitter/bootstrap": "v3.3.6",
-		"frameworks/jquery": "2.1.4"
+		"icewind/smb": "v1.0.4"
 	},
 	"require-dev":
 	{
