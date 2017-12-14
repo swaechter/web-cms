@@ -19,7 +19,7 @@ try
 	$ldapconfiguration = null;
 	
 	// Create the configuration
-	$configuration = new Configuration("WebCMS", "/text/show/1", "127.0.0.1", "root", "123456", "webcms", $ldapconfiguration);
+	$configuration = new Configuration("WebCMS", "/text/show/1", "127.0.0.1", "root", "123456aA", "webcms", $ldapconfiguration);
 	
 	// Create the website
 	$website = new Website($configuration);

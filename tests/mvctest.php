@@ -12,7 +12,7 @@ class MvcTest extends PHPUnit_Framework_TestCase
 	{
 		$ldapconfiguration = new LdapConfiguration("smb42", "webcms.org");
 		
-		$configuration = new Configuration("WebCMS", "/admin/index", "127.0.0.1", "root", "123456", "webcms_test", $ldapconfiguration);
+		$configuration = new Configuration("WebCMS", "/admin/index", "127.0.0.1", "root", "123456aA", "webcms_test", $ldapconfiguration);
 		
 		$databasemanager = new DatabaseManager($configuration);
 		

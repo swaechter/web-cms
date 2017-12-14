@@ -68,12 +68,12 @@ class ObjectTest extends PHPUnit_Framework_TestCase
 	public function testConfiguration()
 	{
 		$ldapconfiguration = new LdapConfiguration("smb42", "webcms.org");
-		$configuration = new Configuration("WebCMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms_test", $ldapconfiguration);
+		$configuration = new Configuration("WebCMS", "/foobar/show/5", "127.0.0.1", "root", "123456aA", "webcms_test", $ldapconfiguration);
 		$this->assertSame($configuration->getWebsiteName(), "WebCMS");
 		$this->assertSame($configuration->getDefaultUri(), "/foobar/show/5");
 		$this->assertSame($configuration->getDatabaseHostname(), "127.0.0.1");
 		$this->assertSame($configuration->getDatabaseUsername(), "root");
-		$this->assertSame($configuration->getDatabasePassword(), "123456");
+		$this->assertSame($configuration->getDatabasePassword(), "123456aA");
 		$this->assertSame($configuration->getDatabaseName(), "webcms_test");
 		$this->assertSame($configuration->getLdapConfiguration(), $ldapconfiguration);
 	}

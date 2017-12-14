@@ -16,7 +16,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
 	{
 		$ldapconfiguration = new LdapConfiguration("smb42", "webcms.org");
 		
-		$configuration = new Configuration("WebCMS", "/foobar/show/5", "127.0.0.1", "root", "123456", "webcms_test", $ldapconfiguration);
+		$configuration = new Configuration("WebCMS", "/foobar/show/5", "127.0.0.1", "root", "123456aA", "webcms_test", $ldapconfiguration);
 		
 		$router = new Router($configuration);
 		
